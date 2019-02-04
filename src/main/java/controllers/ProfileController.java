@@ -1,4 +1,4 @@
-package com.java.kwetter.controllers;
+package controllers;
 
 public class ProfileController {
 }

@@ -18,4 +18,47 @@ public class User {
     private List<Role> roles;
     private List<Tweet> tweets;
 
+    public UUID getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getBiography() {
+        return biography;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public List<User> getFollowers() {
+        return followers;
+    }
+
+    public List<User> getFollowing() {
+        return following;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public List<Tweet> getTweets() {
+        return tweets;
+    }
 }

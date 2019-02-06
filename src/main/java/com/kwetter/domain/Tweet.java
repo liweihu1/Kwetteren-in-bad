@@ -12,8 +12,17 @@ public class Tweet {
     private List<User> heartedBy;
     private List<Trend> trends;
 
-    public Tweet(){
+    protected Tweet(){
 
+    }
+
+    public Tweet(UUID id, String message, Date dateCreated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
+        this.id = id;
+        this.message = message;
+        this.dateCreated = dateCreated;
+        this.mentions = mentions;
+        this.heartedBy = heartedBy;
+        this.trends = trends;
     }
 
     public UUID getId() {

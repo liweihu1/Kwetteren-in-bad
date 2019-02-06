@@ -8,6 +8,7 @@ import java.util.UUID;
 public class User {
     private UUID id;
     private String username;
+    private String password;
     private String firstName;
     private String lastName;
     private String biography;
@@ -17,6 +18,25 @@ public class User {
     private List<User> following;
     private List<Role> roles;
     private List<Tweet> tweets;
+
+    protected User() {
+
+    }
+
+    public User(UUID id, String username, String password, String firstName, String lastName, String biography, String website, String location, List<User> followers, List<User> following, List<Role> roles, List<Tweet> tweets) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.biography = biography;
+        this.website = website;
+        this.location = location;
+        this.followers = followers;
+        this.following = following;
+        this.roles = roles;
+        this.tweets = tweets;
+    }
 
     public UUID getId() {
         return id;

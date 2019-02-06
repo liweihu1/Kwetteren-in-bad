@@ -6,6 +6,15 @@ public class Trend {
     private String name;
     private List<Tweet> tweets;
 
+    protected  Trend() {
+
+    }
+
+    public Trend(String name, List<Tweet> tweets) {
+        this.name = name;
+        this.tweets = tweets;
+    }
+
     public String getName() {
         return name;
     }

@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public class Tweet {
     private UUID id;
+    private User author;
     private String message;
     private Date dateCreated;
     private List<User> mentions;
@@ -16,8 +17,9 @@ public class Tweet {
 
     }
 
-    public Tweet(UUID id, String message, Date dateCreated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
+    public Tweet(UUID id, User author, String message, Date dateCreated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
         this.id = id;
+        this.author = author;
         this.message = message;
         this.dateCreated = dateCreated;
         this.mentions = mentions;
@@ -27,6 +29,10 @@ public class Tweet {
 
     public UUID getId() {
         return id;
+    }
+
+    public User getAuthor() {
+        return author;
     }
 
     public String getMessage() {

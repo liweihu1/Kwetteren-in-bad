@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,18 +34,22 @@ public class RoleTest {
         String location = "TestLocation 3";
         String password = "I'llYeetMyselfOffTheStairs";
 
+        ArrayList tweets = new ArrayList(){{
+            add(new Tweet(null, "TestMessage", new Date(), null, null, null));
+        }};
+
         this.user1 = new User(testUUID, username + 1, password, firstName, lastName, biography, website, location,  new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>());
 
         this.user2 = new User(testUUID, username + 2, password, firstName, lastName, biography, website, location, new ArrayList<User>() {{
             add(user1);
-        }}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>());
+        }}, new ArrayList<User>(), new ArrayList<Role>(), tweets);
 
         this.user3 = new User(testUUID, username + 3, password, firstName, lastName, biography, website, location,
                 new ArrayList<User>() {{
                     add(user1);
                 }}, new ArrayList<User>() {{
                     add(user2);
-        }}, new ArrayList<Role>(), new ArrayList<Tweet>());
+        }}, new ArrayList<Role>(), tweets);
 
         this.user4 = new User(testUUID, username + 4, password, firstName, lastName, biography, website, location, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>());
 

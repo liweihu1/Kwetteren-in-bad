@@ -2,6 +2,12 @@ package com.kwetter.dao.JPA;
 
 import com.kwetter.dao.interfaces.UserDAO;
 
-public class UserDAOJPAImpl implements UserDAO {
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+@Stateless
+public class UserDAOJPAImpl implements UserDAO {
+    @PersistenceContext
+    private EntityManager em;
 }

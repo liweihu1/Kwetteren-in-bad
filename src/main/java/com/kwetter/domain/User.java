@@ -1,20 +1,36 @@
 package com.kwetter.domain;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 public class User {
+    @Id
     private UUID id;
     private String firstName;
     private String lastName;
     private String biography;
     private String website;
     private String location;
+
+    @OneToMany
     private List<User> followers;
+
+    @OneToMany
     private List<User> following;
+
+    @ElementCollection(targetClass = Role.class)
+    @Enumerated(EnumType.STRING)
     private List<Role> roles;
+
+    @OneToMany
     private List<Tweet> tweets;
+
+    @OneToMany
     private List<Tweet> heartedTweets;
+
+    @OneToMany
     private List<Tweet> mentionedTweets;
 
     protected User() {

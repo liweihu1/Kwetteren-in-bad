@@ -1,16 +1,24 @@
 package com.kwetter.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 public class Tweet {
+    @Id
     private UUID id;
+    @ManyToOne(fetch = FetchType.LAZY)
     private User author;
     private String message;
     private Date dateCreated;
+
+    @OneToMany
     private List<User> mentions;
+    @OneToMany
     private List<User> heartedBy;
+    @OneToMany
     private List<Trend> trends;
 
     protected Tweet(){

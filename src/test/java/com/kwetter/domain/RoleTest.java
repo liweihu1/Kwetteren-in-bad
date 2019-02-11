@@ -11,36 +11,37 @@ import java.util.UUID;
 import static org.junit.Assert.*;
 
 public class RoleTest {
-    private Role testRole;
-    private Role testRoleEmpty;
-    private UUID testId;
-    private String testName;
+    private User testUser;
+    private User testAdministrator;
+    private User testModerator;
 
     @Before
     public void setup() {
-        testId = UUID.randomUUID();
-        testName = "ThisIsATest";
-        testRole = new Role(testId, testName);
-        testRoleEmpty = new Role();
+        testUser = new User(UUID.randomUUID(), "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+            add(Role.Standard);
+        }}, null, null, null);
+
+        testAdministrator = new User(UUID.randomUUID(), "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+            add(Role.Administrator);
+        }}, null, null, null);
+
+        testModerator = new User(UUID.randomUUID(), "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+            add(Role.Moderator);
+        }}, null, null, null);
     }
 
     @Test
-    public void getIdTest() {
-        assertEquals("Getting the Id of a role failed.", testId, testRole.getId());
+    public void checkStandardRole() {
+        assertEquals(Role.Standard, testUser.getRoles().get(0));
     }
 
     @Test
-    public void getIdEmptyTest() {
-        assertEquals("The id was not empty.", null, testRoleEmpty.getId());
+    public void checkAdministratorRole() {
+        assertEquals(Role.Administrator, testAdministrator.getRoles().get(0));
     }
 
     @Test
-    public void getNameTest() {
-        assertEquals("Getting the Name of a role failed.", testName, testRole.getName());
-    }
-
-    @Test
-    public void getNameEmptyTest() {
-        assertEquals("The name was not empty.", null, testRoleEmpty.getName());
+    public void checkModeratorRole() {
+        assertEquals(Role.Moderator, testModerator.getRoles().get(0));
     }
 }

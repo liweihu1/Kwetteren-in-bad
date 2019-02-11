@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9956fde1-d01e-4470-9515-999141e57292" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kwetteren-in-bad.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kwetteren-in-bad.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TrendTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TrendTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TweetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TweetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,10 +19,13 @@
     <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$TrendTest.ic" NAME="TrendTest Coverage Results" MODIFIED="1549872580111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.kwetter.domain.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$RoleTest.ic" NAME="RoleTest Coverage Results" MODIFIED="1549872417726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$TweetTest.ic" NAME="TweetTest Coverage Results" MODIFIED="1549874391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.kwetter.domain.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$TweetTest.ic" NAME="TweetTest Coverage Results" MODIFIED="1549874391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$RoleTest.ic" NAME="RoleTest Coverage Results" MODIFIED="1549875207517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.kwetter.domain.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Kwetteren_In_Bad$RoleTest_checkStandardRole.ic" NAME="RoleTest.checkStandardRole Coverage Results" MODIFIED="1549875059636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.kwetter.domain.*</FILTER>
     </SUITE>
   </component>
@@ -50,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TweetTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/TweetTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="418">
@@ -87,8 +89,8 @@
       <file leaf-file-name="UserTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/UserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,8 +101,8 @@
       <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="119">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -114,20 +116,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RoleTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="571">
+              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
               <folding>
-                <element signature="e#585#586#0" expanded="true" />
-                <element signature="e#675#676#0" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#803#804#0" expanded="true" />
-                <element signature="e#846#847#0" expanded="true" />
-                <element signature="e#942#943#0" expanded="true" />
-                <element signature="e#990#991#0" expanded="true" />
-                <element signature="e#1076#1077#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#657#658#0" expanded="true" />
+                <element signature="e#1121#1122#0" expanded="true" />
+                <element signature="e#1192#1193#0" expanded="true" />
+                <element signature="e#1256#1257#0" expanded="true" />
+                <element signature="e#1332#1333#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,7 +172,7 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
+            <state relative-caret-position="534">
               <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -203,13 +203,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Tweet.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/UserTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kwetter/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TrendTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Trend.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/TweetTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/UserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java" />
       </list>
     </option>
   </component>
@@ -379,7 +379,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TweetTest">
+  <component name="RunManager" selected="JUnit.RoleTest">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -419,6 +419,29 @@
       <option name="MAIN_CLASS_NAME" value="com.kwetter.domain.RoleTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="RoleTest.checkStandardRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kwetteren-in-bad" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kwetter.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.kwetter.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.kwetter.domain.RoleTest" />
+      <option name="METHOD_NAME" value="checkStandardRole" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -541,12 +564,14 @@
       <item itemvalue="JUnit.RoleTest" />
       <item itemvalue="JUnit.TrendTest" />
       <item itemvalue="JUnit.TweetTest" />
+      <item itemvalue="JUnit.RoleTest.checkStandardRole" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RoleTest" />
+        <item itemvalue="JUnit.RoleTest.checkStandardRole" />
         <item itemvalue="JUnit.TweetTest" />
         <item itemvalue="JUnit.TrendTest" />
-        <item itemvalue="JUnit.RoleTest" />
         <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
@@ -565,14 +590,11 @@
       <workItem from="1549448719423" duration="3138000" />
       <workItem from="1549540273751" duration="4947000" />
       <workItem from="1549557026026" duration="618000" />
-      <workItem from="1549871830765" duration="2358000" />
+      <workItem from="1549871830765" duration="3072000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TrendTest - 2019.02.11 at 09h 07m 09s.xml">
-      <configuration name="TrendTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TrendTest - 2019.02.11 at 09h 07m 49s.xml">
       <configuration name="TrendTest" configurationId="JUnit" />
     </history-entry>
@@ -600,15 +622,19 @@
     <history-entry file="TweetTest - 2019.02.11 at 09h 39m 53s.xml">
       <configuration name="TweetTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoleTest_checkStandardRole - 2019.02.11 at 09h 51m 01s.xml">
+      <configuration name="RoleTest.checkStandardRole" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13761000" />
+    <option name="totallyTimeSpent" value="14475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.32897604" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
@@ -632,7 +658,7 @@
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Persistence" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -777,14 +803,12 @@
         <state relative-caret-position="323">
           <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1077,47 +1101,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/controllers/ProfileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1076#1077#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/TrendTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1136,36 +1119,6 @@
             <element signature="e#975#976#0" expanded="true" />
             <element signature="e#1077#1078#0" expanded="true" />
             <element signature="e#1157#1158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Trend.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/UserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Tweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1198,6 +1151,75 @@
             <element signature="e#1626#1627#0" expanded="true" />
             <element signature="e#2764#2765#0" expanded="true" />
             <element signature="e#2845#2846#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/UserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/controllers/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Trend.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Tweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kwetter/domain/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/kwetter/domain/RoleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
+          <folding>
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1256#1257#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
           </folding>
         </state>
       </provider>

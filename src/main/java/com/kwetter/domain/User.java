@@ -20,17 +20,16 @@ public class User {
     @OneToMany
     private List<User> following;
 
-    @ElementCollection(targetClass = Role.class)
-    @Enumerated(EnumType.STRING)
+    @ElementCollection
     private List<Role> roles;
 
     @OneToMany
     private List<Tweet> tweets;
 
-    @OneToMany
+    @ManyToMany
     private List<Tweet> heartedTweets;
 
-    @OneToMany
+    @ManyToMany
     private List<Tweet> mentionedTweets;
 
     protected User() {

@@ -14,11 +14,11 @@ public class Tweet {
     private String message;
     private Date dateCreated;
 
-    @OneToMany
+    @ManyToMany
     private List<User> mentions;
-    @OneToMany
+    @ManyToMany
     private List<User> heartedBy;
-    @OneToMany
+    @ManyToMany
     private List<Trend> trends;
 
     protected Tweet(){

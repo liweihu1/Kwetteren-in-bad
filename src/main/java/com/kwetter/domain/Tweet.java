@@ -1,6 +1,7 @@
 package com.kwetter.domain;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,9 +14,12 @@ public class Tweet {
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
     private User author;
+    @Column(length = 150)
     private String message;
     @CreationTimestamp
     private Date dateCreated;
+    @UpdateTimestamp
+    private Date dateUpdated;
     @ManyToMany
     private List<User> mentions;
     @ManyToMany
@@ -27,11 +31,12 @@ public class Tweet {
 
     }
 
-    public Tweet(UUID id, User author, String message, Date dateCreated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
+    public Tweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
         this.id = id;
         this.author = author;
         this.message = message;
         this.dateCreated = dateCreated;
+        this.dateUpdated = dateUpdated;
         this.mentions = mentions;
         this.heartedBy = heartedBy;
         this.trends = trends;
@@ -51,6 +56,10 @@ public class Tweet {
 
     public Date getDateCreated() {
         return dateCreated;
+    }
+
+    public Date getDateUpdated() {
+        return dateUpdated;
     }
 
     public List<User> getMentions() {

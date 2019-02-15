@@ -14,10 +14,10 @@ public class User {
     private String website;
     private String location;
 
-    @OneToMany
+    @ManyToMany
     private List<User> followers;
 
-    @OneToMany
+    @ManyToMany
     private List<User> following;
 
     @ElementCollection

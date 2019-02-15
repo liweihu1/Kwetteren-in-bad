@@ -14,7 +14,9 @@
             <!-- The database password -->
             <property name="javax.persistence.jdbc.password" value="appels" />
             <!-- Drop and creates the database on startup -->
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
         </properties>
     </persistence-unit>
 </persistence>

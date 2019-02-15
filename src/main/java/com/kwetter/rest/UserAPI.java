@@ -6,6 +6,7 @@ import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -16,18 +17,18 @@ import java.util.UUID;
 
 @Path("user")
 public class UserAPI {
-    private UserService _userService;
-
     @Inject
-    public UserAPI(UserService userService){
-        this._userService = userService;
+    UserService userService;
+
+    public UserAPI(){
+
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserDTO getUserById(@PathParam("id") UUID id, @Context HttpServletResponse response) {
-        User user = this._userService.getUserById(id);
+        User user = this.userService.getUserById(id);
         if (user != null) {
             return new UserDTO(user);
         }

@@ -34,12 +34,14 @@ public class TweetTest {
     private UUID testId;
     private String testMessage;
     private Date testDate;
+    private Date testDate2;
 
     @Before
     public void setup() {
         testId = UUID.randomUUID();
         testMessage = "This is a test lol";
         testDate = new Date();
+        testDate2 = new Date();
         testTweetEmpty = new Tweet();
 
         ArrayList<Tweet> testTweets = new ArrayList();
@@ -52,7 +54,7 @@ public class TweetTest {
             } else {
                 testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             }
-            testTweets.add(new Tweet(testId, testUsers.get(i), testMessage, testDate, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>()));
+            testTweets.add(new Tweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>()));
         }
 
         testTweet1 = testTweets.get(0);

@@ -6,6 +6,7 @@ import com.kwetter.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class MemoryDatabase {
     private static MemoryDatabase database;
@@ -37,5 +38,9 @@ public class MemoryDatabase {
 
     public List<Trend> getTrends() {
         return this.trends;
+    }
+
+    public User getUserById(UUID id){
+        return this.users.stream().filter(user -> user.getId() == id).findAny().orElse(null);
     }
 }

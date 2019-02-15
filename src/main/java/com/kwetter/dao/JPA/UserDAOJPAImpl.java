@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 public class UserDAOJPAImpl implements UserDAO {
-    @PersistenceContext
+    @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;
+
+    
 }

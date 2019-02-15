@@ -1,5 +1,7 @@
 package com.kwetter.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +14,8 @@ public class Tweet {
     @ManyToOne(fetch = FetchType.LAZY)
     private User author;
     private String message;
+    @CreationTimestamp
     private Date dateCreated;
-
     @ManyToMany
     private List<User> mentions;
     @ManyToMany

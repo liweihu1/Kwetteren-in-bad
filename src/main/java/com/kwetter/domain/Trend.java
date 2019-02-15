@@ -1,9 +1,6 @@
 package com.kwetter.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +9,7 @@ public class Trend {
     @Id
     private UUID id;
 
+    @Column(unique = true)
     private String name;
 
     @OneToMany

@@ -5,15 +5,19 @@ import com.kwetter.domain.User;
 import java.util.UUID;
 
 public class UserDTO {
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private String biography;
     private String website;
     private String location;
 
+    public UserDTO(){
+        //EMPTY CONSTRUCTOR FOR JSON CALLS
+    }
+
     public UserDTO(User user) {
-        this.id = user.getId();
+        this.id = user.getId().toString();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.biography = user.getBiography();
@@ -21,11 +25,11 @@ public class UserDTO {
         this.location = user.getLocation();
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -46,6 +46,7 @@ public class UserAPI {
             for(User u : users){
                 dtoUsers.add(new UserDTO(u));
             }
+            return dtoUsers;
         }
         return new ArrayList<>();
     }

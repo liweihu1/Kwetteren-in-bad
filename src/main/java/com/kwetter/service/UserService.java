@@ -20,4 +20,8 @@ public class UserService {
     public List<User> getAllUsers(){
         return userDAO.getAllUsers();
     }
+
+    public void createUser(User user){
+        this.userDAO.add(user);
+    }
 }

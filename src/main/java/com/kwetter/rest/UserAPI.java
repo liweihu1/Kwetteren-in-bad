@@ -1,5 +1,6 @@
 package com.kwetter.rest;
 
+import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 import com.kwetter.dto.UserDTO;
 import com.kwetter.service.UserService;
@@ -7,10 +8,7 @@ import com.kwetter.service.UserService;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
@@ -28,8 +26,8 @@ public class UserAPI {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserDTO getUserById(@PathParam("id") UUID id, @Context HttpServletResponse response) {
-        User user = this.userService.getUserById(id);
+    public UserDTO getUserById(@PathParam("id") String id, @Context HttpServletResponse response) {
+        User user = this.userService.getUserById(UUID.fromString(id));
         if (user != null) {
             return new UserDTO(user);
         }
@@ -49,5 +47,15 @@ public class UserAPI {
             return dtoUsers;
         }
         return new ArrayList<>();
+    }
+
+    @POST
+    @Path("/create")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void createUser(UserDTO user){
+        if (user != null){
+            User newUser = new User(UUID.randomUUID(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new ArrayList<>(), new ArrayList<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            this.userService.createUser(newUser);
+        }
     }
 }

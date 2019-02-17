@@ -12,7 +12,7 @@ public class Trend {
     @Column(unique = true)
     private String name;
 
-    @OneToMany
+    @ManyToMany
     private List<Tweet> tweets;
 
     protected  Trend() {

@@ -13,15 +13,16 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Path("user")
 public class UserAPI {
     @Inject
-    UserService userService;
+    private UserService userService;
 
     public UserAPI(){
-
     }
 
     @GET
@@ -33,5 +34,19 @@ public class UserAPI {
             return new UserDTO(user);
         }
         return null;
+    }
+
+    @GET
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserDTO> getAllUsers(){
+        List<User> users = this.userService.getAllUsers();
+        if (users != null && users.size() > 0){
+            List<UserDTO> dtoUsers = new ArrayList<>();
+            for(User u : users){
+                dtoUsers.add(new UserDTO(u));
+            }
+        }
+        return new ArrayList<>();
     }
 }

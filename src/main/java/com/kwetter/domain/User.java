@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="user.getAllUsers", query = "SELECT u FROM User u")
+})
 public class User {
     @Id
     private UUID id;

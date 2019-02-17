@@ -21,6 +21,12 @@ public interface UserDAO {
     void delete(User user);
 
     /**
+     * Gets all the users from the database.
+     * @return all the users.
+     */
+    List<User> getAllUsers();
+
+    /**
      * Updates the information of a user.
      * @param user The updated user.
      * @return the user if it succeeded else return null.

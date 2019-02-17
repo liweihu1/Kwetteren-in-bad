@@ -38,6 +38,11 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
+    public List<User> getAllUsers() {
+        return database.getUsers();
+    }
+
+    @Override
     public User update(User user) {
         return null;
     }

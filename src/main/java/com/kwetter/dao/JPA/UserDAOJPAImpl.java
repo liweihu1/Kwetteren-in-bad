@@ -27,6 +27,11 @@ public class UserDAOJPAImpl implements UserDAO {
     }
 
     @Override
+    public List<User> getAllUsers() {
+        return em.createNamedQuery("user.getAllUsers", User.class).getResultList();
+    }
+
+    @Override
     public User findById(UUID id) {
         return em.find(User.class, id);
     }

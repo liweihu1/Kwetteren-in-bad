@@ -11,6 +11,7 @@ import java.util.UUID;
 @Entity
 public class Tweet {
     @Id
+    @Column( columnDefinition = "BINARY(16)", length = 16 )
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
     private User author;
@@ -26,6 +27,7 @@ public class Tweet {
     private List<User> heartedBy;
     @ManyToMany
     private List<Trend> trends;
+    private int reportedAmount;
 
     protected Tweet(){
 

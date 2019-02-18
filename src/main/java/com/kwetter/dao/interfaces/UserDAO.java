@@ -21,6 +21,13 @@ public interface UserDAO {
     void delete(User user);
 
     /**
+     * Checks if the username is available.
+     * @param username the username to check.
+     * @return true or false.
+     */
+    boolean checkUsernameAvailable(String username);
+
+    /**
      * Gets all the users from the database.
      * @return all the users.
      */

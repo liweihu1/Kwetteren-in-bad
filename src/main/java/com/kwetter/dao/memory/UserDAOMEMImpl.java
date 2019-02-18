@@ -38,6 +38,11 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
+    public boolean checkUsernameAvailable(String username) {
+        return false;
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return database.getUsers();
     }

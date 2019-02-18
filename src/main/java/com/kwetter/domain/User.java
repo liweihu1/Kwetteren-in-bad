@@ -6,7 +6,8 @@ import java.util.UUID;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name="user.getAllUsers", query = "SELECT u FROM User u")
+        @NamedQuery(name="user.getAllUsers", query = "SELECT u FROM User u"),
+        @NamedQuery(name="user.checkUsernameAvailability", query = "Select u FROM User u WHERE u.username = :username")
 })
 public class User {
     @Id
@@ -65,6 +66,10 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username){
+        this.username = username;
     }
 
     public String getFirstName() {

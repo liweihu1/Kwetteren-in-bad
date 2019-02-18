@@ -17,6 +17,7 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.id = user.getId().toString();
+        this.username = user.getUsername();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.biography = user.getBiography();

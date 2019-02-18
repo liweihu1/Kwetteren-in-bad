@@ -24,4 +24,16 @@ public class UserService {
     public void createUser(User user){
         this.userDAO.add(user);
     }
+
+    public boolean changeUsername(String username, String userId){
+        if (userDAO.checkUsernameAvailable(username)){
+            User user = userDAO.findById(UUID.fromString(userId));
+            if (user != null){
+                user.setUsername(username);
+                userDAO.update(user);
+                return true;
+            }
+        }
+        return false;
+    }
 }

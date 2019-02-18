@@ -3,6 +3,7 @@ package com.kwetter.rest;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 import com.kwetter.dto.UserDTO;
+import com.kwetter.dto.UsernameDTO;
 import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
@@ -57,5 +58,12 @@ public class UserAPI {
             User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new ArrayList<>(), new ArrayList<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
             this.userService.createUser(newUser);
         }
+    }
+
+    @POST
+    @Path("/update/username")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean updateUsername(UsernameDTO usernameInfo){
+        return this.userService.changeUsername(usernameInfo.getUsername(), usernameInfo.getUserId());
     }
 }

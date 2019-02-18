@@ -7,6 +7,7 @@ import com.kwetter.domain.User;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +25,12 @@ public class UserDAOJPAImpl implements UserDAO {
     @Override
     public void delete(User user) {
         em.remove(user);
+    }
+
+    @Override
+    public boolean checkUsernameAvailable(String username) {
+        List<User> u = em.createNamedQuery("user.checkUsernameAvailability", User.class).setParameter("username", username).getResultList();
+        return u.size() == 0;
     }
 
     @Override

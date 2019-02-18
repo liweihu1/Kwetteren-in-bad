@@ -18,7 +18,7 @@ public class Tweet {
     private UUID id;
     @ManyToOne(fetch = FetchType.LAZY)
     private User author;
-    @Column(length = 150)
+    @Column(length = 140)
     private String message;
     @CreationTimestamp
     private Date dateCreated;

@@ -37,14 +37,18 @@ public class TweetDAOJPAImpl implements TweetDAO {
     }
 
     @Override
-    public List<Tweet> getTweetLikes(UUID id) {
+    public List<Tweet> getTweetLikesForUserId(UUID id) {
+        return null;
+    }
+
+    @Override
+    public List<Tweet> getAllTweetsByUserId(UUID id) {
         //TODO ADD NAMED QUERY FOR THIS
         return null;
     }
 
     @Override
-    public List<Tweet> getTweetByUserId(UUID id) {
-        //TODO ADD NAMED QUERY FOR THIS
+    public List<Tweet> getLatestTweetsForUserId(UUID id) {
         return null;
     }
 

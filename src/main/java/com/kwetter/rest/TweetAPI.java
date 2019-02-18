@@ -1,23 +1,27 @@
 package com.kwetter.rest;
 
 import com.kwetter.domain.Tweet;
+import com.kwetter.domain.User;
 import com.kwetter.dto.TweetDTO;
 import com.kwetter.service.TweetService;
+import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 @Path("tweet")
 public class TweetAPI {
     @Inject
     private TweetService tweetService;
+
+    @Inject
+    private UserService userService;
 
     public TweetAPI(){
     }
@@ -31,6 +35,18 @@ public class TweetAPI {
             return new TweetDTO(tweet);
         }
         return null;
+    }
+
+    @POST
+    @Path("/create")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean createTweet(TweetDTO tweetDTO){
+        if (tweetDTO != null){
+            User tweetUser = userService.getUserById(UUID.fromString(tweetDTO.getAuthorId()));
+            Tweet tweet = new Tweet(UUID.randomUUID(), tweetUser, tweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            return tweetService.createTweet(tweet);
+        }
+        return false;
     }
 
 }

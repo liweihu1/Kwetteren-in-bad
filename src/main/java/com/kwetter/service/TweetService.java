@@ -15,4 +15,8 @@ public class TweetService {
     public Tweet getTweetById(UUID id){
         return tweetDAO.findById(id);
     }
+
+    public boolean createTweet(Tweet tweet){
+        return tweetDAO.add(tweet) != null;
+    }
 }

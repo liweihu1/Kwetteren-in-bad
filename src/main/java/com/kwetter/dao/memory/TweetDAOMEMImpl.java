@@ -35,12 +35,17 @@ public class TweetDAOMEMImpl implements TweetDAO {
     }
 
     @Override
-    public List<Tweet> getTweetLikes(UUID id) {
+    public List<Tweet> getLatestTweetsForUserId(UUID id) {
         return null;
     }
 
     @Override
-    public List<Tweet> getTweetByUserId(UUID id) {
+    public List<Tweet> getTweetLikesForUserId(UUID id) {
+        return null;
+    }
+
+    @Override
+    public List<Tweet> getAllTweetsByUserId(UUID id) {
         return null;
     }
 

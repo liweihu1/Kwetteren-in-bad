@@ -8,11 +8,13 @@ import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Path("tweet")
@@ -24,6 +26,22 @@ public class TweetAPI {
     private UserService userService;
 
     public TweetAPI(){
+    }
+
+    @GET
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<TweetDTO> getAllTweets(){
+        List<Tweet> tweets = tweetService.getAllTweets();
+        if (tweets.size() > 0){
+            List<TweetDTO> result = new ArrayList<>();
+            for (Tweet tweet : tweets ) {
+                result.add(new TweetDTO(tweet));
+            }
+            return result;
+        }
+        return new ArrayList<>();
     }
 
     @GET

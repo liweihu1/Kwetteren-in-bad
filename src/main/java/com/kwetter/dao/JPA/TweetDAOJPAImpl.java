@@ -32,8 +32,7 @@ public class TweetDAOJPAImpl implements TweetDAO {
 
     @Override
     public List<Tweet> getAllTweets() {
-        //TODO ADD NAMED QUERY FOR THIS
-        return null;
+        return em.createNamedQuery("tweet.getAllTweets", Tweet.class).getResultList();
     }
 
     @Override

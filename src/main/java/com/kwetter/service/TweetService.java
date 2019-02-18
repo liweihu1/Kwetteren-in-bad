@@ -2,9 +2,12 @@ package com.kwetter.service;
 
 import com.kwetter.dao.interfaces.TweetDAO;
 import com.kwetter.domain.Tweet;
+import com.kwetter.dto.TweetDTO;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
+import java.util.List;
 import java.util.UUID;
 
 @Stateless
@@ -18,5 +21,9 @@ public class TweetService {
 
     public boolean createTweet(Tweet tweet){
         return tweetDAO.add(tweet) != null;
+    }
+
+    public List<Tweet> getAllTweets(){
+        return tweetDAO.getAllTweets();
     }
 }

@@ -1,7 +1,10 @@
 package com.kwetter.dto;
 
+import com.kwetter.domain.Trend;
 import com.kwetter.domain.Tweet;
+import com.kwetter.domain.User;
 import java.util.Date;
+import java.util.List;
 
 public class TweetDTO {
     private String id;
@@ -9,6 +12,9 @@ public class TweetDTO {
     private String message;
     private Date dateCreated;
     private Date dateUpdated;
+    private List<UserDTO> mentions;
+    private List<UserDTO> heartedBy;
+    private List<TrendDTO> trends;
 
     public TweetDTO(){
 
@@ -20,6 +26,17 @@ public class TweetDTO {
         this.message = tweet.getMessage();
         this.dateCreated = tweet.getDateCreated();
         this.dateUpdated = tweet.getDateUpdated();
+        for (User u : tweet.getMentions()){
+            this.mentions.add(new UserDTO(u));
+        }
+
+        for(User u: tweet.getHeartedBy()){
+            this.heartedBy.add(new UserDTO(u));
+        }
+
+        for (Trend t: tweet.getTrends()){
+            this.trends.add(new TrendDTO(t));
+        }
     }
 
     public String getId() {
@@ -52,6 +69,30 @@ public class TweetDTO {
 
     public void setDateUpdated(Date dateUpdated) {
         this.dateUpdated = dateUpdated;
+    }
+
+    public List<UserDTO> getMentions() {
+        return mentions;
+    }
+
+    public void setMentions(List<UserDTO> mentions) {
+        this.mentions = mentions;
+    }
+
+    public List<UserDTO> getHeartedBy() {
+        return heartedBy;
+    }
+
+    public void setHeartedBy(List<UserDTO> heartedBy) {
+        this.heartedBy = heartedBy;
+    }
+
+    public List<TrendDTO> getTrends() {
+        return trends;
+    }
+
+    public void setTrends(List<TrendDTO> trends) {
+        this.trends = trends;
     }
 
     public String getAuthorId() {

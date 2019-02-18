@@ -17,6 +17,10 @@ public class TweetDTO {
     private List<User> heartedBy;
     private List<Trend> trends;
 
+    public TweetDTO(){
+
+    }
+
     public TweetDTO(Tweet tweet){
         this.id = tweet.getId();
         this.author = tweet.getAuthor();

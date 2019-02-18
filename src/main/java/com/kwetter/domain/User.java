@@ -12,16 +12,19 @@ public class User {
     @Id
     @Column( columnDefinition = "BINARY(16)", length = 16 )
     private UUID id;
+    @Column(unique = true)
+    private String username;
     private String firstName;
     private String lastName;
+    @Column(length = 160)
     private String biography;
     private String website;
     private String location;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<User> followers;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<User> following;
 
     @ElementCollection
@@ -30,18 +33,19 @@ public class User {
     @OneToMany
     private List<Tweet> tweets;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tweet> heartedTweets;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tweet> mentionedTweets;
 
     protected User() {
 
     }
 
-    public User(UUID id,  String firstName, String lastName, String biography, String website, String location, List<User> followers, List<User> following, List<Role> roles, List<Tweet> tweets, List<Tweet> heartedTweets, List<Tweet> mentionedTweets) {
+    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, List<User> followers, List<User> following, List<Role> roles, List<Tweet> tweets, List<Tweet> heartedTweets, List<Tweet> mentionedTweets) {
         this.id = id;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.biography = biography;
@@ -57,6 +61,10 @@ public class User {
 
     public UUID getId() {
         return id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public String getFirstName() {

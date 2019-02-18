@@ -54,7 +54,7 @@ public class UserAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(UserDTO user){
         if (user != null){
-            User newUser = new User(UUID.randomUUID(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new ArrayList<>(), new ArrayList<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new ArrayList<>(), new ArrayList<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
             this.userService.createUser(newUser);
         }
     }

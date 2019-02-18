@@ -31,7 +31,7 @@ public class UserTest {
     public void setup() {
         testId = UUID.randomUUID();
         name = "Test";
-        lastName = "Test";;
+        lastName = "Test";
         bio = "This is a test bio";
         website = "www.test.com";
         location = "Test location 2";
@@ -41,9 +41,9 @@ public class UserTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(testId, name + i, lastName, bio, website, location, new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             } else {
-                testUsers.add(new User(testId, name + i, lastName, bio, website, location, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             }
         }
 

@@ -2,10 +2,9 @@ package com.kwetter.dto;
 
 import com.kwetter.domain.User;
 
-import java.util.UUID;
-
 public class UserDTO {
     private String id;
+    private String username;
     private String firstName;
     private String lastName;
     private String biography;
@@ -71,5 +70,13 @@ public class UserDTO {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -21,11 +21,11 @@ public class Tweet {
     private Date dateCreated;
     @UpdateTimestamp
     private Date dateUpdated;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<User> mentions;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<User> heartedBy;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Trend> trends;
     private int reportedAmount;
 

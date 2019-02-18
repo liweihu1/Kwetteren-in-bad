@@ -13,7 +13,7 @@ public class Trend {
     @Column(unique = true)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tweet> tweets;
 
     protected  Trend() {

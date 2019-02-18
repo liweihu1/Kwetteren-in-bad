@@ -50,9 +50,9 @@ public class TweetTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             } else {
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             }
             testTweets.add(new Tweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>()));
         }

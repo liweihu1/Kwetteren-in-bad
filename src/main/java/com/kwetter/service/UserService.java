@@ -49,6 +49,30 @@ public class UserService {
         return followUser(curUser, followUser);
     }
 
+    public boolean unFollowInfoUserWithUsername(UUID userId, String username){
+        User curUser = userDAO.findById(userId);
+        User followUser = userDAO.findByUsername(username);
+        return stopFollowingUser(curUser, followUser);
+    }
+
+    public boolean unFollowInfoUserWithId(UUID userId, UUID followId){
+        User curUser = userDAO.findById(userId);
+        User followUser = userDAO.findById(followId);
+        return stopFollowingUser(curUser, followUser);
+    }
+
+    private boolean stopFollowingUser(User follower, User following){
+        try {
+            follower.getFollowing().remove(following);
+            following.getFollowers().remove(follower);
+            userDAO.update(follower);
+            userDAO.update(following);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
+
     private boolean followUser(User follower, User following){
         try {
             if (following != follower && !follower.getFollowing().contains(following)) {

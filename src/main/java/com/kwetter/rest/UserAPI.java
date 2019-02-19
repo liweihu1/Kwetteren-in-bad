@@ -75,13 +75,28 @@ public class UserAPI {
     @POST
     @Path("/follow")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean followUserWithId(FollowDTO followInfo){
+    public boolean followUserWith(FollowDTO followInfo){
         if (!followInfo.getUserId().isEmpty()){
             UUID id = UUID.fromString(followInfo.getUserId());
             if (!followInfo.getUsername().isEmpty()){
                 return this.userService.followUserWithUsername(id, followInfo.getUsername());
             } else if (!followInfo.getFollowingId().isEmpty()){
                 return this.userService.followUserWithId(id, UUID.fromString(followInfo.getFollowingId()));
+            }
+        }
+        return false;
+    }
+
+    @POST
+    @Path("/unfollow")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean unFollowUser(FollowDTO unFollowInfo){
+        if (!unFollowInfo.getUserId().isEmpty()){
+            UUID id = UUID.fromString(unFollowInfo.getUserId());
+            if (!unFollowInfo.getUsername().isEmpty()){
+                return this.userService.unFollowInfoUserWithUsername(id, unFollowInfo.getUsername());
+            } else if (!unFollowInfo.getFollowingId().isEmpty()){
+                return this.userService.unFollowInfoUserWithId(id, UUID.fromString(unFollowInfo.getFollowingId()));
             }
         }
         return false;

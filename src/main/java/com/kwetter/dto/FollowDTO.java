@@ -6,7 +6,9 @@ public class FollowDTO {
     private String username;
 
     public FollowDTO(){
-
+        this.userId = "";
+        this.followingId = "";
+        this.username = "";
     }
 
     public String getUsername() {

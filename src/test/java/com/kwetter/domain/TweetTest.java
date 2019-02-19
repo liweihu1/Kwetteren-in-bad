@@ -196,6 +196,25 @@ public class TweetTest {
     }
 
     @Test
+    public void getDateUpdatedTest() {
+        assertEquals("The Date was not right for testTweet1.", testDate2, testTweet1.getDateUpdated());
+        assertEquals("The Date was not right for testTweet2.", testDate2, testTweet2.getDateUpdated());
+        assertEquals("The Date was not right for testTweet3.", testDate2, testTweet3.getDateUpdated());
+        assertEquals("The Date was not right for testTweet4.", testDate2, testTweet4.getDateUpdated());
+        assertEquals("The Date was not right for testTweet5.", testDate2, testTweet5.getDateUpdated());
+        assertEquals("The Date was not right for testTweet6.", testDate2, testTweet6.getDateUpdated());
+        assertEquals("The Date was not right for testTweet7.", testDate2, testTweet7.getDateUpdated());
+        assertEquals("The Date was not right for testTweet8.", testDate2, testTweet8.getDateUpdated());
+        assertEquals("The Date was not right for testTweet9.", testDate2, testTweet9.getDateUpdated());
+        assertEquals("The Date was not right for testTweet10.", testDate2, testTweet10.getDateUpdated());
+    }
+
+    @Test
+    public void getEmptyDateUpdatedTest() {
+        assertNull("The Date was not right.", testTweetEmpty.getDateUpdated());
+    }
+
+    @Test
     public void getTrendsTest() {
         assertNotNull("The trends list was null for testTweet1.", testTweet1.getTrends());
         assertNotNull("The trends list was null for testTweet2.", testTweet2.getTrends());

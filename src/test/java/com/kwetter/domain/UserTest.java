@@ -81,6 +81,26 @@ public class UserTest {
     }
 
     @Test
+    public void getUsernameTest() {
+        assertEquals("The username was not right for testUser1.", name + 0, testUser1.getUsername());
+        assertEquals("The username was not right for testUser2.", name + 1, testUser2.getUsername());
+        assertEquals("The username was not right for testUser3.", name + 2, testUser3.getUsername());
+        assertEquals("The username was not right for testUser4.", name + 3, testUser4.getUsername());
+        assertEquals("The username was not right for testUser5.", name + 4, testUser5.getUsername());
+        assertEquals("The username was not right for testUser6.", name + 5, testUser6.getUsername());
+        assertEquals("The username was not right for testUser7.", name + 6, testUser7.getUsername());
+        assertEquals("The username was not right for testUser8.", name + 7, testUser8.getUsername());
+        assertEquals("The username was not right for testUser9.", name + 8, testUser9.getUsername());
+        assertEquals("The username was not right for testUser10.", name + 9, testUser10.getUsername());
+    }
+
+    @Test
+    public void getEmptyUsernameTest(){
+        assertNull("The username was not null", testUserEmpty.getUsername());
+    }
+
+
+    @Test
     public void getFirstNameTest() {
         assertEquals("The firstname was not right for testUser1.", name + 0, testUser1.getFirstName());
         assertEquals("The firstname was not right for testUser2.", name + 1, testUser2.getFirstName());
@@ -97,6 +117,14 @@ public class UserTest {
     @Test
     public void getEmptyFirstNameTest(){
         assertNull("The firstName was not null", testUserEmpty.getFirstName());
+    }
+
+    @Test
+    public void changeUsernameTest(){
+        String testName = "Johhnyyy";
+        testUserEmpty.setUsername(testName);
+        assertEquals("The test username was not set", testName, testUserEmpty.getUsername());
+        testUserEmpty.setUsername(null);
     }
 
     @Test

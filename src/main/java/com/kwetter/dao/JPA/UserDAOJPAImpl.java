@@ -44,6 +44,11 @@ public class UserDAOJPAImpl implements UserDAO {
     }
 
     @Override
+    public User findByUsername(String username) {
+        return em.find(User.class, username);
+    }
+
+    @Override
     public List<User> getFollowing(UUID id) {
         //TODO ADD NAMED QUERY FOR THIS
         return null;

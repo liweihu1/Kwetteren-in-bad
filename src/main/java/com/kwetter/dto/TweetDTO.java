@@ -3,6 +3,8 @@ package com.kwetter.dto;
 import com.kwetter.domain.Trend;
 import com.kwetter.domain.Tweet;
 import com.kwetter.domain.User;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +28,9 @@ public class TweetDTO {
         this.message = tweet.getMessage();
         this.dateCreated = tweet.getDateCreated();
         this.dateUpdated = tweet.getDateUpdated();
+        this.mentions = new ArrayList<>();
+        this.heartedBy = new ArrayList<>();
+        this.trends = new ArrayList<>();
         for (User u : tweet.getMentions()){
             this.mentions.add(new UserDTO(u));
         }

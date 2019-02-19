@@ -3,6 +3,7 @@ package com.kwetter.dto;
 import com.kwetter.domain.Trend;
 import com.kwetter.domain.Tweet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TrendDTO {
@@ -17,6 +18,7 @@ public class TrendDTO {
     public TrendDTO(Trend trend){
         this.id = trend.getId().toString();
         this.name = trend.getName();
+        this.tweets = new ArrayList<>();
         for (Tweet t : trend.getTweets()){
             this.tweets.add(new TweetDTO(t));
         }

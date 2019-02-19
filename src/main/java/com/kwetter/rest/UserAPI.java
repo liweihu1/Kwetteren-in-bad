@@ -2,6 +2,7 @@ package com.kwetter.rest;
 
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
+import com.kwetter.dto.FollowDTO;
 import com.kwetter.dto.UserDTO;
 import com.kwetter.dto.UsernameDTO;
 import com.kwetter.service.UserService;
@@ -9,6 +10,7 @@ import com.kwetter.service.UserService;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +39,7 @@ public class UserAPI {
 
     @GET
     @Path("/")
+    @Transactional
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllUsers(){
         List<User> users = this.userService.getAllUsers();
@@ -65,5 +68,20 @@ public class UserAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean updateUsername(UsernameDTO usernameInfo){
         return this.userService.changeUsername(usernameInfo.getUsername(), usernameInfo.getUserId());
+    }
+
+    @POST
+    @Path("/follow/{id}/id/{followId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public boolean followUserWithId(FollowDTO followInfo){
+        if (!followInfo.getUserId().isEmpty()){
+            UUID id = UUID.fromString(followInfo.getUserId());
+            if (!followInfo.getUsername().isEmpty()){
+                return this.userService.followUserWithUsername(id, followInfo.getUsername());
+            } else if (!followInfo.getFollowingId().isEmpty()){
+                return this.userService.followUserWithId(id, UUID.fromString(followInfo.getFollowingId()));
+            }
+        }
+        return false;
     }
 }

@@ -36,4 +36,28 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean followUserWithId(UUID userId, UUID followId){
+        User curUser = userDAO.findById(userId);
+        User userToFollow = userDAO.findById(followId);
+        return followUser(curUser, userToFollow);
+    }
+
+    public boolean followUserWithUsername(UUID userId, String username){
+        User curUser = userDAO.findById(userId);
+        User followUser = userDAO.findByUsername(username);
+        return followUser(curUser, followUser);
+    }
+
+    public boolean followUser(User follower, User following){
+        try {
+            follower.getFollowing().add(following);
+            following.getFollowers().add(follower);
+            userDAO.update(follower);
+            userDAO.update(following);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

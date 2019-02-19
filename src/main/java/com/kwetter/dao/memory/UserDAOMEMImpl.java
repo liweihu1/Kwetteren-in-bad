@@ -60,6 +60,11 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
+    public User findByUsername(String username) {
+        return null;
+    }
+
+    @Override
     public List<User> getFollowing(UUID id) {
         return null;
     }

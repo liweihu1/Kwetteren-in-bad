@@ -48,6 +48,13 @@ public interface UserDAO {
     User findById(UUID id);
 
     /**
+     * Find user by username;
+     * @param username the username of the user;
+     * @return user if found.
+     */
+    User findByUsername(String username);
+
+    /**
      * Get the following list of the given user ID.
      * @param id The Id of the user.
      * @return A list of all the people they're following.

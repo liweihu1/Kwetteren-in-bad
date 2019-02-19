@@ -14,6 +14,7 @@ public class Trend {
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "dateUpdated DESC")
     private List<Tweet> tweets;
 
     protected  Trend() {

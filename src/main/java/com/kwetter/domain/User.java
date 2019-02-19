@@ -26,6 +26,7 @@ public class User {
     private List<User> followers;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "username DESC")
     private List<User> following;
 
     @ElementCollection
@@ -35,9 +36,11 @@ public class User {
     private List<Tweet> tweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "dateUpdated DESC")
     private List<Tweet> heartedTweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "dateUpdated DESC")
     private List<Tweet> mentionedTweets;
 
     protected User() {

@@ -25,10 +25,13 @@ public class Tweet {
     @UpdateTimestamp
     private Date dateUpdated;
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "username DESC")
     private List<User> mentions;
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "username DESC")
     private List<User> heartedBy;
     @ManyToMany(cascade = CascadeType.ALL)
+    @OrderBy(value = "username DESC")
     private List<Trend> trends;
     private int reportedAmount;
 

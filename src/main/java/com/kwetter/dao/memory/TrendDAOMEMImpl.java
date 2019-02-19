@@ -1,13 +1,18 @@
 package com.kwetter.dao.memory;
 
+import com.kwetter.dao.database.MemoryDatabase;
 import com.kwetter.dao.interfaces.TrendDAO;
 import com.kwetter.domain.Trend;
 
+import javax.ejb.EJB;
 import javax.enterprise.inject.Alternative;
 import java.util.UUID;
 
 @Alternative
 public class TrendDAOMEMImpl implements TrendDAO {
+    @EJB
+    private MemoryDatabase database;
+
     @Override
     public Trend add(Trend trend) {
         return null;

@@ -4,23 +4,16 @@ import com.kwetter.domain.Trend;
 import com.kwetter.domain.Tweet;
 import com.kwetter.domain.User;
 
+import javax.ejb.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Singleton
 public class MemoryDatabase {
-    private static MemoryDatabase database;
-
     protected List<User> users;
     protected List<Tweet> tweets;
     protected List<Trend> trends;
-
-    public static MemoryDatabase getInstance(){
-        if (database == null){
-            database = new MemoryDatabase();
-        }
-        return database;
-    }
 
     public void clearData(){
         this.users = new ArrayList<>();

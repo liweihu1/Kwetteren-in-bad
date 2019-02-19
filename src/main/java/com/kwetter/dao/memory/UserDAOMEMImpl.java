@@ -5,6 +5,7 @@ import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.domain.Tweet;
 import com.kwetter.domain.User;
 
+import javax.ejb.EJB;
 import javax.enterprise.inject.Alternative;
 import java.util.List;
 import java.util.UUID;
@@ -12,10 +13,11 @@ import java.util.UUID;
 @Alternative
 public class UserDAOMEMImpl implements UserDAO {
 
+    @EJB
     private MemoryDatabase database;
 
     public UserDAOMEMImpl(){
-        database = MemoryDatabase.getInstance();
+
     }
 
     @Override

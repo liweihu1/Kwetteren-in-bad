@@ -1,14 +1,20 @@
 package com.kwetter.dao.memory;
 
+import com.kwetter.dao.database.MemoryDatabase;
 import com.kwetter.dao.interfaces.TweetDAO;
 import com.kwetter.domain.Tweet;
 
+import javax.ejb.EJB;
 import javax.enterprise.inject.Alternative;
 import java.util.List;
 import java.util.UUID;
 
 @Alternative
 public class TweetDAOMEMImpl implements TweetDAO {
+
+    @EJB
+    private MemoryDatabase database;
+
     @Override
     public Tweet add(Tweet tweet) {
         return null;

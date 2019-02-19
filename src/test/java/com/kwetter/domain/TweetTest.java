@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
@@ -50,9 +51,9 @@ public class TweetTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             } else {
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             }
             testTweets.add(new Tweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>()));
         }

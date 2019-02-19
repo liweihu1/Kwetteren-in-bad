@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Stateless
@@ -29,7 +30,7 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public boolean checkUsernameAvailable(String username) {
-        List<User> u = em.createNamedQuery("user.checkUsernameAvailability", User.class).setParameter("username", username).getResultList();
+        List<User> u = em.createNamedQuery("user.findByUsername", User.class).setParameter("username", username).getResultList();
         return u.size() == 0;
     }
 
@@ -45,19 +46,17 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public User findByUsername(String username) {
-        return em.find(User.class, username);
+        return em.createNamedQuery("user.findByUsername", User.class).setParameter("username", username).getSingleResult();
     }
 
     @Override
-    public List<User> getFollowing(UUID id) {
-        //TODO ADD NAMED QUERY FOR THIS
-        return null;
+    public Set<User> getFollowing(UUID id) {
+        return em.find(User.class, id).getFollowing();
     }
 
     @Override
-    public List<User> getFollowers(UUID id) {
-        //TODO ADD NAMED QUERY FOR THIS
-        return null;
+    public Set<User> getFollowers(UUID id) {
+        return em.find(User.class, id).getFollowers();
     }
 
     @Override

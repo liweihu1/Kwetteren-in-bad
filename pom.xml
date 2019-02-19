@@ -5,7 +5,7 @@
 
     <groupId>com.kwetter</groupId>
     <artifactId>kwetter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>kwetter</name>
     <description>Kwetter app for JEA6</description>
 

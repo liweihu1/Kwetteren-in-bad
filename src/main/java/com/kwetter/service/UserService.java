@@ -49,13 +49,16 @@ public class UserService {
         return followUser(curUser, followUser);
     }
 
-    public boolean followUser(User follower, User following){
+    private boolean followUser(User follower, User following){
         try {
-            follower.getFollowing().add(following);
-            following.getFollowers().add(follower);
-            userDAO.update(follower);
-            userDAO.update(following);
-            return true;
+            if (following != follower && !follower.getFollowing().contains(following)) {
+                follower.getFollowing().add(following);
+                following.getFollowers().add(follower);
+                userDAO.update(follower);
+                userDAO.update(following);
+                return true;
+            }
+            return false;
         } catch (Exception e){
             return false;
         }

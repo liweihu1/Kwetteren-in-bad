@@ -1,13 +1,16 @@
 package com.kwetter.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @NamedQueries({
         @NamedQuery(name="user.getAllUsers", query = "SELECT u FROM User u"),
-        @NamedQuery(name="user.checkUsernameAvailability", query = "Select u FROM User u WHERE u.username = :username")
+        @NamedQuery(name="user.findByUsername", query = "Select u FROM User u WHERE u.username = :username"),
 })
 public class User {
     @Id
@@ -23,31 +26,41 @@ public class User {
     private String location;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<User> followers;
+    @JoinTable(
+            name = "User_Following",
+            joinColumns = @JoinColumn(name = "follower_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "following_id", referencedColumnName = "id")
+    )
+    @JsonIgnore
+    private Set<User> followers;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "followers")
     @OrderBy(value = "username DESC")
-    private List<User> following;
+    @JsonIgnore
+    private Set<User> following;
 
     @ElementCollection
     private List<Role> roles;
 
     @OneToMany
+    @JsonIgnore
     private List<Tweet> tweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "dateUpdated DESC")
+    @JsonIgnore
     private List<Tweet> heartedTweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "dateUpdated DESC")
+    @JsonIgnore
     private List<Tweet> mentionedTweets;
 
     protected User() {
 
     }
 
-    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, List<User> followers, List<User> following, List<Role> roles, List<Tweet> tweets, List<Tweet> heartedTweets, List<Tweet> mentionedTweets) {
+    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, Set<User> followers, Set<User> following, List<Role> roles, List<Tweet> tweets, List<Tweet> heartedTweets, List<Tweet> mentionedTweets) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -95,11 +108,11 @@ public class User {
         return location;
     }
 
-    public List<User> getFollowers() {
+    public Set<User> getFollowers() {
         return followers;
     }
 
-    public List<User> getFollowing() {
+    public Set<User> getFollowing() {
         return following;
     }
 

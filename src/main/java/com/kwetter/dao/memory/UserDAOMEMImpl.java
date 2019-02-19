@@ -8,6 +8,7 @@ import com.kwetter.domain.User;
 import javax.ejb.EJB;
 import javax.enterprise.inject.Alternative;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Alternative
@@ -65,12 +66,12 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getFollowing(UUID id) {
+    public Set<User> getFollowing(UUID id) {
         return null;
     }
 
     @Override
-    public List<User> getFollowers(UUID id) {
+    public Set<User> getFollowers(UUID id) {
         return null;
     }
 

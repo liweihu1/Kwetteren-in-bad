@@ -1,5 +1,6 @@
 package com.kwetter.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -26,12 +27,15 @@ public class Tweet {
     private Date dateUpdated;
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "username DESC")
+    @JsonIgnore
     private List<User> mentions;
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "username DESC")
+    @JsonIgnore
     private List<User> heartedBy;
     @ManyToMany(cascade = CascadeType.ALL)
-    @OrderBy(value = "username DESC")
+    @OrderBy(value = "name DESC")
+    @JsonIgnore
     private List<Trend> trends;
     private int reportedAmount;
 

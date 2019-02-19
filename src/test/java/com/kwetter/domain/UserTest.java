@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
@@ -41,9 +42,9 @@ public class UserTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new ArrayList<User>(){{add(follower);}}, new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             } else {
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
             }
         }
 

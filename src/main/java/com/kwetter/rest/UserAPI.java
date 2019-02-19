@@ -1,5 +1,6 @@
 package com.kwetter.rest;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 import com.kwetter.dto.FollowDTO;
@@ -15,6 +16,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -58,7 +60,7 @@ public class UserAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     public void createUser(UserDTO user){
         if (user != null){
-            User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new ArrayList<>(), new ArrayList<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
             this.userService.createUser(newUser);
         }
     }
@@ -71,7 +73,7 @@ public class UserAPI {
     }
 
     @POST
-    @Path("/follow/{id}/id/{followId}")
+    @Path("/follow")
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean followUserWithId(FollowDTO followInfo){
         if (!followInfo.getUserId().isEmpty()){

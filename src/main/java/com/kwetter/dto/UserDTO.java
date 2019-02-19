@@ -1,5 +1,6 @@
 package com.kwetter.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Tweet;
 import com.kwetter.domain.User;
@@ -15,8 +16,8 @@ public class UserDTO {
     private String biography;
     private String website;
     private String location;
-    private List<UserDTO> followers;
-    private List<UserDTO> following;
+    private int followers;
+    private int following;
     private List<String> roles;
     private List<TweetDTO> tweets;
 
@@ -32,17 +33,10 @@ public class UserDTO {
         this.biography = user.getBiography();
         this.website = user.getWebsite();
         this.location = user.getLocation();
-        this.following = new ArrayList<>();
-        this.followers = new ArrayList<>();
+        this.following = user.getFollowing().size();
+        this.followers = user.getFollowers().size();
         this.roles = new ArrayList<>();
         this.tweets = new ArrayList<>();
-        for(User u : user.getFollowers()){
-            this.followers.add(new UserDTO(u));
-        }
-
-        for(User u : user.getFollowing()){
-            this.following.add(new UserDTO(u));
-        }
 
         for(Tweet t : user.getTweets()){
             this.tweets.add(new TweetDTO(t));
@@ -51,8 +45,8 @@ public class UserDTO {
         for(Role r : user.getRoles()){
             this.roles.add(r.toString());
         }
-
     }
+
 
     public String getId() {
         return id;
@@ -110,22 +104,6 @@ public class UserDTO {
         this.username = username;
     }
 
-    public List<UserDTO> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(List<UserDTO> followers) {
-        this.followers = followers;
-    }
-
-    public List<UserDTO> getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(List<UserDTO> following) {
-        this.following = following;
-    }
-
     public List<String> getRoles() {
         return roles;
     }
@@ -140,5 +118,21 @@ public class UserDTO {
 
     public void setTweets(List<TweetDTO> tweets) {
         this.tweets = tweets;
+    }
+
+    public int getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(int followers) {
+        this.followers = followers;
+    }
+
+    public int getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(int following) {
+        this.following = following;
     }
 }

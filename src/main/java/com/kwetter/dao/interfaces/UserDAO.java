@@ -4,6 +4,7 @@ import com.kwetter.domain.Tweet;
 import com.kwetter.domain.User;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public interface UserDAO {
@@ -59,14 +60,14 @@ public interface UserDAO {
      * @param id The Id of the user.
      * @return A list of all the people they're following.
      */
-    List<User> getFollowing(UUID id);
+    Set<User> getFollowing(UUID id);
 
     /**
      * Get the followers list of the given user ID.
      * @param id The Id of the user.
      * @return A list of all the people that follow the user.
      */
-    List<User> getFollowers(UUID id);
+    Set<User> getFollowers(UUID id);
 
     /**
      * Get all the tweets that the user has been mentioned in.

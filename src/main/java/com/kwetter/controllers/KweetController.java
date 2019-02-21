@@ -4,6 +4,6 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 
 @RequestScoped
-@Named("Tweet")
-public class TweetController {
+@Named("Kweet")
+public class KweetController {
 }

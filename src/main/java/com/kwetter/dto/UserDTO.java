@@ -2,7 +2,7 @@ package com.kwetter.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kwetter.domain.Role;
-import com.kwetter.domain.Tweet;
+import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class UserDTO {
     private int followers;
     private int following;
     private List<String> roles;
-    private List<TweetDTO> tweets;
+    private List<KweetDTO> Kweets;
 
     public UserDTO(){
         //EMPTY CONSTRUCTOR FOR JSON CALLS
@@ -36,10 +36,10 @@ public class UserDTO {
         this.following = user.getFollowing().size();
         this.followers = user.getFollowers().size();
         this.roles = new ArrayList<>();
-        this.tweets = new ArrayList<>();
+        this.Kweets = new ArrayList<>();
 
-        for(Tweet t : user.getTweets()){
-            this.tweets.add(new TweetDTO(t));
+        for(Kweet t : user.getKweets()){
+            this.Kweets.add(new KweetDTO(t));
         }
 
         for(Role r : user.getRoles()){
@@ -112,12 +112,12 @@ public class UserDTO {
         this.roles = roles;
     }
 
-    public List<TweetDTO> getTweets() {
-        return tweets;
+    public List<KweetDTO> getKweets() {
+        return Kweets;
     }
 
-    public void setTweets(List<TweetDTO> tweets) {
-        this.tweets = tweets;
+    public void setKweets(List<KweetDTO> Kweets) {
+        this.Kweets = Kweets;
     }
 
     public int getFollowers() {

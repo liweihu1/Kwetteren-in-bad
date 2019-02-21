@@ -2,7 +2,7 @@ package com.kwetter.dao.memory;
 
 import com.kwetter.dao.database.MemoryDatabase;
 import com.kwetter.dao.interfaces.UserDAO;
-import com.kwetter.domain.Tweet;
+import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import javax.ejb.EJB;
@@ -76,7 +76,7 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
-    public List<Tweet> getUserMentions(User user) {
+    public List<Kweet> getUserMentions(User user) {
         return null;
     }
 

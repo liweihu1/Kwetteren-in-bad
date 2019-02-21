@@ -15,16 +15,16 @@ public class Trend {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "dateUpdated DESC")
-    private List<Tweet> tweets;
+    private List<Kweet> Kweets;
 
     protected  Trend() {
 
     }
 
-    public Trend(UUID id, String name, List<Tweet> tweets) {
+    public Trend(UUID id, String name, List<Kweet> Kweets) {
         this.id = id;
         this.name = name;
-        this.tweets = tweets;
+        this.Kweets = Kweets;
     }
 
     public UUID getId() {
@@ -35,7 +35,7 @@ public class Trend {
         return name;
     }
 
-    public List<Tweet> getTweets() {
-        return tweets;
+    public List<Kweet> getKweets() {
+        return Kweets;
     }
 }

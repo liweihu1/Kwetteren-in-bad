@@ -1,7 +1,7 @@
 package com.kwetter.dto;
 
 import com.kwetter.domain.Trend;
-import com.kwetter.domain.Tweet;
+import com.kwetter.domain.Kweet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public class TrendDTO {
     private String id;
     private String name;
-    private List<TweetDTO> tweets;
+    private List<KweetDTO> Kweets;
 
     public TrendDTO(){
 
@@ -18,9 +18,9 @@ public class TrendDTO {
     public TrendDTO(Trend trend){
         this.id = trend.getId().toString();
         this.name = trend.getName();
-        this.tweets = new ArrayList<>();
-        for (Tweet t : trend.getTweets()){
-            this.tweets.add(new TweetDTO(t));
+        this.Kweets = new ArrayList<>();
+        for (Kweet t : trend.getKweets()){
+            this.Kweets.add(new KweetDTO(t));
         }
     }
 
@@ -41,11 +41,11 @@ public class TrendDTO {
         this.name = name;
     }
 
-    public List<TweetDTO> getTweets() {
-        return tweets;
+    public List<KweetDTO> getKweets() {
+        return Kweets;
     }
 
-    public void setTweets(List<TweetDTO> tweets) {
-        this.tweets = tweets;
+    public void setKweets(List<KweetDTO> Kweets) {
+        this.Kweets = Kweets;
     }
 }

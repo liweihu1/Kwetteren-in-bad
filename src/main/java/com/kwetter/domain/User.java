@@ -44,23 +44,23 @@ public class User {
 
     @OneToMany
     @JsonIgnore
-    private List<Tweet> tweets;
+    private List<Kweet> Kweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "dateUpdated DESC")
     @JsonIgnore
-    private List<Tweet> heartedTweets;
+    private List<Kweet> heartedKweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @OrderBy(value = "dateUpdated DESC")
     @JsonIgnore
-    private List<Tweet> mentionedTweets;
+    private List<Kweet> mentionedKweets;
 
     protected User() {
 
     }
 
-    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, Set<User> followers, Set<User> following, List<Role> roles, List<Tweet> tweets, List<Tweet> heartedTweets, List<Tweet> mentionedTweets) {
+    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, Set<User> followers, Set<User> following, List<Role> roles, List<Kweet> Kweets, List<Kweet> heartedKweets, List<Kweet> mentionedKweets) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -71,9 +71,9 @@ public class User {
         this.followers = followers;
         this.following = following;
         this.roles = roles;
-        this.tweets = tweets;
-        this.heartedTweets = heartedTweets;
-        this.mentionedTweets = mentionedTweets;
+        this.Kweets = Kweets;
+        this.heartedKweets = heartedKweets;
+        this.mentionedKweets = mentionedKweets;
     }
 
     public UUID getId() {
@@ -120,15 +120,15 @@ public class User {
         return roles;
     }
 
-    public List<Tweet> getTweets() {
-        return tweets;
+    public List<Kweet> getKweets() {
+        return Kweets;
     }
 
-    public List<Tweet> getHeartedTweets() {
-        return heartedTweets;
+    public List<Kweet> getHeartedKweets() {
+        return heartedKweets;
     }
 
-    public List<Tweet> getMentionedTweets() {
-        return mentionedTweets;
+    public List<Kweet> getMentionedKweets() {
+        return mentionedKweets;
     }
 }

@@ -11,11 +11,11 @@ import java.util.UUID;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "tweet.getLatestForUser", query = "SELECT t FROM Tweet t WHERE t.author.id = :userId"),
-        @NamedQuery(name = "tweet.getAllTweets", query = "SELECT t FROM Tweet t"),
-        @NamedQuery(name = "tweet.getTweetWithMessage", query = "SELECT t FROM Tweet t WHERE t.message LIKE :search")
+        @NamedQuery(name = "Kweet.getLatestForUser", query = "SELECT t FROM Kweet t WHERE t.author.id = :userId"),
+        @NamedQuery(name = "Kweet.getAllKweets", query = "SELECT t FROM Kweet t"),
+        @NamedQuery(name = "Kweet.getKweetWithMessage", query = "SELECT t FROM Kweet t WHERE t.message LIKE :search")
 })
-public class Tweet {
+public class Kweet {
     @Id
     @Column( columnDefinition = "BINARY(16)", length = 16 )
     private UUID id;
@@ -41,11 +41,11 @@ public class Tweet {
     private List<Trend> trends;
     private int reportedAmount;
 
-    protected Tweet(){
+    protected Kweet(){
 
     }
 
-    public Tweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
+    public Kweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
         this.id = id;
         this.author = author;
         this.message = message;

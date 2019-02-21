@@ -13,15 +13,15 @@ public class TrendTest {
     private UUID testId;
     private Trend testTrend;
     private Trend testEmptyTrend;
-    private List<Tweet> testTweets;
+    private List<Kweet> testKweets;
     private String testName;
 
     @Before
     public void setup(){
         this.testId = UUID.randomUUID();
-        this.testTweets = new ArrayList<>();
+        this.testKweets = new ArrayList<>();
         this.testName = "#Test";
-        this.testTrend = new Trend(testId, testName, testTweets);
+        this.testTrend = new Trend(testId, testName, testKweets);
         this.testEmptyTrend = new Trend();
     }
 
@@ -47,12 +47,12 @@ public class TrendTest {
     }
 
     @Test
-    public void getTweetsTest() {
-        assertNotNull("The tweet list was null.", testTrend.getTweets());
+    public void getKweetsTest() {
+        assertNotNull("The Kweet list was null.", testTrend.getKweets());
     }
 
     @Test
-    public void getEmptyTweetsTest() {
-        assertNull("The tweet list was not null.", testEmptyTrend.getTweets());
+    public void getEmptyKweetsTest() {
+        assertNull("The Kweet list was not null.", testEmptyTrend.getKweets());
     }
 }

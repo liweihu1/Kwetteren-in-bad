@@ -1,6 +1,6 @@
 package com.kwetter.dao.interfaces;
 
-import com.kwetter.domain.Tweet;
+import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import java.util.List;
@@ -70,11 +70,11 @@ public interface UserDAO {
     Set<User> getFollowers(UUID id);
 
     /**
-     * Get all the tweets that the user has been mentioned in.
+     * Get all the Kweets that the user has been mentioned in.
      * @param user The user to find.
-     * @return A list of all the tweets the user is mentioned in.
+     * @return A list of all the Kweets the user is mentioned in.
      */
-    List<Tweet> getUserMentions(User user);
+    List<Kweet> getUserMentions(User user);
 
     /**
      * Clears the data.

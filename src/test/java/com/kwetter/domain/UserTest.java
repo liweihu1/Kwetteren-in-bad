@@ -42,9 +42,9 @@ public class UserTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             } else {
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Tweet>(), new ArrayList<Tweet>(), new ArrayList<Tweet>()));
+                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             }
         }
 
@@ -261,59 +261,59 @@ public class UserTest {
     }
 
     @Test
-    public void getTweetsTest() {
-        assertNotNull("The tweet list was null for testUser1.", testUser1.getTweets());
-        assertNotNull("The tweet list was null for testUser2.", testUser2.getTweets());
-        assertNotNull("The tweet list was null for testUser3.", testUser3.getTweets());
-        assertNotNull("The tweet list was null for testUser4.", testUser4.getTweets());
-        assertNotNull("The tweet list was null for testUser5.", testUser5.getTweets());
-        assertNotNull("The tweet list was null for testUser6.", testUser6.getTweets());
-        assertNotNull("The tweet list was null for testUser7.", testUser7.getTweets());
-        assertNotNull("The tweet list was null for testUser8.", testUser8.getTweets());
-        assertNotNull("The tweet list was null for testUser9.", testUser9.getTweets());
-        assertNotNull("The tweet list was null for testUser10.", testUser10.getTweets());
+    public void getKweetsTest() {
+        assertNotNull("The Kweet list was null for testUser1.", testUser1.getKweets());
+        assertNotNull("The Kweet list was null for testUser2.", testUser2.getKweets());
+        assertNotNull("The Kweet list was null for testUser3.", testUser3.getKweets());
+        assertNotNull("The Kweet list was null for testUser4.", testUser4.getKweets());
+        assertNotNull("The Kweet list was null for testUser5.", testUser5.getKweets());
+        assertNotNull("The Kweet list was null for testUser6.", testUser6.getKweets());
+        assertNotNull("The Kweet list was null for testUser7.", testUser7.getKweets());
+        assertNotNull("The Kweet list was null for testUser8.", testUser8.getKweets());
+        assertNotNull("The Kweet list was null for testUser9.", testUser9.getKweets());
+        assertNotNull("The Kweet list was null for testUser10.", testUser10.getKweets());
     }
 
     @Test
-    public void getEmptyTweetsTest(){
-        assertNull("The tweets list was not null", testUserEmpty.getTweets());
+    public void getEmptyKweetsTest(){
+        assertNull("The Kweets list was not null", testUserEmpty.getKweets());
     }
 
     @Test
     public void getMentionsTest(){
-        assertNotNull("The mentions list was null for testUser1.", testUser1.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser2.", testUser2.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser3.", testUser3.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser4.", testUser4.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser5.", testUser5.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser6.", testUser6.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser7.", testUser7.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser8.", testUser8.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser9.", testUser9.getMentionedTweets());
-        assertNotNull("The mentions list was null for testUser10.", testUser10.getMentionedTweets());
+        assertNotNull("The mentions list was null for testUser1.", testUser1.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser2.", testUser2.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser3.", testUser3.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser4.", testUser4.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser5.", testUser5.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser6.", testUser6.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser7.", testUser7.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser8.", testUser8.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser9.", testUser9.getMentionedKweets());
+        assertNotNull("The mentions list was null for testUser10.", testUser10.getMentionedKweets());
     }
 
     @Test
     public void getEmptyMentionsTest(){
-        assertNull("The mentions list was not null", testUserEmpty.getMentionedTweets());
+        assertNull("The mentions list was not null", testUserEmpty.getMentionedKweets());
     }
 
     @Test
-    public void getHeartedTweetsTest(){
-        assertNotNull("The hearted by list was null for testUser1.", testUser1.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser2.", testUser2.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser3.", testUser3.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser4.", testUser4.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser5.", testUser5.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser6.", testUser6.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser7.", testUser7.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser8.", testUser8.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser9.", testUser9.getHeartedTweets());
-        assertNotNull("The hearted by list was null for testUser10.", testUser10.getHeartedTweets());
+    public void getHeartedKweetsTest(){
+        assertNotNull("The hearted by list was null for testUser1.", testUser1.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser2.", testUser2.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser3.", testUser3.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser4.", testUser4.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser5.", testUser5.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser6.", testUser6.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser7.", testUser7.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser8.", testUser8.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser9.", testUser9.getHeartedKweets());
+        assertNotNull("The hearted by list was null for testUser10.", testUser10.getHeartedKweets());
     }
 
     @Test
     public void getEmptyHeartedTest(){
-        assertNull("The hearted by list was not null", testUserEmpty.getHeartedTweets());
+        assertNull("The hearted by list was not null", testUserEmpty.getHeartedKweets());
     }
 }

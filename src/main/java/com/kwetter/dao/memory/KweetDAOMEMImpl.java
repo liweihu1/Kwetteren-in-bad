@@ -1,8 +1,8 @@
 package com.kwetter.dao.memory;
 
 import com.kwetter.dao.database.MemoryDatabase;
-import com.kwetter.dao.interfaces.TweetDAO;
-import com.kwetter.domain.Tweet;
+import com.kwetter.dao.interfaces.KweetDAO;
+import com.kwetter.domain.Kweet;
 
 import javax.ejb.EJB;
 import javax.enterprise.inject.Alternative;
@@ -10,53 +10,53 @@ import java.util.List;
 import java.util.UUID;
 
 @Alternative
-public class TweetDAOMEMImpl implements TweetDAO {
+public class KweetDAOMEMImpl implements KweetDAO {
 
     @EJB
     private MemoryDatabase database;
 
     @Override
-    public Tweet add(Tweet tweet) {
+    public Kweet add(Kweet Kweet) {
         return null;
     }
 
     @Override
-    public void delete(Tweet tweet) {
+    public void delete(Kweet Kweet) {
 
     }
 
     @Override
-    public Tweet update(Tweet tweet) {
+    public Kweet update(Kweet Kweet) {
         return null;
     }
 
     @Override
-    public Tweet findById(UUID id) {
+    public Kweet findById(UUID id) {
         return null;
     }
 
     @Override
-    public List<Tweet> getAllTweets() {
+    public List<Kweet> getAllKweets() {
         return null;
     }
 
     @Override
-    public List<Tweet> getLatestTweetsForUserId(UUID id) {
+    public List<Kweet> getLatestKweetsForUserId(UUID id) {
         return null;
     }
 
     @Override
-    public List<Tweet> getTweetThatContainsSearch(String search) {
+    public List<Kweet> getKweetThatContainsSearch(String search) {
         return null;
     }
 
     @Override
-    public List<Tweet> getTweetLikesForUserId(UUID id) {
+    public List<Kweet> getKweetLikesForUserId(UUID id) {
         return null;
     }
 
     @Override
-    public List<Tweet> getAllTweetsByUserId(UUID id) {
+    public List<Kweet> getAllKweetsByUserId(UUID id) {
         return null;
     }
 

@@ -1,7 +1,7 @@
 package com.kwetter.dao.JPA;
 
 import com.kwetter.dao.interfaces.UserDAO;
-import com.kwetter.domain.Tweet;
+import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
@@ -60,7 +60,7 @@ public class UserDAOJPAImpl implements UserDAO {
     }
 
     @Override
-    public List<Tweet> getUserMentions(User user) {
+    public List<Kweet> getUserMentions(User user) {
         //TODO ADD NAMED QUERY FOR THIS
         return null;
     }

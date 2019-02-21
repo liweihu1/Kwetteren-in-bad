@@ -47,12 +47,25 @@ public class TweetAPI {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public TweetDTO getTweetById(@PathParam("id") UUID id, @Context HttpServletResponse response){
+    public TweetDTO getTweetById(@PathParam("id") UUID id){
         Tweet tweet = tweetService.getTweetById(id);
         if (tweet != null){
             return new TweetDTO(tweet);
         }
         return null;
+    }
+
+    @GET
+    @Path("/user/{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<TweetDTO> getLatestTweetsForUser(@PathParam("userId") UUID id){
+        List<Tweet> userTweets = tweetService.getTweetsForUserId(id);
+        List<TweetDTO> result = new ArrayList<>();
+        for(Tweet t : userTweets){
+            result.add(new TweetDTO(t));
+        }
+        return result;
     }
 
     @POST

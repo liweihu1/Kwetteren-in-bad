@@ -48,7 +48,7 @@ public class TweetDAOJPAImpl implements TweetDAO {
 
     @Override
     public List<Tweet> getLatestTweetsForUserId(UUID id) {
-        return null;
+        return em.createNamedQuery("tweet.getLatestForUser", Tweet.class).setParameter("userId", id).getResultList();
     }
 
     @Override

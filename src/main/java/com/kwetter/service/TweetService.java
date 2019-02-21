@@ -15,6 +15,10 @@ public class TweetService {
     @Inject
     private TweetDAO tweetDAO;
 
+    public List<Tweet> getTweetsForUserId(UUID userId){
+        return tweetDAO.getLatestTweetsForUserId(userId);
+    }
+
     public Tweet getTweetById(UUID id){
         return tweetDAO.findById(id);
     }

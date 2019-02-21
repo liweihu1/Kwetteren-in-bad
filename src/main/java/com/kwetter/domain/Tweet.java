@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@NamedQueries(
+@NamedQueries({
+        @NamedQuery(name = "tweet.getLatestForUser", query = "SELECT t FROM Tweet t WHERE t.author.id = :userId"),
         @NamedQuery(name = "tweet.getAllTweets", query = "SELECT t FROM Tweet t")
-)
+})
 public class Tweet {
     @Id
     @Column( columnDefinition = "BINARY(16)", length = 16 )

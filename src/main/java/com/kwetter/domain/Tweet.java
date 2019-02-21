@@ -12,7 +12,8 @@ import java.util.UUID;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "tweet.getLatestForUser", query = "SELECT t FROM Tweet t WHERE t.author.id = :userId"),
-        @NamedQuery(name = "tweet.getAllTweets", query = "SELECT t FROM Tweet t")
+        @NamedQuery(name = "tweet.getAllTweets", query = "SELECT t FROM Tweet t"),
+        @NamedQuery(name = "tweet.getTweetWithMessage", query = "SELECT t FROM Tweet t WHERE t.message LIKE :search")
 })
 public class Tweet {
     @Id

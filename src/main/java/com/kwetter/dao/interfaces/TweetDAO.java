@@ -61,6 +61,13 @@ public interface TweetDAO {
     List<Tweet> getLatestTweetsForUserId(UUID id);
 
     /**
+     * Return a list with the tweets that contain the search string.
+     * @param search String to search for.
+     * @return List of tweets.
+     */
+    List<Tweet> getTweetThatContainsSearch(String search);
+
+    /**
      * Clears the data.
      */
     void clearData();

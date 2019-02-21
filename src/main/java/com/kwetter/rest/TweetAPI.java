@@ -7,10 +7,8 @@ import com.kwetter.service.TweetService;
 import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,14 +32,16 @@ public class TweetAPI {
     @Transactional
     public List<TweetDTO> getAllTweets(){
         List<Tweet> tweets = tweetService.getAllTweets();
-        if (tweets.size() > 0){
-            List<TweetDTO> result = new ArrayList<>();
-            for (Tweet tweet : tweets ) {
-                result.add(new TweetDTO(tweet));
-            }
-            return result;
-        }
-        return new ArrayList<>();
+        return convertTweetListToTweetDTOList(tweets);
+    }
+
+    @GET
+    @Path("/search/{searchString}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<TweetDTO> getTweetsBySearchString(@PathParam("searchString") String search){
+        List<Tweet> tweets = tweetService.getTweetsBySearchString(search);
+        return convertTweetListToTweetDTOList(tweets);
     }
 
     @GET
@@ -61,11 +61,7 @@ public class TweetAPI {
     @Transactional
     public List<TweetDTO> getLatestTweetsForUser(@PathParam("userId") UUID id){
         List<Tweet> userTweets = tweetService.getTweetsForUserId(id);
-        List<TweetDTO> result = new ArrayList<>();
-        for(Tweet t : userTweets){
-            result.add(new TweetDTO(t));
-        }
-        return result;
+        return convertTweetListToTweetDTOList(userTweets);
     }
 
     @POST
@@ -80,4 +76,14 @@ public class TweetAPI {
         return false;
     }
 
+    private List<TweetDTO> convertTweetListToTweetDTOList(List<Tweet> tweets){
+        if (tweets.size() > 0){
+            List<TweetDTO> results = new ArrayList<>();
+            for (Tweet t : tweets){
+                results.add(new TweetDTO(t));
+            }
+            return results;
+        }
+        return new ArrayList<>();
+    }
 }

@@ -30,4 +30,8 @@ public class TweetService {
     public List<Tweet> getAllTweets(){
         return tweetDAO.getAllTweets();
     }
+
+    public List<Tweet> getTweetsBySearchString(String search){
+        return tweetDAO.getTweetThatContainsSearch(search);
+    }
 }

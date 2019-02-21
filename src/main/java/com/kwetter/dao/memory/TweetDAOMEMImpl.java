@@ -46,6 +46,11 @@ public class TweetDAOMEMImpl implements TweetDAO {
     }
 
     @Override
+    public List<Tweet> getTweetThatContainsSearch(String search) {
+        return null;
+    }
+
+    @Override
     public List<Tweet> getTweetLikesForUserId(UUID id) {
         return null;
     }

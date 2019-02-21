@@ -52,6 +52,11 @@ public class TweetDAOJPAImpl implements TweetDAO {
     }
 
     @Override
+    public List<Tweet> getTweetThatContainsSearch(String search) {
+        return em.createNamedQuery("tweet.getTweetWithMessage", Tweet.class).setParameter("search", "%" + search + "%").getResultList();
+    }
+
+    @Override
     public Tweet update(Tweet tweet) {
         return em.merge(tweet);
     }

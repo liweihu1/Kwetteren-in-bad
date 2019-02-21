@@ -32,7 +32,7 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getAllKweets() {
-        return em.createNamedQuery("Kweet.getAllKweets", Kweet.class).getResultList();
+        return em.createNamedQuery("kweet.getAllKweets", Kweet.class).getResultList();
     }
 
     @Override
@@ -48,12 +48,12 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getLatestKweetsForUserId(UUID id) {
-        return em.createNamedQuery("Kweet.getLatestForUser", Kweet.class).setParameter("userId", id).getResultList();
+        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setParameter("userId", id).getResultList();
     }
 
     @Override
     public List<Kweet> getKweetThatContainsSearch(String search) {
-        return em.createNamedQuery("Kweet.getKweetWithMessage", Kweet.class).setParameter("search", "%" + search + "%").getResultList();
+        return em.createNamedQuery("kweet.getKweetWithMessage", Kweet.class).setParameter("search", "%" + search + "%").getResultList();
     }
 
     @Override

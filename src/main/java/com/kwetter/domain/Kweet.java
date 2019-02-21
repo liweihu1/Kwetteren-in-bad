@@ -11,9 +11,9 @@ import java.util.UUID;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Kweet.getLatestForUser", query = "SELECT t FROM Kweet t WHERE t.author.id = :userId"),
-        @NamedQuery(name = "Kweet.getAllKweets", query = "SELECT t FROM Kweet t"),
-        @NamedQuery(name = "Kweet.getKweetWithMessage", query = "SELECT t FROM Kweet t WHERE t.message LIKE :search")
+        @NamedQuery(name = "kweet.getLatestForUser", query = "SELECT t FROM Kweet t WHERE t.author.id = :userId"),
+        @NamedQuery(name = "kweet.getAllKweets", query = "SELECT t FROM Kweet t"),
+        @NamedQuery(name = "kweet.getKweetWithMessage", query = "SELECT t FROM Kweet t WHERE t.message LIKE :search")
 })
 public class Kweet {
     @Id

@@ -65,7 +65,7 @@ public class UserAPI {
         }
     }
 
-    @POST
+    @PUT
     @Path("/update/username")
     @Consumes(MediaType.APPLICATION_JSON)
     public boolean updateUsername(UsernameDTO usernameInfo){

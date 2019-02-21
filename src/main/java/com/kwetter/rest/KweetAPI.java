@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Path("Kweet")
+@Path("kweet")
 public class KweetAPI {
     @Inject
     private KweetService KweetService;

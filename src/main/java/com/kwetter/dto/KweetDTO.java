@@ -14,7 +14,7 @@ public class KweetDTO {
     private String message;
     private Date dateCreated;
     private Date dateUpdated;
-    private List<UserDTO> mentions;
+    private List<String> mentions;
     private List<UserDTO> heartedBy;
     private List<TrendDTO> trends;
 
@@ -32,7 +32,7 @@ public class KweetDTO {
         this.heartedBy = new ArrayList<>();
         this.trends = new ArrayList<>();
         for (User u : Kweet.getMentions()){
-            this.mentions.add(new UserDTO(u));
+            this.mentions.add(u.getUsername());
         }
 
         for(User u: Kweet.getHeartedBy()){
@@ -76,11 +76,11 @@ public class KweetDTO {
         this.dateUpdated = dateUpdated;
     }
 
-    public List<UserDTO> getMentions() {
+    public List<String> getMentions() {
         return mentions;
     }
 
-    public void setMentions(List<UserDTO> mentions) {
+    public void setMentions(List<String> mentions) {
         this.mentions = mentions;
     }
 

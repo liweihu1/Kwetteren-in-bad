@@ -1,6 +1,5 @@
 package com.kwetter.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;

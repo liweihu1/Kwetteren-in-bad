@@ -3,11 +3,13 @@ package com.kwetter.rest;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 import com.kwetter.dto.FollowDTO;
+import com.kwetter.dto.RoleRequestDTO;
 import com.kwetter.dto.UserDTO;
 import com.kwetter.dto.UsernameDTO;
 import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
+import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletResponse;
 
 import javax.transaction.Transactional;
@@ -68,19 +70,37 @@ public class UserAPI {
         return new UserDTO(userService.deleteUserById(id));
     }
 
+    @PUT
+    @Path("/add/role")
+    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserDTO addRoleToUser(RoleRequestDTO roleRequest){
+        List<Role> roles = new ArrayList<>();
+        for(String r: roleRequest.getRoles()){
+            roles.add(Enum.valueOf(Role.class, r));
+        }
+        return new UserDTO(userService.addRolesToUser(roleRequest.getId(), roles));
+    }
+
     @POST
     @Path("/create")
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public void createUser(UserDTO user){
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserDTO createUser(UserDTO user){
         if (user != null){
             User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-            this.userService.createUser(newUser);
+            return new UserDTO(this.userService.createUser(newUser));
         }
+        return null;
     }
 
     @POST
     @Path("/follow")
+    @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public UserDTO followUserWith(FollowDTO followInfo){
         if (!followInfo.getUserId().isEmpty()){
             UUID id = UUID.fromString(followInfo.getUserId());

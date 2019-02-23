@@ -1,6 +1,7 @@
 package com.kwetter.service;
 
 import com.kwetter.dao.interfaces.UserDAO;
+import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
@@ -21,8 +22,8 @@ public class UserService {
         return userDAO.getAllUsers();
     }
 
-    public void createUser(User user){
-        this.userDAO.add(user);
+    public User createUser(User user){
+        return this.userDAO.add(user);
     }
 
     public User changeUsername(String username, String userId){
@@ -55,6 +56,17 @@ public class UserService {
         User followUser = userDAO.findByUsername(username);
         followUser(curUser, followUser);
         return curUser;
+    }
+
+    public User addRolesToUser(UUID userId, List<Role> roles){
+        User user = userDAO.findById(userId);
+        for(Role r : roles) {
+            if (!user.getRoles().contains(r)){
+                user.getRoles().add(r);
+            }
+        }
+        userDAO.update(user);
+        return user;
     }
 
     public boolean unFollowInfoUserWithUsername(UUID userId, String username){

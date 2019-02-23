@@ -18,7 +18,7 @@ import java.util.UUID;
 @Path("kweet")
 public class KweetAPI {
     @Inject
-    private KweetService KweetService;
+    private KweetService kweetService;
 
     @Inject
     private UserService userService;
@@ -31,28 +31,8 @@ public class KweetAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public List<KweetDTO> getAllKweets(){
-        List<Kweet> Kweets = KweetService.getAllKweets();
+        List<Kweet> Kweets = kweetService.getAllKweets();
         return convertKweetListToKweetDTOList(Kweets);
-    }
-
-    @GET
-    @Path("/search/{searchString}")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Transactional
-    public List<KweetDTO> getKweetsBySearchString(@PathParam("searchString") String search){
-        List<Kweet> Kweets = KweetService.getKweetsBySearchString(search);
-        return convertKweetListToKweetDTOList(Kweets);
-    }
-
-    @GET
-    @Path("/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public KweetDTO getKweetById(@PathParam("id") UUID id){
-        Kweet Kweet = KweetService.getKweetById(id);
-        if (Kweet != null){
-            return new KweetDTO(Kweet);
-        }
-        return null;
     }
 
     @GET
@@ -60,8 +40,44 @@ public class KweetAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public List<KweetDTO> getLatestKweetsForUser(@PathParam("userId") UUID id){
-        List<Kweet> userKweets = KweetService.getKweetsForUserId(id);
+        List<Kweet> userKweets = kweetService.getKweetsForUserId(id);
         return convertKweetListToKweetDTOList(userKweets);
+    }
+
+    @GET
+    @Path("/search/{searchString}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<KweetDTO> getKweetsBySearchString(@PathParam("searchString") String search){
+        List<Kweet> Kweets = kweetService.getKweetsBySearchString(search);
+        return convertKweetListToKweetDTOList(Kweets);
+    }
+
+    @GET
+    @Path("/user/follow/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public List<KweetDTO> getKweetsByUserIdWithFollowing(@PathParam("id") UUID id){
+        List<Kweet> kweets = kweetService.getKweetsByUserIdWithFollowing(id);
+        return convertKweetListToKweetDTOList(kweets);
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public KweetDTO getKweetById(@PathParam("id") UUID id){
+        Kweet Kweet = kweetService.getKweetById(id);
+        if (Kweet != null){
+            return new KweetDTO(Kweet);
+        }
+        return null;
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public KweetDTO removeKweetById(@PathParam("id") UUID id){
+        return new KweetDTO(kweetService.removeKweetById(id));
     }
 
     @POST
@@ -71,7 +87,7 @@ public class KweetAPI {
         if (KweetDTO != null){
             User KweetUser = userService.getUserById(UUID.fromString(KweetDTO.getAuthorId()));
             Kweet Kweet = new Kweet(UUID.randomUUID(), KweetUser, KweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-            return KweetService.createKweet(Kweet);
+            return kweetService.createKweet(Kweet);
         }
         return false;
     }

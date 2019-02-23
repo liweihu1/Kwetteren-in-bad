@@ -54,6 +54,13 @@ public interface KweetDAO {
     List<Kweet> getAllKweetsByUserId(UUID id);
 
     /**
+     * Get all the kweets of the user and the users they are following.
+     * @param id the id of the user.
+     * @return List of kweets.
+     */
+    List<Kweet> getKweetForUserIdWithFollowers(UUID id);
+
+    /**
      * Returns a list with the 10 most recent Kweets.
      * @param id The id of the user.
      * @return List with 10 Kweets.

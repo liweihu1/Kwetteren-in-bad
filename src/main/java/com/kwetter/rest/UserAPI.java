@@ -54,6 +54,20 @@ public class UserAPI {
         return new ArrayList<>();
     }
 
+    @PUT
+    @Path("/update/username")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public UserDTO updateUsername(UsernameDTO usernameInfo){
+        return new UserDTO(this.userService.changeUsername(usernameInfo.getUsername(), usernameInfo.getUserId()));
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserDTO deleteUserById(@PathParam("id") UUID id){
+        return new UserDTO(userService.deleteUserById(id));
+    }
+
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -64,26 +78,19 @@ public class UserAPI {
         }
     }
 
-    @PUT
-    @Path("/update/username")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public boolean updateUsername(UsernameDTO usernameInfo){
-        return this.userService.changeUsername(usernameInfo.getUsername(), usernameInfo.getUserId());
-    }
-
     @POST
     @Path("/follow")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean followUserWith(FollowDTO followInfo){
+    public UserDTO followUserWith(FollowDTO followInfo){
         if (!followInfo.getUserId().isEmpty()){
             UUID id = UUID.fromString(followInfo.getUserId());
             if (!followInfo.getUsername().isEmpty()){
-                return this.userService.followUserWithUsername(id, followInfo.getUsername());
+                return new UserDTO(this.userService.followUserWithUsername(id, followInfo.getUsername()));
             } else if (!followInfo.getFollowingId().isEmpty()){
-                return this.userService.followUserWithId(id, UUID.fromString(followInfo.getFollowingId()));
+                return new UserDTO(this.userService.followUserWithId(id, UUID.fromString(followInfo.getFollowingId())));
             }
         }
-        return false;
+        return null;
     }
 
     @POST

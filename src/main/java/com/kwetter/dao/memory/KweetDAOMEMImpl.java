@@ -61,6 +61,11 @@ public class KweetDAOMEMImpl implements KweetDAO {
     }
 
     @Override
+    public List<Kweet> getKweetForUserIdWithFollowers(UUID id) {
+        return null;
+    }
+
+    @Override
     public void clearData() {
 
     }

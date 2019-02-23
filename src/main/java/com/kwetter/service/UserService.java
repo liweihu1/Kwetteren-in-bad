@@ -25,28 +25,36 @@ public class UserService {
         this.userDAO.add(user);
     }
 
-    public boolean changeUsername(String username, String userId){
+    public User changeUsername(String username, String userId){
         if (userDAO.checkUsernameAvailable(username)){
             User user = userDAO.findById(UUID.fromString(userId));
             if (user != null){
                 user.setUsername(username);
                 userDAO.update(user);
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 
-    public boolean followUserWithId(UUID userId, UUID followId){
+    public User deleteUserById(UUID id){
+        User userToDelete = userDAO.findById(id);
+        userDAO.delete(userToDelete);
+        return userToDelete;
+    }
+
+    public User followUserWithId(UUID userId, UUID followId){
         User curUser = userDAO.findById(userId);
         User userToFollow = userDAO.findById(followId);
-        return followUser(curUser, userToFollow);
+        followUser(curUser, userToFollow);
+        return curUser;
     }
 
-    public boolean followUserWithUsername(UUID userId, String username){
+    public User followUserWithUsername(UUID userId, String username){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findByUsername(username);
-        return followUser(curUser, followUser);
+        followUser(curUser, followUser);
+        return curUser;
     }
 
     public boolean unFollowInfoUserWithUsername(UUID userId, String username){

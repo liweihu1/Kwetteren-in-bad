@@ -55,7 +55,7 @@ public class KweetTest {
             } else {
                 testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             }
-            testKweets.add(new Kweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>()));
+            testKweets.add(new Kweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0));
         }
 
         testKweet1 = testKweets.get(0);

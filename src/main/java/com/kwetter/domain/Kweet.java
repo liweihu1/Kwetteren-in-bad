@@ -1,6 +1,5 @@
 package com.kwetter.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -43,7 +42,7 @@ public class Kweet {
 
     }
 
-    public Kweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends){
+    public Kweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends, int reportedAmount){
         this.id = id;
         this.author = author;
         this.message = message;
@@ -52,6 +51,7 @@ public class Kweet {
         this.mentions = mentions;
         this.heartedBy = heartedBy;
         this.trends = trends;
+        this.reportedAmount = reportedAmount;
     }
 
     public UUID getId() {

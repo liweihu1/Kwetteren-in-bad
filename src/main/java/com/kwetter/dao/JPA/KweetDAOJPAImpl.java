@@ -42,8 +42,8 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getAllKweetsByUserId(UUID id) {
-        //TODO ADD NAMED QUERY FOR THIS
-        return null;
+        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setParameter("userId", id).getResultList();
+
     }
 
     @Override
@@ -53,7 +53,7 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getLatestKweetsForUserId(UUID id) {
-        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setParameter("userId", id).getResultList();
+        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setMaxResults(10).setParameter("userId", id).getResultList();
     }
 
     @Override

@@ -5,7 +5,7 @@ import com.kwetter.domain.Kweet;
 import java.util.List;
 import java.util.UUID;
 
-public interface KweetDAO {
+public interface KweetDAO{
     /**
      * Adds the Kweet to the database.
      * @param Kweet Kweet to persist.

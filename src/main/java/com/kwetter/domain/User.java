@@ -47,11 +47,21 @@ public class User {
     private List<Kweet> Kweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "User_Hearted",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+    )
     @OrderBy(value = "dateUpdated DESC")
     @JsonIgnore
     private List<Kweet> heartedKweets;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "User_Mentions",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+    )
     @OrderBy(value = "dateUpdated DESC")
     @JsonIgnore
     private List<Kweet> mentionedKweets;

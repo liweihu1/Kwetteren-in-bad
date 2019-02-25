@@ -83,13 +83,15 @@ public class KweetAPI {
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean createKweet(KweetDTO KweetDTO){
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public KweetDTO createKweet(KweetDTO KweetDTO){
         if (KweetDTO != null){
             User KweetUser = userService.getUserById(UUID.fromString(KweetDTO.getAuthorId()));
             Kweet Kweet = new Kweet(UUID.randomUUID(), KweetUser, KweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-            return kweetService.createKweet(Kweet);
+            return new KweetDTO(kweetService.createKweet(Kweet));
         }
-        return false;
+        return null;
     }
 
     private List<KweetDTO> convertKweetListToKweetDTOList(List<Kweet> Kweets){

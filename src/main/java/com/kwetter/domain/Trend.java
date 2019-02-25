@@ -14,17 +14,22 @@ public class Trend {
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "Trend_Kweet",
+            joinColumns = @JoinColumn(name = "trend_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "kweet_id", referencedColumnName = "id")
+    )
     @OrderBy(value = "dateUpdated DESC")
-    private List<Kweet> Kweets;
+    private List<Kweet> kweets;
 
     protected  Trend() {
 
     }
 
-    public Trend(UUID id, String name, List<Kweet> Kweets) {
+    public Trend(UUID id, String name, List<Kweet> kweets) {
         this.id = id;
         this.name = name;
-        this.Kweets = Kweets;
+        this.kweets = kweets;
     }
 
     public UUID getId() {
@@ -36,6 +41,6 @@ public class Trend {
     }
 
     public List<Kweet> getKweets() {
-        return Kweets;
+        return kweets;
     }
 }

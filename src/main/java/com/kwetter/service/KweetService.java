@@ -8,6 +8,7 @@ import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,9 +31,10 @@ public class KweetService {
         return kweetDAO.findById(id);
     }
 
-    public boolean createKweet(Kweet kweet){
+    @Transactional
+    public Kweet createKweet(Kweet kweet){
         kweet.getMentions().addAll(getMentionsForKweet(kweet.getMessage()));
-        return kweetDAO.add(kweet) != null;
+        return kweetDAO.add(kweet);
     }
 
     public List<Kweet> getAllKweets(){
@@ -54,11 +56,11 @@ public class KweetService {
     }
 
     private List<User> getMentionsForKweet(String message) {
-        Pattern pattern = Pattern.compile("(#(\\\\w*[0-9a-zA-Z]))");
+        Pattern pattern = Pattern.compile("(@(\\w*[0-9a-zA-Z]))");
         Matcher matcher = pattern.matcher(message);
         List<String> usernames = new ArrayList<>();
         while(matcher.find()){
-            usernames.add(matcher.group());
+            usernames.add(matcher.group(2));
         }
         List<User> result = new ArrayList<>();
         for(String username : usernames){
@@ -68,16 +70,6 @@ public class KweetService {
     }
 
     private List<Trend> getTrendsForKweet(String message) {
-        Pattern pattern = Pattern.compile("(@(\\\\w*[0-9a-zA-Z]))");
-        Matcher matcher = pattern.matcher(message);
-        List<String> usernames = new ArrayList<>();
-        while(matcher.find()){
-            usernames.add(matcher.group());
-        }
-        List<User> result = new ArrayList<>();
-        for(String username : usernames){
-            result.add(userDAO.findByUsername(username));
-        }
-        return result;
+        return null;
     }
 }

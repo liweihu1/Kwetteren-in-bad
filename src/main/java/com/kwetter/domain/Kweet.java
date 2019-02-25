@@ -28,17 +28,14 @@ public class Kweet {
     private Date dateCreated;
     @UpdateTimestamp
     private Date dateUpdated;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "mentionedKweets")
     @OrderBy(value = "username DESC")
-    @JsonIgnore
     private List<User> mentions;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "heartedKweets")
     @OrderBy(value = "username DESC")
-    @JsonIgnore
     private List<User> heartedBy;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "kweets")
     @OrderBy(value = "name DESC")
-    @JsonIgnore
     private List<Trend> trends;
     private int reportedAmount;
 

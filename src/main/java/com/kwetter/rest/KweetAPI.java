@@ -88,7 +88,7 @@ public class KweetAPI {
     public KweetDTO createKweet(KweetDTO KweetDTO){
         if (KweetDTO != null){
             User KweetUser = userService.getUserById(UUID.fromString(KweetDTO.getAuthorId()));
-            Kweet Kweet = new Kweet(UUID.randomUUID(), KweetUser, KweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            Kweet Kweet = new Kweet(UUID.randomUUID(), KweetUser, KweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), 0);
             return new KweetDTO(kweetService.createKweet(Kweet));
         }
         return null;

@@ -5,34 +5,41 @@ import com.kwetter.dao.interfaces.KweetDAO;
 import com.kwetter.domain.Kweet;
 
 import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import java.util.List;
 import java.util.UUID;
 
+@Stateless
 @Alternative
 public class KweetDAOMEMImpl implements KweetDAO {
 
-    @EJB
     private MemoryDatabase database;
 
-    @Override
-    public Kweet add(Kweet Kweet) {
-        return null;
+    public KweetDAOMEMImpl(){
+        this.database = MemoryDatabase.getInstance();
     }
 
     @Override
-    public void delete(Kweet Kweet) {
+    public Kweet add(Kweet kweet) {
+        database.getKweets().add(kweet);
+        return kweet;
+    }
+
+    @Override
+    public void delete(Kweet kweet) {
 
     }
 
     @Override
-    public Kweet update(Kweet Kweet) {
+    public Kweet update(Kweet kweet) {
         return null;
     }
 
     @Override
     public Kweet findById(UUID id) {
-        return null;
+        return database.getKweets().stream().filter(k -> k.getId() == id).findAny().orElse(null);
     }
 
     @Override

@@ -3,13 +3,16 @@ package com.kwetter.dao.JPA;
 import com.kwetter.dao.interfaces.KweetDAO;
 import com.kwetter.domain.Kweet;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.UUID;
 
 @Stateless
+@Default
 public class KweetDAOJPAImpl implements KweetDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

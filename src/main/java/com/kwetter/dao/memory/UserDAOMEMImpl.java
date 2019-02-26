@@ -6,19 +6,20 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import javax.ejb.EJB;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+@Stateless
 @Alternative
 public class UserDAOMEMImpl implements UserDAO {
-
-    @EJB
     private MemoryDatabase database;
 
     public UserDAOMEMImpl(){
-
+        this.database = MemoryDatabase.getInstance();
     }
 
     @Override

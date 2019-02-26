@@ -9,11 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Singleton
 public class MemoryDatabase {
+    private static MemoryDatabase instance;
     protected List<User> users;
     protected List<Kweet> Kweets;
     protected List<Trend> trends;
+
+    public MemoryDatabase(){
+        clearData();
+    }
 
     public void clearData(){
         this.users = new ArrayList<>();
@@ -35,5 +39,12 @@ public class MemoryDatabase {
 
     public User getUserById(UUID id){
         return this.users.stream().filter(user -> user.getId() == id).findAny().orElse(null);
+    }
+
+    public static MemoryDatabase getInstance(){
+        if (instance == null){
+            instance = new MemoryDatabase();
+        }
+        return instance;
     }
 }

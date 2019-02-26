@@ -4,15 +4,17 @@ import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
 @Stateless
+@Default
 public class UserDAOJPAImpl implements UserDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

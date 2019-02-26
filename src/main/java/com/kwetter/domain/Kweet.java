@@ -42,6 +42,18 @@ public class Kweet {
 
     }
 
+    /**
+     * Creates a kweet based on the given parameters.
+     * @param id the new id
+     * @param author the author
+     * @param message the message
+     * @param dateCreated the date created
+     * @param dateUpdated the date updated
+     * @param mentions the mentions list
+     * @param heartedBy the hearted by list
+     * @param trends the trends list
+     * @param reportedAmount the amount of times the kweet has been reported
+     */
     public Kweet(UUID id, User author, String message, Date dateCreated, Date dateUpdated, List<User> mentions, List<User> heartedBy, List<Trend> trends, int reportedAmount){
         this.id = id;
         this.author = author;

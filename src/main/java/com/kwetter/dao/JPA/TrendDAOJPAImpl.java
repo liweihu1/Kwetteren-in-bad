@@ -4,11 +4,13 @@ import com.kwetter.dao.interfaces.TrendDAO;
 import com.kwetter.domain.Trend;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.UUID;
 
 @Stateless
+@Default
 public class TrendDAOJPAImpl implements TrendDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

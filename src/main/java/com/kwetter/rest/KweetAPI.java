@@ -1,17 +1,16 @@
 package com.kwetter.rest;
 
 import com.kwetter.domain.Kweet;
-import com.kwetter.domain.User;
 import com.kwetter.dto.KweetDTO;
+import com.kwetter.interceptor.AuthInterceptor;
 import com.kwetter.service.KweetService;
-import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -78,11 +77,12 @@ public class KweetAPI {
     }
 
     @POST
-    @Path("/create")
+    @Path("/create/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public KweetDTO createKweet(KweetDTO kweetDTO){
+    @Interceptors(AuthInterceptor.class)
+    public KweetDTO createKweet(@PathParam("id") UUID userId, KweetDTO kweetDTO){
         if (kweetDTO != null){
             return new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthorId()));
         }

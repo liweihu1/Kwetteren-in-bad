@@ -23,6 +23,7 @@ public class Token {
     }
 
     public Token(User user){
+        this.id = UUID.randomUUID();
         this.user = user;
         this.expireDate = new Date(new Date().getTime() + 50000L);
     }

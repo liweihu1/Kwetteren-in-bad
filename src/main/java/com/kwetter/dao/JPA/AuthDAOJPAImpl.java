@@ -28,6 +28,10 @@ public class AuthDAOJPAImpl implements AuthDAO {
 
     @Override
     public Token findTokenForUser(UUID userId) {
-        return em.createNamedQuery("token.getTokenByUserId", Token.class).setParameter("userId", userId).getResultList().get(0);
+        try{
+            return em.createNamedQuery("token.getTokenByUserId", Token.class).setParameter("userId", userId).getResultList().get(0);
+        } catch (Exception e){
+            return null;
+        }
     }
 }

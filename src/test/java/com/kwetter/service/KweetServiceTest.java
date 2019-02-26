@@ -9,10 +9,7 @@ import com.kwetter.dao.interfaces.KweetDAO;
 import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.dao.memory.KweetDAOMEMImpl;
 import com.kwetter.dao.memory.UserDAOMEMImpl;
-import com.kwetter.domain.Kweet;
-import com.kwetter.domain.Role;
-import com.kwetter.domain.Trend;
-import com.kwetter.domain.User;
+import com.kwetter.domain.*;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -46,7 +43,7 @@ public class KweetServiceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClasses(KweetService.class, Kweet.class, KweetDAO.class, UserDAO.class, User.class, Trend.class, Role.class, KweetDAOMEMImpl.class, KweetDAOJPAImpl.class, UserDAOMEMImpl.class, UserDAOJPAImpl.class, MemoryDatabase.class, UserService.class, AuthDAO.class, AuthDAOJPAImpl.class)
+                .addClasses(KweetService.class, Kweet.class, KweetDAO.class, UserDAO.class, User.class, Trend.class, Role.class, KweetDAOMEMImpl.class, KweetDAOJPAImpl.class, UserDAOMEMImpl.class, UserDAOJPAImpl.class, MemoryDatabase.class, UserService.class, AuthDAO.class, AuthDAOJPAImpl.class, Token.class)
                 .addPackages(true, KweetService.class.getPackage())
                 .addAsResource("META-INF/persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");

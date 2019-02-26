@@ -39,7 +39,7 @@ public class User {
     @JsonIgnore
     private Set<User> following;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
     @OneToMany

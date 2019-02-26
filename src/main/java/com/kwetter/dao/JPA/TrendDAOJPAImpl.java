@@ -17,8 +17,12 @@ public class TrendDAOJPAImpl implements TrendDAO {
 
     @Override
     public Trend add(Trend trend) {
-        em.persist(trend);
-        return trend;
+        try {
+            em.persist(trend);
+            return trend;
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -28,12 +32,20 @@ public class TrendDAOJPAImpl implements TrendDAO {
 
     @Override
     public Trend findById(UUID id) {
-        return em.find(Trend.class, id);
+        try {
+            return em.find(Trend.class, id);
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public Trend update(Trend trend) {
-        return em.merge(trend);
+        try {
+            return em.merge(trend);
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override

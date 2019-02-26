@@ -69,13 +69,13 @@ public class UserService {
         return user;
     }
 
-    public boolean unFollowInfoUserWithUsername(UUID userId, String username){
+    public boolean unFollowUserWithUsername(UUID userId, String username){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findByUsername(username);
         return stopFollowingUser(curUser, followUser);
     }
 
-    public boolean unFollowInfoUserWithId(UUID userId, UUID followId){
+    public boolean unFollowUserWithId(UUID userId, UUID followId){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findById(followId);
         return stopFollowingUser(curUser, followUser);

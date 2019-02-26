@@ -120,9 +120,9 @@ public class UserAPI {
         if (!unFollowInfo.getUserId().isEmpty()){
             UUID id = UUID.fromString(unFollowInfo.getUserId());
             if (!unFollowInfo.getUsername().isEmpty()){
-                return this.userService.unFollowInfoUserWithUsername(id, unFollowInfo.getUsername());
+                return this.userService.unFollowUserWithUsername(id, unFollowInfo.getUsername());
             } else if (!unFollowInfo.getFollowingId().isEmpty()){
-                return this.userService.unFollowInfoUserWithId(id, UUID.fromString(unFollowInfo.getFollowingId()));
+                return this.userService.unFollowUserWithId(id, UUID.fromString(unFollowInfo.getFollowingId()));
             }
         }
         return false;

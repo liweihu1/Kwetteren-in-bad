@@ -21,8 +21,12 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public User add(User user) {
-        em.persist(user);
-        return user;
+        try {
+            em.persist(user);
+            return user;
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -38,27 +42,47 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public List<User> getAllUsers() {
-        return em.createNamedQuery("user.getAllUsers", User.class).getResultList();
+        try {
+            return em.createNamedQuery("user.getAllUsers", User.class).getResultList();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public User findById(UUID id) {
-        return em.find(User.class, id);
+        try {
+            return em.find(User.class, id);
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public User findByUsername(String username) {
-        return em.createNamedQuery("user.findByUsername", User.class).setParameter("username", username).getSingleResult();
+        try {
+            return em.createNamedQuery("user.findByUsername", User.class).setParameter("username", username).getSingleResult();
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public Set<User> getFollowing(UUID id) {
-        return em.find(User.class, id).getFollowing();
+        try {
+            return em.find(User.class, id).getFollowing();
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
     public Set<User> getFollowers(UUID id) {
-        return em.find(User.class, id).getFollowers();
+        try {
+            return em.find(User.class, id).getFollowers();
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -69,7 +93,11 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public User update(User user) {
-        return em.merge(user);
+        try {
+            return em.merge(user);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

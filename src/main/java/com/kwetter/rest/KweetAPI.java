@@ -20,9 +20,6 @@ public class KweetAPI {
     @Inject
     private KweetService kweetService;
 
-    @Inject
-    private UserService userService;
-
     public KweetAPI(){
     }
 
@@ -85,19 +82,17 @@ public class KweetAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public KweetDTO createKweet(KweetDTO KweetDTO){
-        if (KweetDTO != null){
-            User KweetUser = userService.getUserById(UUID.fromString(KweetDTO.getAuthorId()));
-            Kweet Kweet = new Kweet(UUID.randomUUID(), KweetUser, KweetDTO.getMessage(), new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), 0);
-            return new KweetDTO(kweetService.createKweet(Kweet));
+    public KweetDTO createKweet(KweetDTO kweetDTO){
+        if (kweetDTO != null){
+            return new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthorId()));
         }
         return null;
     }
 
-    private List<KweetDTO> convertKweetListToKweetDTOList(List<Kweet> Kweets){
-        if (Kweets.size() > 0){
+    private List<KweetDTO> convertKweetListToKweetDTOList(List<Kweet> kweets){
+        if (kweets.size() > 0){
             List<KweetDTO> results = new ArrayList<>();
-            for (Kweet t : Kweets){
+            for (Kweet t : kweets){
                 results.add(new KweetDTO(t));
             }
             return results;

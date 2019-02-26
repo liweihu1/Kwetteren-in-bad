@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -33,9 +34,8 @@ public class KweetService {
     }
 
     @Transactional
-    public Kweet createKweet(Kweet kweet){
-        kweet.getMentions().addAll(getMentionsForKweet(kweet.getMessage()));
-        return kweetDAO.add(kweet);
+    public Kweet createKweet(String message, String authorId){
+        return kweetDAO.add(new Kweet(UUID.randomUUID(), userDAO.findById(UUID.fromString(authorId)), message, new Date(), new Date(), getMentionsForKweet(message), new ArrayList<>(), new ArrayList<>(), 0));
     }
 
     public List<Kweet> getAllKweets(){

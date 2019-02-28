@@ -85,6 +85,8 @@ public abstract class KweetDAOTest {
         if (userDAO.findById(testUser3.getId()) != null){
             userDAO.delete(testUser3);
         }
+
+        userDAO.clearData();
     }
 
     @Test

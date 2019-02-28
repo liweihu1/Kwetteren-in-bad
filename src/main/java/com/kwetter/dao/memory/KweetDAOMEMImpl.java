@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.UUID;
 
@@ -75,5 +76,10 @@ public class KweetDAOMEMImpl implements KweetDAO {
     @Override
     public void clearData() {
 
+    }
+
+    @Override
+    public void setEm(EntityManager em) {
+        // TODO
     }
 }

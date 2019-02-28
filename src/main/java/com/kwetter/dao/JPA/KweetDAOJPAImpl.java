@@ -105,4 +105,9 @@ public class KweetDAOJPAImpl implements KweetDAO {
     public void clearData() {
         em.clear();
     }
+
+    @Override
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
 }

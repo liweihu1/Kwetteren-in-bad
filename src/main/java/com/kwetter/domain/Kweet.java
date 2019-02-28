@@ -86,6 +86,10 @@ public class Kweet {
         return dateUpdated;
     }
 
+    public void setDateUpdated(Date dateUpdated) {
+        this.dateUpdated = dateUpdated;
+    }
+
     public List<User> getMentions() {
         return mentions;
     }

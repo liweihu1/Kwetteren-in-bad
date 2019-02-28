@@ -2,6 +2,7 @@ package com.kwetter.dao.interfaces;
 
 import com.kwetter.domain.Kweet;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.UUID;
 
@@ -78,4 +79,6 @@ public interface KweetDAO{
      * Clears the data.
      */
     void clearData();
+
+    void setEm(EntityManager em);
 }

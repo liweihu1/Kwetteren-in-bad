@@ -5,8 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.persistence.EntityManager;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;

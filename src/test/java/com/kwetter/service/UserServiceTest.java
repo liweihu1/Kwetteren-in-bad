@@ -103,6 +103,7 @@ public class UserServiceTest {
     }
 
     @Test
+    @Transactional
     public void followUserWithId() {
         this.userService.followUserWithId(testUser2.getId(), testUser1.getId());
         UserDTO testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
@@ -128,22 +129,24 @@ public class UserServiceTest {
     }
 
     @Test
+    @Transactional
     public void unFollowUserWithUsername() {
         this.userService.followUserWithUsername(testUser2.getId(), testUser1.getUsername());
-        UserDTO testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
+        UserDTO testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
         assertEquals(1, testUser.getFollowing());
         this.userService.unFollowUserWithUsername(testUser2.getId(), testUser1.getUsername());
-        testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
+        testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
         assertEquals(0, testUser.getFollowing());
     }
 
     @Test
+    @Transactional
     public void unFollowUserWithId() {
-        this.userService.followUserWithId(testUser2.getId(), testUser1.getId());
-        UserDTO testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
+        this.userService.followUserWithId(testUser3.getId(), testUser1.getId());
+        UserDTO testUser = new UserDTO(this.userService.getUserById(testUser3.getId()));
         assertEquals(1, testUser.getFollowing());
-        this.userService.unFollowUserWithId(testUser2.getId(), testUser1.getId());
-        testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
+        this.userService.unFollowUserWithId(testUser3.getId(), testUser1.getId());
+        testUser = new UserDTO(this.userService.getUserById(testUser3.getId()));
         assertEquals(0, testUser.getFollowing());
     }
 }

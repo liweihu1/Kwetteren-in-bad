@@ -7,8 +7,10 @@ import com.kwetter.domain.User;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -103,5 +105,10 @@ public class UserDAOJPAImpl implements UserDAO {
     @Override
     public void clearData() {
         em.clear();
+    }
+
+    @Override
+    public void setEm(EntityManager em){
+        this.em = em;
     }
 }

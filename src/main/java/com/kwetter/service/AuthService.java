@@ -23,4 +23,11 @@ public class AuthService {
         }
         return result;
     }
+
+    public void removeTokenforUser(UUID userId){
+        Token result = authDAO.findTokenForUser(userId);
+        if (result != null){
+            authDAO.removeToken(result);
+        }
+    }
 }

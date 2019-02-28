@@ -9,6 +9,7 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -27,6 +28,7 @@ public class UserDAOMEMImpl implements UserDAO {
         try{
             database.getUsers().add(user);
             return user;
+//            return database.getUserByUsername(user.getUsername());
         } catch (Exception e){
             return null;
         }
@@ -63,7 +65,7 @@ public class UserDAOMEMImpl implements UserDAO {
 
     @Override
     public User findByUsername(String username) {
-        return null;
+        return database.getUserByUsername(username);
     }
 
     @Override
@@ -84,5 +86,10 @@ public class UserDAOMEMImpl implements UserDAO {
     @Override
     public void clearData() {
         database.clearData();
+    }
+
+    @Override
+    public void setEm(EntityManager em){
+        // TODO
     }
 }

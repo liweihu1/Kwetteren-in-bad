@@ -1,6 +1,8 @@
 package com.kwetter.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
@@ -25,7 +27,7 @@ public class User {
     private String website;
     private String location;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "User_Following",
             joinColumns = @JoinColumn(name = "follower_id", referencedColumnName = "id"),
@@ -34,16 +36,18 @@ public class User {
     @JsonIgnore
     private Set<User> followers;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "followers")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "followers", fetch = FetchType.EAGER)
     @OrderBy(value = "username DESC")
     @JsonIgnore
     private Set<User> following;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Role> roles;
 
     @OneToMany
     @JsonIgnore
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Kweet> Kweets;
 
     @ManyToMany(cascade = CascadeType.ALL)

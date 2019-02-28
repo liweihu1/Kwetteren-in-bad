@@ -1,10 +1,26 @@
 package com.kwetter.dao.interfaces;
 
+import com.kwetter.domain.*;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+public abstract class KweetDAOTest {
 
-public class KweetDAOTest {
+    private static KweetDAO kweetDAO;
+
+    private Kweet testKweet1;
+    private Kweet testKweet2;
+    private Kweet testKweet3;
+
+    protected static void setKweetDAO(KweetDAO kweetDAO) {
+        KweetDAOTest.kweetDAO = kweetDAO;
+    }
+
+
+    @Before
+    public void setup(){
+
+    }
 
     @Test
     public void add() {

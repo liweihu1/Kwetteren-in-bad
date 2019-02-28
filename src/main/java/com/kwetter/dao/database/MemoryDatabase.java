@@ -41,6 +41,10 @@ public class MemoryDatabase {
         return this.users.stream().filter(user -> user.getId() == id).findAny().orElse(null);
     }
 
+    public User getUserByUsername(String username){
+        return this.users.stream().filter(user -> user.getUsername().equals(user)).findAny().orElse(null);
+    }
+
     public static MemoryDatabase getInstance(){
         if (instance == null){
             instance = new MemoryDatabase();

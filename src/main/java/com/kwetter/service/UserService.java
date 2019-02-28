@@ -6,6 +6,8 @@ import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import java.util.List;
 import java.util.UUID;
 

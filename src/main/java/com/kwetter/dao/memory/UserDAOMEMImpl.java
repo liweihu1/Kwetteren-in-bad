@@ -69,17 +69,17 @@ public class UserDAOMEMImpl implements UserDAO {
     }
 
     @Override
-    public Set<User> getFollowing(UUID id) {
-        return null;
-    }
-
-    @Override
-    public Set<User> getFollowers(UUID id) {
-        return null;
-    }
-
-    @Override
     public List<Kweet> getUserMentions(User user) {
+        return null;
+    }
+
+    @Override
+    public List<User> getFollowersForUserWithId(UUID id) {
+        return null;
+    }
+
+    @Override
+    public List<User> getFollowingForUserWithId(UUID id) {
         return null;
     }
 

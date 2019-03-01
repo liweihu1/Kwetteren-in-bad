@@ -57,25 +57,25 @@ public interface UserDAO {
     User findByUsername(String username);
 
     /**
-     * Get the following list of the given user ID.
-     * @param id The Id of the user.
-     * @return A list of all the people they're following.
-     */
-    Set<User> getFollowing(UUID id);
-
-    /**
-     * Get the followers list of the given user ID.
-     * @param id The Id of the user.
-     * @return A list of all the people that follow the user.
-     */
-    Set<User> getFollowers(UUID id);
-
-    /**
      * Get all the Kweets that the user has been mentioned in.
      * @param user The user to find.
      * @return A list of all the Kweets the user is mentioned in.
      */
     List<Kweet> getUserMentions(User user);
+
+    /**
+     * Get all the users that the user with the given id is followed by.
+     * @param id The user id.
+     * @return List of all the users that are following the user.
+     */
+    List<User> getFollowersForUserWithId(UUID id);
+
+    /**
+     * Get all the users that the user with the given id is following.
+     * @param id The user id.
+     * @return List of all the users that are being followed.
+     */
+    List<User> getFollowingForUserWithId(UUID id);
 
     /**
      * Clears the data.

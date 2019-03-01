@@ -31,7 +31,7 @@ public class KweetDAOMEMImpl implements KweetDAO {
 
     @Override
     public void delete(Kweet kweet) {
-
+        database.getKweets().stream().filter(k -> k.getId() == kweet.getId()).findAny().ifPresent(dbKweet -> database.getKweets().remove(dbKweet));
     }
 
     @Override
@@ -72,7 +72,12 @@ public class KweetDAOMEMImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getKweetForUserIdWithFollowers(UUID id) {
-        return database.getKweets().stream().filter(k -> k.getAuthor().getId() == id || database.getUserById(id).getFollowers().contains(k.getAuthor())).collect(Collectors.toList());
+        List<Kweet> result = new ArrayList<>();
+        result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList()));
+        for (User u : database.getUserById(id).getFollowing()) {
+            result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == u.getId()).collect(Collectors.toList()));
+        }
+        return result;
     }
 
     @Override

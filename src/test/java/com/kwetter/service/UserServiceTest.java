@@ -149,4 +149,16 @@ public class UserServiceTest {
         testUser = new UserDTO(this.userService.getUserById(testUser3.getId()));
         assertEquals(0, testUser.getFollowing());
     }
+
+    @Test
+    public void getFollowersForUserWithId() {
+        this.userService.followUserWithId(testUser3.getId(), testUser1.getId());
+        assertEquals(1, userService.getFollowersForUserWithId(testUser1.getId()).size());
+    }
+
+    @Test
+    public void getFollowingForUserWithId() {
+        this.userService.followUserWithId(testUser3.getId(), testUser1.getId());
+        assertEquals(1, userService.getFollowingForUserWithId(testUser3.getId()).size());
+    }
 }

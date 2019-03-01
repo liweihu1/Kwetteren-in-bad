@@ -103,7 +103,9 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public void clearData() {
-        em.clear();
+        if(em.isOpen()){
+            em.clear();
+        }
     }
 
     @Override

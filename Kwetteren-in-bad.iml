@@ -28,7 +28,7 @@
           <factory-entry name="JavaHelps" />
           <factory-entry name="Kwetter" />
           <factory-entry name="kwetterPU" />
-          <factory-entry name="kwetterTestPU" />
+          <factory-entry name="kwetterTestPU" value="084fd423-a9da-4c5d-ba5a-482f23885b8f" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>

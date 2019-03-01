@@ -70,27 +70,27 @@ public class UserDAOJPAImpl implements UserDAO {
     }
 
     @Override
-    public Set<User> getFollowing(UUID id) {
-        try {
-            return em.find(User.class, id).getFollowing();
-        } catch (Exception e){
-            return null;
-        }
-    }
-
-    @Override
-    public Set<User> getFollowers(UUID id) {
-        try {
-            return em.find(User.class, id).getFollowers();
-        } catch (Exception e){
-            return null;
-        }
-    }
-
-    @Override
     public List<Kweet> getUserMentions(User user) {
         //TODO ADD NAMED QUERY FOR THIS
         return null;
+    }
+
+    @Override
+    public List<User> getFollowersForUserWithId(UUID id) {
+        try {
+            return em.createNamedQuery("user.getFollowersForId", User.class).getResultList();
+        } catch (Exception e){
+            return null;
+        }
+    }
+
+    @Override
+    public List<User> getFollowingForUserWithId(UUID id) {
+        try {
+            return em.createNamedQuery("user.getFollowingForId", User.class).getResultList();
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override
@@ -104,7 +104,9 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public void clearData() {
-        em.clear();
+        if(em.getTransaction().isActive()){
+            em.clear();
+        }
     }
 
     @Override

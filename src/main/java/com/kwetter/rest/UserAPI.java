@@ -41,19 +41,25 @@ public class UserAPI {
     }
 
     @GET
+    @Path("/followers/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserDTO> getFollowersForUserWithId(@PathParam("id") UUID id){
+        return convertUserListToUserDTOList(userService.getFollowersForUserWithId(id));
+    }
+
+    @GET
+    @Path("/following/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserDTO> getFollowingForUserWithId(@PathParam("id") UUID id){
+        return convertUserListToUserDTOList(userService.getFollowingForUserWithId(id));
+    }
+
+    @GET
     @Path("/")
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserDTO> getAllUsers(){
-        List<User> users = this.userService.getAllUsers();
-        if (users != null && users.size() > 0){
-            List<UserDTO> dtoUsers = new ArrayList<>();
-            for(User u : users){
-                dtoUsers.add(new UserDTO(u));
-            }
-            return dtoUsers;
-        }
-        return new ArrayList<>();
+        return convertUserListToUserDTOList(this.userService.getAllUsers());
     }
 
     @PUT
@@ -116,15 +122,23 @@ public class UserAPI {
     @POST
     @Path("/unfollow")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean unFollowUser(FollowDTO unFollowInfo){
+    public UserDTO unFollowUser(FollowDTO unFollowInfo){
         if (!unFollowInfo.getUserId().isEmpty()){
             UUID id = UUID.fromString(unFollowInfo.getUserId());
             if (!unFollowInfo.getUsername().isEmpty()){
-                return this.userService.unFollowUserWithUsername(id, unFollowInfo.getUsername());
+                return new UserDTO(this.userService.unFollowUserWithUsername(id, unFollowInfo.getUsername()));
             } else if (!unFollowInfo.getFollowingId().isEmpty()){
-                return this.userService.unFollowUserWithId(id, UUID.fromString(unFollowInfo.getFollowingId()));
+                return new UserDTO(this.userService.unFollowUserWithId(id, UUID.fromString(unFollowInfo.getFollowingId())));
             }
         }
-        return false;
+        return null;
+    }
+
+    private List<UserDTO> convertUserListToUserDTOList(List<User> users) {
+        List<UserDTO> dtoUsers = new ArrayList<>();
+        for(User u : users){
+            dtoUsers.add(new UserDTO(u));
+        }
+        return dtoUsers;
     }
 }

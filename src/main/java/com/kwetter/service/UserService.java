@@ -49,15 +49,13 @@ public class UserService {
     public User followUserWithId(UUID userId, UUID followId){
         User curUser = userDAO.findById(userId);
         User userToFollow = userDAO.findById(followId);
-        followUser(curUser, userToFollow);
-        return curUser;
+        return followUser(curUser, userToFollow);
     }
 
     public User followUserWithUsername(UUID userId, String username){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findByUsername(username);
-        followUser(curUser, followUser);
-        return curUser;
+        return followUser(curUser, followUser);
     }
 
     public User addRolesToUser(UUID userId, List<Role> roles){
@@ -71,42 +69,50 @@ public class UserService {
         return user;
     }
 
-    public boolean unFollowUserWithUsername(UUID userId, String username){
+    public User unFollowUserWithUsername(UUID userId, String username){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findByUsername(username);
         return stopFollowingUser(curUser, followUser);
     }
 
-    public boolean unFollowUserWithId(UUID userId, UUID followId){
+    public User unFollowUserWithId(UUID userId, UUID followId){
         User curUser = userDAO.findById(userId);
         User followUser = userDAO.findById(followId);
         return stopFollowingUser(curUser, followUser);
     }
 
-    private boolean stopFollowingUser(User follower, User following){
+    public List<User> getFollowersForUserWithId(UUID id){
+        return userDAO.getFollowersForUserWithId(id);
+    }
+
+    public List<User> getFollowingForUserWithId(UUID id){
+        return userDAO.getFollowingForUserWithId(id);
+    }
+
+    private User stopFollowingUser(User follower, User following){
         try {
             follower.getFollowing().remove(following);
             following.getFollowers().remove(follower);
             userDAO.update(follower);
             userDAO.update(following);
-            return true;
+            return follower;
         } catch (Exception e){
-            return false;
+            return null;
         }
     }
 
-    private boolean followUser(User follower, User following){
+    private User followUser(User follower, User following){
         try {
             if (following != follower && !follower.getFollowing().contains(following)) {
                 follower.getFollowing().add(following);
                 following.getFollowers().add(follower);
                 userDAO.update(follower);
                 userDAO.update(following);
-                return true;
+                return follower;
             }
-            return false;
+            return null;
         } catch (Exception e){
-            return false;
+            return null;
         }
     }
 }

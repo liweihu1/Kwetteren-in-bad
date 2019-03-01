@@ -17,7 +17,6 @@ public abstract class KweetDAOTest {
     private static KweetDAO kweetDAO;
     private static UserDAO userDAO;
 
-
     private UUID testKweetId;
     private String testMessage;
     private Date testDate;
@@ -87,6 +86,7 @@ public abstract class KweetDAOTest {
         }
 
         userDAO.clearData();
+        kweetDAO.clearData();
     }
 
     @Test
@@ -141,7 +141,7 @@ public abstract class KweetDAOTest {
         testKweet2 = kweetDAO.add(testKweet2);
         testKweet3 = kweetDAO.add(testKweet3);
 
-        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowers(testUser1.getId()).size());
+        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowers(testUser3.getId()).size());
     }
 
     @Test

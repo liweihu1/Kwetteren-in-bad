@@ -45,4 +45,8 @@ public class KweetDAOJPAImplTest extends KweetDAOTest {
         }
         super.teardown();
     }
+
+    public static EntityManager getEm(){
+        return em;
+    }
 }

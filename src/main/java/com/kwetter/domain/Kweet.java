@@ -13,7 +13,7 @@ import java.util.UUID;
         @NamedQuery(name = "kweet.getLatestForUser", query = "SELECT t FROM Kweet t WHERE t.author.id = :userId ORDER BY t.dateCreated DESC"),
         @NamedQuery(name = "kweet.getAllKweets", query = "SELECT t FROM Kweet t"),
         @NamedQuery(name = "kweet.getKweetWithMessage", query = "SELECT t FROM Kweet t WHERE t.message LIKE :search"),
-        @NamedQuery(name = "kweet.getKweetForUserAndFollowing", query = "SELECT  t FROM Kweet t WHERE t.author.id = :userId OR t.author.id IN (SELECT f1.id FROM User u1 INNER JOIN u1.following f1 WHERE u1.id = :userId) ORDER BY t.dateCreated DESC")
+        @NamedQuery(name = "kweet.getKweetForUserAndFollowing", query = "SELECT  t FROM Kweet t WHERE t.author.id = :userId1 OR t.author.id IN (SELECT f1.id FROM User u1 INNER JOIN u1.following f1 WHERE u1.id = :userId2) ORDER BY t.dateCreated DESC")
 })
 public class Kweet {
     @Id

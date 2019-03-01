@@ -39,4 +39,8 @@ public class UserDAOJPAImplTest extends UserDAOTest{
         }
         super.teardown();
     }
+
+    public static EntityManager getEm(){
+        return em;
+    }
 }

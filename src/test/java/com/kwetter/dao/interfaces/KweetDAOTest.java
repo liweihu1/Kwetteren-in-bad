@@ -1,5 +1,6 @@
 package com.kwetter.dao.interfaces;
 
+import com.kwetter.dao.JPA.UserDAOJPAImpl;
 import com.kwetter.domain.*;
 import org.junit.After;
 import org.junit.Before;
@@ -41,25 +42,26 @@ public abstract class KweetDAOTest {
 
     @Before
     public void setup(){
-        testKweetId = UUID.randomUUID();
         testMessage = "This is a great test message.";
         testDate = new Date();
         testDate2 = new Date();
 
         this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<User>() {{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
         this.testUser1 = userDAO.add(testUser1);
-
-        this.testKweet1 = new Kweet(testKweetId, testUser1, testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
-        this.testKweet2 = new Kweet(UUID.randomUUID(), testUser2, testMessage + " test 2", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
-        this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
-
+        this.testKweet1 = new Kweet(UUID.randomUUID(), testUser1, testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet1 = kweetDAO.add(testKweet1);
+
+        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         this.testUser2 = userDAO.add(testUser2);
-        this.testUser3 = userDAO.add(testUser3);
+
+        this.testKweet2 = new Kweet(UUID.randomUUID(), testUser2, testMessage + " test 2", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet2 = kweetDAO.add(testKweet2);
+
+        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<User>() , new HashSet<User>(){{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser3 = userDAO.add(testUser3);
+
+        this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet3 = kweetDAO.add(testKweet3);
     }
 

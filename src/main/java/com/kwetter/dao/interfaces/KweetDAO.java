@@ -59,7 +59,7 @@ public interface KweetDAO{
      * @param id the id of the user.
      * @return List of kweets.
      */
-    List<Kweet> getKweetForUserIdWithFollowers(UUID id);
+    List<Kweet> getKweetForUserIdWithFollowing(UUID id);
 
     /**
      * Returns a list with the 10 most recent Kweets.

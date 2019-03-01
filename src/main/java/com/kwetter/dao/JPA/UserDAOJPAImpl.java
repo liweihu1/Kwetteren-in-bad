@@ -78,7 +78,7 @@ public class UserDAOJPAImpl implements UserDAO {
     @Override
     public List<User> getFollowersForUserWithId(UUID id) {
         try {
-            return em.createNamedQuery("user.getFollowersForId", User.class).getResultList();
+            return em.createNamedQuery("user.getFollowersForId", User.class).setParameter("userId", id).getResultList();
         } catch (Exception e){
             return null;
         }
@@ -87,7 +87,7 @@ public class UserDAOJPAImpl implements UserDAO {
     @Override
     public List<User> getFollowingForUserWithId(UUID id) {
         try {
-            return em.createNamedQuery("user.getFollowingForId", User.class).getResultList();
+            return em.createNamedQuery("user.getFollowingForId", User.class).setParameter("userId", id).getResultList();
         } catch (Exception e){
             return null;
         }

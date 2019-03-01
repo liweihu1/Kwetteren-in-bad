@@ -47,7 +47,7 @@ public class KweetService {
     }
 
     public List<Kweet> getKweetsByUserIdWithFollowing(UUID id){
-        return kweetDAO.getKweetForUserIdWithFollowers(id);
+        return kweetDAO.getKweetForUserIdWithFollowing(id);
     }
 
     public Kweet removeKweetById(UUID id) {

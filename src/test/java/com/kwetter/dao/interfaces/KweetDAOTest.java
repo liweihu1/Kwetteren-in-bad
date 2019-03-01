@@ -57,6 +57,10 @@ public abstract class KweetDAOTest {
         this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
 
         this.testKweet1 = kweetDAO.add(testKweet1);
+        this.testUser2 = userDAO.add(testUser2);
+        this.testUser3 = userDAO.add(testUser3);
+        this.testKweet2 = kweetDAO.add(testKweet2);
+        this.testKweet3 = kweetDAO.add(testKweet3);
     }
 
     @After
@@ -91,13 +95,11 @@ public abstract class KweetDAOTest {
 
     @Test
     public void add() {
-        testKweet2 = kweetDAO.add(testKweet2);
         assertNotNull("Test kweet was not added.", kweetDAO.findById(testKweet2.getId()));
     }
 
     @Test
     public void delete() {
-        testKweet3 = kweetDAO.add(testKweet3);
         kweetDAO.delete(testKweet3);
         assertNull("The test kweet was not removed.", kweetDAO.findById(testKweet3.getId()));
     }
@@ -117,10 +119,6 @@ public abstract class KweetDAOTest {
 
     @Test
     public void getAllKweets() {
-        testUser2 = userDAO.add(testUser2);
-        testUser3 = userDAO.add(testUser3);
-        testKweet2 = kweetDAO.add(testKweet2);
-        testKweet3 = kweetDAO.add(testKweet3);
         assertEquals("Not all kweets were retrieved.", 3, kweetDAO.getAllKweets().size());
     }
 
@@ -136,12 +134,7 @@ public abstract class KweetDAOTest {
 
     @Test
     public void getKweetForUserIdWithFollowers() {
-        testUser2 = userDAO.add(testUser2);
-        testUser3 = userDAO.add(testUser3);
-        testKweet2 = kweetDAO.add(testKweet2);
-        testKweet3 = kweetDAO.add(testKweet3);
-
-        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowers(testUser3.getId()).size());
+        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowing(testUser3.getId()).size());
     }
 
     @Test
@@ -151,12 +144,7 @@ public abstract class KweetDAOTest {
 
     @Test
     public void getKweetThatContainsSearch() {
-        assertEquals("The first set of kweets were not found.",1, kweetDAO.getKweetThatContainsSearch("test").size());
-        testUser2 = userDAO.add(testUser2);
-        testUser3 = userDAO.add(testUser3);
-        testKweet2 = kweetDAO.add(testKweet2);
-        testKweet3 = kweetDAO.add(testKweet3);
-        assertEquals("The second set of kweets were not found.",3, kweetDAO.getKweetThatContainsSearch("test").size());
+        assertEquals("The first set of kweets were not found.",3, kweetDAO.getKweetThatContainsSearch("test").size());
     }
 
     @Test

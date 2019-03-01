@@ -66,7 +66,7 @@ public class KweetDAOJPAImpl implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getKweetForUserIdWithFollowers(UUID id) {
+    public List<Kweet> getKweetForUserIdWithFollowing(UUID id) {
         try {
             return em.createNamedQuery("kweet.getKweetForUserAndFollowing", Kweet.class).setParameter("userId", id).getResultList();
         } catch (Exception e){

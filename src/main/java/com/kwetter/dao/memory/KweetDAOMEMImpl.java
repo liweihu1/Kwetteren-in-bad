@@ -71,7 +71,7 @@ public class KweetDAOMEMImpl implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getKweetForUserIdWithFollowers(UUID id) {
+    public List<Kweet> getKweetForUserIdWithFollowing(UUID id) {
         List<Kweet> result = new ArrayList<>();
         result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList()));
         for (User u : database.getUserById(id).getFollowing()) {

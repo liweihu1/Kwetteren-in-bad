@@ -6,7 +6,7 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Stateless
-@Alternative
+@Named("kweetDAOMEM")
 public class KweetDAOMEMImpl implements KweetDAO {
 
     private MemoryDatabase database;

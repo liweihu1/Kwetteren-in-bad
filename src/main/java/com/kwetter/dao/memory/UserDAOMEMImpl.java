@@ -9,13 +9,14 @@ import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
 @Stateless
-@Alternative
+@Named("userDAOMEM")
 public class UserDAOMEMImpl implements UserDAO {
     private MemoryDatabase database;
 

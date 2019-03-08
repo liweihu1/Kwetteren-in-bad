@@ -4,6 +4,7 @@ import com.kwetter.dao.interfaces.AuthDAO;
 import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.domain.Token;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.UUID;
@@ -13,7 +14,7 @@ public class AuthService {
     @Inject
     private AuthDAO authDAO;
 
-    @Inject
+    @EJB(beanName = "userDAOJPA")
     private UserDAO userDAO;
 
     public Token getTokenForUser(UUID userId){

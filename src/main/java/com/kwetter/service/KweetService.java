@@ -6,6 +6,7 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.Trend;
 import com.kwetter.domain.User;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,10 +20,10 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class KweetService {
-    @Inject
+    @EJB(beanName = "kweetDAOMEM")
     private KweetDAO kweetDAO;
 
-    @Inject
+    @EJB(beanName = "userDAOMEM")
     private UserDAO userDAO;
 
     public List<Kweet> getKweetsForUserId(UUID userId){

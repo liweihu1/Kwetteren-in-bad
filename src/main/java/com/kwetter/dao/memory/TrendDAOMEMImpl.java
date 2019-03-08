@@ -7,10 +7,11 @@ import com.kwetter.domain.Trend;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
+import javax.inject.Named;
 import java.util.UUID;
 
 @Stateless
-@Alternative
+@Named("trendDAOMEM")
 public class TrendDAOMEMImpl implements TrendDAO {
     private MemoryDatabase database;
 

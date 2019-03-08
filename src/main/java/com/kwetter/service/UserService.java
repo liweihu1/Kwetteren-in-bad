@@ -4,8 +4,10 @@ import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Qualifier;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.UUID;
 
 @Stateless
 public class UserService {
-    @Inject
+    @EJB(beanName = "userDAOMEM")
     private UserDAO userDAO;
 
     public User getUserById(UUID id){

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Stateless
-@Named("kweetDAOJPA")
+@Named("KweetDAOJPAImpl")
 public class KweetDAOJPAImpl implements KweetDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

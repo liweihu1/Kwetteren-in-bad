@@ -11,7 +11,7 @@ import javax.inject.Named;
 import java.util.UUID;
 
 @Stateless
-@Named("trendDAOMEM")
+@Named("TrendDAOMEMImpl")
 public class TrendDAOMEMImpl implements TrendDAO {
     private MemoryDatabase database;
 

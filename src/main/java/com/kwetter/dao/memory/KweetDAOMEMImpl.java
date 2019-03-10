@@ -14,7 +14,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Stateless
-@Named("kweetDAOMEM")
+@Named("KweetDAOMEMImpl")
 public class KweetDAOMEMImpl implements KweetDAO {
 
     private MemoryDatabase database;

@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Stateless
 public class UserService {
-    @EJB(beanName = "userDAOMEM")
+    @EJB(beanName = "UserDAOMEMImpl")
     private UserDAO userDAO;
 
     public User getUserById(UUID id){

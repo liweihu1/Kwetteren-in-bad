@@ -16,7 +16,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Stateless
-@Named("userDAOMEM")
+@Named("UserDAOMEMImpl")
 public class UserDAOMEMImpl implements UserDAO {
     private MemoryDatabase database;
 
@@ -27,6 +27,7 @@ public class UserDAOMEMImpl implements UserDAO {
     @Override
     public User add(User user) {
         try{
+            System.out.println("Memory database in use");
             database.getUsers().add(user);
             return user;
 //            return database.getUserByUsername(user.getUsername());

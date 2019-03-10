@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.UUID;
 
 @Stateless
-@Named("authDAOJPA")
+@Named("AuthDAOJPAImpl")
 public class AuthDAOJPAImpl implements AuthDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

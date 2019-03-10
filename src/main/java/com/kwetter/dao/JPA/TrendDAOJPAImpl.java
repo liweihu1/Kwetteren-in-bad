@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.UUID;
 
 @Stateless
-@Named("trendDAOJPA")
+@Named("TrendDAOJPAImpl")
 public class TrendDAOJPAImpl implements TrendDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

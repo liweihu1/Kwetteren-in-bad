@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Stateless
-@Named("userDAOJPA")
+@Named("UserDAOJPAImpl")
 public class UserDAOJPAImpl implements UserDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

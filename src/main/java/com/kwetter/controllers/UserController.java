@@ -1,9 +1,7 @@
 package com.kwetter.controllers;
 
-import javax.faces.bean.RequestScoped;
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
-@RequestScoped
-@Named("User")
+@Model
 public class UserController {
 }

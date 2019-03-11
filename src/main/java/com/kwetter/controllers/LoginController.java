@@ -3,5 +3,6 @@ package com.kwetter.controllers;
 import javax.enterprise.inject.Model;
 
 @Model
-public class TrendController {
+public class LoginController {
+
 }

@@ -39,7 +39,7 @@ public class AuthDAOJPAImpl implements AuthDAO {
     @Override
     public Token login(String username, String password) {
         try {
-            User u = em.find(User.class, username);
+            User u = em.createNamedQuery("token.validateLogin", User.class).setParameter("username", username).getSingleResult();
             if (u != null){
                 return new Token(u);
             }

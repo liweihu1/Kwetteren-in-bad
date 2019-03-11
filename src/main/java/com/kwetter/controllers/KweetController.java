@@ -1,8 +1,8 @@
 package com.kwetter.controllers;
 
 
-import javax.enterprise.inject.Model;
+import javax.faces.bean.ManagedBean;
 
-@Model
+@ManagedBean(name = "kweet")
 public class KweetController {
 }

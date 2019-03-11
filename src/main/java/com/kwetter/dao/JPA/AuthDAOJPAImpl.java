@@ -2,6 +2,7 @@ package com.kwetter.dao.JPA;
 
 import com.kwetter.dao.interfaces.AuthDAO;
 import com.kwetter.domain.Token;
+import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
@@ -30,6 +31,19 @@ public class AuthDAOJPAImpl implements AuthDAO {
     public Token findTokenForUser(UUID userId) {
         try{
             return em.createNamedQuery("token.getTokenByUserId", Token.class).setParameter("userId", userId).getResultList().get(0);
+        } catch (Exception e){
+            return null;
+        }
+    }
+
+    @Override
+    public Token login(String username, String password) {
+        try {
+            User u = em.find(User.class, username);
+            if (u != null){
+                return new Token(u);
+            }
+            return null;
         } catch (Exception e){
             return null;
         }

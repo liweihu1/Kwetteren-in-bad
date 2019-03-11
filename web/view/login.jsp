@@ -11,6 +11,8 @@
     <title>Login</title>
 </head>
 <body>
-    <form action=""
+    <form action="login.login()">
+
+    </form>
 </body>
 </html>

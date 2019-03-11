@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
     <title>$Title$</title>
   </head>
   <body>
-  <a href="login">Login</a>
+    <a href="view/login.jsp">Login</a>
   </body>
 </html>

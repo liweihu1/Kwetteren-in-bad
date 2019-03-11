@@ -6,7 +6,6 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.Trend;
 import com.kwetter.domain.User;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.transaction.Transactional;

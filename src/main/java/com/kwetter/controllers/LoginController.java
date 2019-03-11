@@ -30,7 +30,7 @@ public class LoginController {
         FacesContext context = FacesContext.getCurrentInstance();
         if (token.getUser() != null){
             context.getExternalContext().getSessionMap().put("token", token);
-            return "";
+            return "index?faces-redirect=true";
         } else {
             username = null;
             password = null;

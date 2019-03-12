@@ -7,14 +7,14 @@
     <h:form action="loginController.login()" method="post">
         <h:panelGrid columns="3">
             <h:outputLabel for="usernameInput">Username</h:outputLabel>
-            <h:inputText id="usernameInput" value="#{loginController.username}"></h:inputText>
+            <h:inputText id="usernameInput" value="#{loginController.username}"/>
             <br/>
             <br/>
             <h:outputLabel for="passwordInput">Password</h:outputLabel>
-            <h:inputSecret id="passwordInput" value="#{loginController.password}"></h:inputSecret>
+            <h:inputSecret id="passwordInput" value="#{loginController.password}"/>
             <br/>
             <br/>
-            <h:commandButton value="Submit" action="#{loginController.login}"></h:commandButton>
+            <h:commandButton value="Submit" action="#{loginController.login}"/>
         </h:panelGrid>
     </h:form>
 </f:view>

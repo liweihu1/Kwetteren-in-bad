@@ -2,13 +2,16 @@ package com.kwetter.controllers;
 
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Token;
+import com.kwetter.dto.UserDTO;
 import com.kwetter.service.AuthService;
+import com.kwetter.service.UserService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.util.List;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
@@ -20,6 +23,8 @@ public class LoginController {
     @Inject
     private AuthService authService;
 
+    @Inject
+    private UserService userService;
     public String login(){
         Token token = authService.login(username, password);
         FacesContext context = FacesContext.getCurrentInstance();

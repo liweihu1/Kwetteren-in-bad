@@ -5,7 +5,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
     <ul>
         <ui:repeat value="#{AdminDashboardController.users}" var="user">
             <li>
@@ -14,7 +13,7 @@
                     <ul>
                         <ui:repeat value="#{user.roles}" var="role">
                             <li>
-                                <h:outputLabel value="#{role.toString}" outcome="role"/>
+                                <h:outputLabel value="#{role}" outcome="role"/>
                             </li>
                         </ui:repeat>
                     </ul>

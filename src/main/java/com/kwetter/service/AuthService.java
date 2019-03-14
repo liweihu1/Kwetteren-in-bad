@@ -16,6 +16,11 @@ public class AuthService {
     @Inject
     private UserDAO userDAO;
 
+    public Token login(String username, String password){
+        Token result = authDAO.login(username, password);
+        return authDAO.addToken(result);
+    }
+
     public Token getTokenForUser(UUID userId){
         Token result = authDAO.findTokenForUser(userId);
         if (result == null){

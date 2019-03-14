@@ -1,14 +1,14 @@
 package com.kwetter.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@NamedQuery(name = "token.getTokenByUserId", query = "SELECT t FROM Token t WHERE t.user.id = :userId")
+@NamedQueries({
+    @NamedQuery(name = "token.getTokenByUserId", query = "SELECT t FROM Token t WHERE t.user.id = :userId"),
+    @NamedQuery(name = "token.validateLogin", query = "SELECT u FROM User u WHERE u.username = :username")
+})
 public class Token {
     @Id
     private UUID id;
@@ -38,5 +38,10 @@ public class Token {
 
     public UUID getId() {
         return id;
+    }
+
+    @Override
+    public String toString(){
+        return id + " " + user.getUsername() + " " + expireDate.toString();
     }
 }

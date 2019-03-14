@@ -25,4 +25,12 @@ public interface AuthDAO {
      * @return a token if found, else return null.
      */
     Token findTokenForUser(UUID userId);
+
+    /**
+     * Logs in with the given values and adds a new token.
+     * @param username the username of the user.
+     * @param password the password of the user.
+     * @return Token if successful.
+     */
+    Token login(String username, String password);
 }

@@ -6,20 +6,20 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <ul>
-        <ui:repeat value="#{AdminDashboardController.users}" var="user">
-            <li>
-                <h:link value="#{user.username}:" outcome="user">
-                    <f:param name="id" value="#{user.id}" />
-                    <ul>
-                        <ui:repeat value="#{user.roles}" var="role">
-                            <li>
-                                <h:outputLabel value="#{role}" outcome="role"/>
-                            </li>
-                        </ui:repeat>
-                    </ul>
-                </h:link>
-            </li>
-        </ui:repeat>
-    </ul>
+    <ui:repeat value="#{AdminDashboardController.users}" var="user">
+        <li>
+            <h:link value="#{user.username}:" outcome="kweet_dashboard.xhtml?id=#{user.id}">
+                <f:param name="id" value="#{user.id}" />
+                <ul>
+                    <ui:repeat value="#{user.roles}" var="role">
+                        <li>
+                            <h:outputLabel value="#{role}" outcome="role"/>
+                        </li>
+                    </ui:repeat>
+                </ul>
+            </h:link>
+        </li>
+    </ui:repeat>
+</ul>
 </f:view>
 </html>

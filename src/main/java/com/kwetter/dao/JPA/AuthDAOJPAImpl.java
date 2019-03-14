@@ -18,8 +18,12 @@ public class AuthDAOJPAImpl implements AuthDAO {
 
     @Override
     public Token addToken(Token token) {
-        em.persist(token);
-        return token;
+        try {
+            em.persist(token);
+            return token;
+        } catch (Exception e){
+            return null;
+        }
     }
 
     @Override

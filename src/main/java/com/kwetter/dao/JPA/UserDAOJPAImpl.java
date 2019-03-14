@@ -54,7 +54,7 @@ public class UserDAOJPAImpl implements UserDAO {
     @Override
     public User findById(UUID id) {
         try {
-            return em.find(User.class, id);
+                return em.find(User.class, id);
         } catch (Exception e){
             return null;
         }

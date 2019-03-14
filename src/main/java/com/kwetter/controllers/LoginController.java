@@ -2,16 +2,13 @@ package com.kwetter.controllers;
 
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Token;
-import com.kwetter.dto.UserDTO;
 import com.kwetter.service.AuthService;
-import com.kwetter.service.UserService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import java.util.List;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
@@ -23,19 +20,21 @@ public class LoginController {
     @Inject
     private AuthService authService;
 
-    @Inject
-    private UserService userService;
-    public String login(){
-        Token token = authService.login(username, password);
-        FacesContext context = FacesContext.getCurrentInstance();
-        if (token.getUser() != null){
-            context.getExternalContext().getSessionMap().put("token", token);
-            return "success";
-        } else {
-            username = null;
-            password = null;
-            context.addMessage(null, new FacesMessage("Unknown login. Please try again."));
-            return "failure";
+    public void login(){
+        try{
+            Token token = authService.login(username, password);
+            FacesContext context = FacesContext.getCurrentInstance();
+            if (token.getUser() != null){
+                context.getExternalContext().getSessionMap().put("token", token);
+                context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view//admin/dashboard.xhtml");
+            } else {
+                username = null;
+                password = null;
+                context.addMessage(null, new FacesMessage("Unknown login. Please try again."));
+                context.getExternalContext().redirect("failure.xhtml");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -48,11 +47,11 @@ public class LoginController {
         Token token = (Token) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("token");
         if (token != null && token.getUser() != null){
             if (token.getUser().getRoles().contains(Role.Administrator)) {
-                return "success";
+                return "/admin-dashboard";
             } else if (token.getUser().getRoles().contains(Role.Moderator)) {
-                return "success";
+                return "admin-dashboard";
             } else if (token.getUser().getRoles().contains(Role.Standard)){
-                return "success";
+                return "/admin-dashboard/";
             }
             return logout();
         } else {

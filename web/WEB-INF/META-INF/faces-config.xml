@@ -12,4 +12,20 @@
             <to-view-id>../../view/admin/dashboard.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>../../view/admin/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{adminDashboard.selectUser}</from-action>
+            <from-outcome>dashboard</from-outcome>
+            <to-view-id>../../view/admin/kweet_dashboard.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>../../view/admin/kweet_dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{kweetDashboard.removeKweet}</from-action>
+            <from-outcome>kweetDasboard</from-outcome>
+            <to-view-id>../../view/admin/kweet_dashboard.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

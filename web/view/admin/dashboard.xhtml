@@ -4,22 +4,30 @@
 <html xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>
+        Admin dashboard
+    </title>
+</h:head>
 <f:view>
-    <ul>
-    <ui:repeat value="#{AdminDashboardController.users}" var="user">
-        <li>
-            <h:link value="#{user.username}:" outcome="kweet_dashboard.xhtml?id=#{user.id}">
-                <f:param name="id" value="#{user.id}" />
-                <ul>
-                    <ui:repeat value="#{user.roles}" var="role">
-                        <li>
-                            <h:outputLabel value="#{role}" outcome="role"/>
-                        </li>
-                    </ui:repeat>
-                </ul>
-            </h:link>
-        </li>
-    </ui:repeat>
-</ul>
+    <h:form>
+        <title>
+            Admin dashboard - #{token.user.username}
+        </title>
+        <ui:repeat value="#{adminDashboard.users}" var="user">
+            <h:commandButton id="user"  value="#{user.username}" action="#{adminDashboard.selectUser}">
+                <f:param name="userId" value="#{user.id}"/>
+            </h:commandButton>
+            <f:param name="id" value="#{user.id}" />
+            <ul>
+                <ui:repeat value="#{user.roles}" var="role">
+                    <li>
+                        <h:outputLabel value="#{role}" outcome="role"/>
+                    </li>
+                </ui:repeat>
+            </ul>
+        </ui:repeat>
+    </h:form>
 </f:view>
 </html>

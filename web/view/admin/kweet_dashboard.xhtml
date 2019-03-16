@@ -4,24 +4,23 @@
 <html xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:metadata>
-    <f:viewParam name="id" value="#{KweetRemovalDashboardController.userId}"/>
-</f:metadata>
-<f:view>
-    <h:head>
-        <title>
-            Kweets for #{KweetRemovalDashboardController.user.username}
-        </title>
-    </h:head>
+<h:head>
     <title>
-        Kweets for #{KweetRemovalDashboardController.user.username}
+        Kweets for #{kweetDashboard.user.username}
     </title>
-    <ul>
-        <ui:repeat value="#{KweetRemovalDashboardController.kweets}" var="kweet">
-            <li>
-                <h:link value="#{kweet.message}:" outcome="message"/>
-            </li>
+</h:head>
+<f:view>
+    <title>
+        Kweets for #{kweetDashboard.user.username}
+    </title>
+    <h:form>
+        <ui:repeat value="#{kweetDashboard.kweets}" var="kweet">
+            <h3>Kweet #{kweet.id}</h3>
+            <h:outputLabel value="Message: #{kweet.message}"/>
+            <h:commandButton id="kweet#{kweet.id}" value="Delete #{kweet.id}" action="#{kweetDashboard.removeKweet}">
+                <f:param name="kweetId" value="${kweet.id}"/>
+            </h:commandButton>
         </ui:repeat>
-    </ul>
+    </h:form>
 </f:view>
 </html>

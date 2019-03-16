@@ -51,8 +51,11 @@ public class KweetService {
 
     public Kweet removeKweetById(UUID id) {
         Kweet kweetToDelete = kweetDAO.findById(id);
-        kweetDAO.delete(kweetToDelete);
-        return kweetToDelete;
+        if (kweetToDelete != null) {
+            kweetDAO.delete(kweetToDelete);
+            return kweetToDelete;
+        }
+        return null;
     }
 
     private List<User> getMentionsForKweet(String message) {

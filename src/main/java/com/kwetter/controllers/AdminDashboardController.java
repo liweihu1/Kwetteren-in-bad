@@ -5,10 +5,11 @@ import com.kwetter.service.UserService;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.util.List;
 
-@ManagedBean(name = "AdminDashboardController")
+@ManagedBean(name = "adminDashboard")
 @SessionScoped
 public class AdminDashboardController {
 
@@ -17,5 +18,10 @@ public class AdminDashboardController {
 
     public List<User> getUsers(){
         return userService.getAllUsers();
+    }
+
+    public String selectUser(){
+        System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("userId"));
+        return "kweet_dashboard";
     }
 }

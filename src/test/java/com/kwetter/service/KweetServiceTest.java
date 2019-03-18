@@ -51,7 +51,7 @@ public class KweetServiceTest {
 
     @Before
     public void startup(){
-        this.testUser = new User(UUID.randomUUID(), "Test", "Test", "Test", "Test", "Test", "Test", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser = new User(UUID.randomUUID(), "Test", "Test","Test", "Test", "Test", "Test", "Test", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         this.testUser = this.userService.createUser(testUser);
         this.testKweet1 = new Kweet(UUID.randomUUID(), testUser, "Just imagine this test message being really cool.", new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),0);
         this.testKweet2 = new Kweet(UUID.randomUUID(), testUser, "Now this is a test message.", new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),0);

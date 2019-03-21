@@ -10,9 +10,10 @@
     </title>
 </h:head>
 <f:view>
-    <title>
+    <h:button outcome="dashboard.xhtml" value="Back"/>
+    <h1>
         Kweets for #{kweetDashboard.user.username}
-    </title>
+    </h1>
     <h:form>
         <ui:repeat value="#{kweetDashboard.kweets}" var="kweet">
             <h3>Kweet #{kweet.id}</h3>

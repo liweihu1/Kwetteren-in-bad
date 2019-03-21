@@ -5,7 +5,9 @@ import com.kwetter.domain.User;
 import com.kwetter.service.KweetService;
 import com.kwetter.service.UserService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -13,8 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@SessionScoped
+//@SessionScoped
+@RequestScoped
 @ManagedBean(name = "kweetDashboard", eager = true)
+@RolesAllowed({"Administrator", "Moderator"})
 public class KweetRemovalDashboardController {
     @Inject
     private KweetService kweetService;
@@ -24,11 +28,8 @@ public class KweetRemovalDashboardController {
 
     private String userId;
 
-    private FacesContext fc;
-
-    public KweetRemovalDashboardController() {
-        this.fc = FacesContext.getCurrentInstance();
-        userId = fc.getExternalContext().getRequestParameterMap().get("userId");
+    public KweetRemovalDashboardController(){
+        userId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("userId");
     }
 
     public String removeKweet(){

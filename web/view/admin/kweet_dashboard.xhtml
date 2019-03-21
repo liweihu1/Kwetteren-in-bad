@@ -19,6 +19,7 @@
             <h:outputLabel value="Message: #{kweet.message}"/>
             <h:commandButton id="kweet#{kweet.id}" value="Delete #{kweet.id}" action="#{kweetDashboard.removeKweet}">
                 <f:param name="kweetId" value="${kweet.id}"/>
+                <f:param name="userId" value="${kweetDashboard.userId}"/>
             </h:commandButton>
         </ui:repeat>
     </h:form>

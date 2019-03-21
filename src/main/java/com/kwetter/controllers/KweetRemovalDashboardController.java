@@ -1,6 +1,9 @@
 package com.kwetter.controllers;
 
+import com.kwetter.controllers.validator.RoleValidator;
 import com.kwetter.domain.Kweet;
+import com.kwetter.domain.Role;
+import com.kwetter.domain.Token;
 import com.kwetter.domain.User;
 import com.kwetter.service.KweetService;
 import com.kwetter.service.UserService;
@@ -11,6 +14,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -28,7 +32,8 @@ public class KweetRemovalDashboardController {
 
     private String userId;
 
-    public KweetRemovalDashboardController(){
+    public KweetRemovalDashboardController() throws IOException {
+        RoleValidator.validateUserRole(((Token)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("token")).getUser(), Role.Administrator);
         userId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("userId");
     }
 

@@ -7,15 +7,14 @@ import com.kwetter.service.AuthService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.security.auth.login.LoginContext;
-import javax.security.auth.login.LoginException;
 import java.io.IOException;
 
 @ManagedBean(name = "loginController")
-@SessionScoped
+@RequestScoped
 public class LoginController {
 
     private String username;
@@ -37,9 +36,9 @@ public class LoginController {
             handler.setUsername(username);
             lc = new LoginContext("kwetter-security-api", handler);
             lc.login();
-            context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view//admin/dashboard.xhtml");
             Token token = authService.login(username, password);
             context.getExternalContext().getSessionMap().put("token", token);
+            context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view/admin/dashboard.xhtml");
         } catch (Exception e){
                 username = null;
                 password = null;
@@ -52,22 +51,6 @@ public class LoginController {
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "login";
-    }
-
-    public String getPageBasedOnRole(){
-        Token token = (Token) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("token");
-        if (token != null && token.getUser() != null){
-            if (token.getUser().getRoles().contains(Role.Administrator)) {
-                return "/admin-dashboard";
-            } else if (token.getUser().getRoles().contains(Role.Moderator)) {
-                return "admin-dashboard";
-            } else if (token.getUser().getRoles().contains(Role.Standard)){
-                return "/admin-dashboard/";
-            }
-            return logout();
-        } else {
-            return logout();
-        }
     }
 
     public String getUsername() {

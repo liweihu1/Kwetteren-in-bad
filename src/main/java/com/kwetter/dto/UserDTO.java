@@ -10,6 +10,7 @@ import java.util.List;
 public class UserDTO {
     private String id;
     private String username;
+    private String password;
     private String firstName;
     private String lastName;
     private String biography;
@@ -27,6 +28,7 @@ public class UserDTO {
     public UserDTO(User user) {
         this.id = user.getId().toString();
         this.username = user.getUsername();
+        this.password = user.getPassword();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.biography = user.getBiography();
@@ -133,5 +135,13 @@ public class UserDTO {
 
     public void setFollowing(int following) {
         this.following = following;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String passsword) {
+        this.password = passsword;
     }
 }

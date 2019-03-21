@@ -96,7 +96,7 @@ public class UserAPI {
     @Produces(MediaType.APPLICATION_JSON)
     public UserDTO createUser(UserDTO user){
         if (user != null){
-            User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+            User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
             return new UserDTO(this.userService.createUser(newUser));
         }
         return null;

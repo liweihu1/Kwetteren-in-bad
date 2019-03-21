@@ -50,9 +50,9 @@ public class UserServiceTest {
 
     @Before
     public void setup(){
-        this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser1 = new User(UUID.randomUUID(), "test1", "test1","test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2","test2", "test2", "test2", "test2", "test2", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3","test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
         this.testUser1 = userService.createUser(testUser1);
         this.testUser2 = userService.createUser(testUser2);
@@ -86,7 +86,7 @@ public class UserServiceTest {
 
     @Test
     public void createUser() {
-        assertNotNull(this.userService.createUser( new User(UUID.randomUUID(), "testUsername", "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>())));
+        assertNotNull(this.userService.createUser( new User(UUID.randomUUID(), "testUsername", "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>())));
     }
 
     @Test

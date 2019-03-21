@@ -25,9 +25,9 @@ public abstract class UserDAOTest {
 
     @Before
     public void setup(){
-        this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<User>() {{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3",  "test3", "test3", "test3", "test3", "test3", new HashSet<>(), new HashSet<User>() {{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
 
         this.testUser1 = userDAO.add(testUser1);
     }

@@ -51,9 +51,9 @@ public class KweetTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i,"Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             } else {
-                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
+                testUsers.add(new User(UUID.randomUUID(), "Test" + i, "Test" + i,"Test" + i, "Test", "Test bio", "geen site", "Skkrt", new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             }
             testKweets.add(new Kweet(testId, testUsers.get(i), testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0));
         }

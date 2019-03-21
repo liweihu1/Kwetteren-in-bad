@@ -7,7 +7,7 @@ import java.util.UUID;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "token.getTokenByUserId", query = "SELECT t FROM Token t WHERE t.user.id = :userId"),
-    @NamedQuery(name = "token.validateLogin", query = "SELECT u FROM User u WHERE u.username = :username")
+    @NamedQuery(name = "token.validateLogin", query = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
 })
 public class Token {
     @Id

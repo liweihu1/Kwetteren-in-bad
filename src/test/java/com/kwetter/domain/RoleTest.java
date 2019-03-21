@@ -17,15 +17,15 @@ public class RoleTest {
 
     @Before
     public void setup() {
-        testUser1 = new User(UUID.randomUUID(), "Test","Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+        testUser1 = new User(UUID.randomUUID(), "Test","Test", "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
             add(Role.Standard);
         }}, null, null, null);
 
-        testAdministrator1 = new User(UUID.randomUUID(), "Test", "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+        testAdministrator1 = new User(UUID.randomUUID(), "Test", "Test", "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
             add(Role.Administrator);
         }}, null, null, null);
 
-        testModerator1 = new User(UUID.randomUUID(), "Test", "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
+        testModerator1 = new User(UUID.randomUUID(), "Test", "Test", "Test", "Test", "Test bio", "", "", null, null, new ArrayList<Role>() {{
             add(Role.Moderator);
         }}, null, null, null);
     }

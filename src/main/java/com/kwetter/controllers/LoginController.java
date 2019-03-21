@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
+import java.io.IOException;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
@@ -26,28 +27,24 @@ public class LoginController {
     private LoginContext lc;
 
     public LoginController(){
-        try {
-            lc = new LoginContext("kwetter-security-api", new LoginCallbackHandler());
-        } catch (LoginException e) {
-            e.printStackTrace();
-        }
     }
 
-    public void login(){
+    public void login() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
         try{
+            LoginCallbackHandler handler = new LoginCallbackHandler();
+            handler.setPassword(password);
+            handler.setUsername(username);
+            lc = new LoginContext("kwetter-security-api", handler);
+            lc.login();
+            context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view//admin/dashboard.xhtml");
             Token token = authService.login(username, password);
-            FacesContext context = FacesContext.getCurrentInstance();
-            if (token.getUser() != null){
-                lc.login();
-                context.getExternalContext().getSessionMap().put("token", token);
-                context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view//admin/dashboard.xhtml");
-            } else {
+            context.getExternalContext().getSessionMap().put("token", token);
+        } catch (Exception e){
                 username = null;
                 password = null;
                 context.addMessage(null, new FacesMessage("Unknown login. Please try again."));
                 context.getExternalContext().redirect("failure.xhtml");
-            }
-        } catch (Exception e){
             e.printStackTrace();
         }
     }

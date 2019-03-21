@@ -22,6 +22,7 @@ public class User {
     private UUID id;
     @Column(unique = true)
     private String username;
+    private String password;
     private String firstName;
     private String lastName;
     @Column(length = 160)
@@ -76,9 +77,10 @@ public class User {
 
     }
 
-    public User(UUID id, String username, String firstName, String lastName, String biography, String website, String location, Set<User> followers, Set<User> following, List<Role> roles, List<Kweet> Kweets, List<Kweet> heartedKweets, List<Kweet> mentionedKweets) {
+    public User(UUID id, String username, String password, String firstName, String lastName, String biography, String website, String location, Set<User> followers, Set<User> following, List<Role> roles, List<Kweet> Kweets, List<Kweet> heartedKweets, List<Kweet> mentionedKweets) {
         this.id = id;
         this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.biography = biography;
@@ -146,5 +148,9 @@ public class User {
 
     public List<Kweet> getMentionedKweets() {
         return mentionedKweets;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

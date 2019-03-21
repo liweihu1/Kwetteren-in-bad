@@ -12,9 +12,7 @@
 </h:head>
 <f:view>
     <h:form>
-        <title>
-            Admin dashboard - #{token.user.username}
-        </title>
+        <h1> Admin dashboard - Currently logged in as #{adminDashboard.currentUser.username} </h1>
         <ui:repeat value="#{adminDashboard.users}" var="user">
             <h:commandButton id="user"  value="#{user.username}" action="#{adminDashboard.selectUser}">
                 <f:param name="userId" value="#{user.id}"/>

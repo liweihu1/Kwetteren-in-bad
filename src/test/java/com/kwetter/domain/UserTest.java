@@ -42,9 +42,9 @@ public class UserTest {
         for (int i = 0; i < 10; i++) {
             if (i > 0){
                 final User follower = testUsers.get(i - 1);
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
+                testUsers.add(new User(testId, name + i, name + i,name + i, lastName, bio, website, location, new HashSet<User>(){{add(follower);}}, new HashSet<User>(), new ArrayList<Role>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             } else {
-                testUsers.add(new User(testId, name + i, name + i, lastName, bio, website, location, new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
+                testUsers.add(new User(testId, name + i, name + i,name + i, lastName, bio, website, location, new HashSet<User>(), new HashSet<User>(), new ArrayList<>(), new ArrayList<Kweet>(), new ArrayList<Kweet>(), new ArrayList<Kweet>()));
             }
         }
 

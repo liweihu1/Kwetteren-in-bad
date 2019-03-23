@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Kwetteren-in-bad" target="8" />
+      <module name="Kwetteren-in-bad" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

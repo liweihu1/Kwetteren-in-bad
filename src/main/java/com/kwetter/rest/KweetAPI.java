@@ -2,14 +2,14 @@ package com.kwetter.rest;
 
 import com.kwetter.domain.Kweet;
 import com.kwetter.dto.KweetDTO;
-import com.kwetter.interceptor.AuthInterceptor;
+import com.kwetter.filters.interfaces.JWTTokenNeeded;
 import com.kwetter.service.KweetService;
 
 import javax.inject.Inject;
-import javax.interceptor.Interceptors;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,67 +26,79 @@ public class KweetAPI {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public List<KweetDTO> getAllKweets(){
+    @JWTTokenNeeded
+    public Response getAllKweets(){
         List<Kweet> Kweets = kweetService.getAllKweets();
-        return convertKweetListToKweetDTOList(Kweets);
+        return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
     }
 
     @GET
     @Path("/user/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public List<KweetDTO> getLatestKweetsForUser(@PathParam("userId") UUID id){
+    @JWTTokenNeeded
+    public Response getLatestKweetsForUser(@PathParam("userId") UUID id){
         List<Kweet> userKweets = kweetService.getKweetsForUserId(id);
-        return convertKweetListToKweetDTOList(userKweets);
+        return Response.ok(convertKweetListToKweetDTOList(userKweets)).build();
     }
 
     @GET
     @Path("/search/{searchString}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public List<KweetDTO> getKweetsBySearchString(@PathParam("searchString") String search){
+    @JWTTokenNeeded
+    public Response getKweetsBySearchString(@PathParam("searchString") String search){
         List<Kweet> Kweets = kweetService.getKweetsBySearchString(search);
-        return convertKweetListToKweetDTOList(Kweets);
+        return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
     }
 
     @GET
     @Path("/user/follow/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public List<KweetDTO> getKweetsByUserIdWithFollowing(@PathParam("id") UUID id){
+    @JWTTokenNeeded
+    public Response getKweetsByUserIdWithFollowing(@PathParam("id") UUID id){
         List<Kweet> kweets = kweetService.getKweetsByUserIdWithFollowing(id);
-        return convertKweetListToKweetDTOList(kweets);
+        return Response.ok(convertKweetListToKweetDTOList(kweets)).build();
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public KweetDTO getKweetById(@PathParam("id") UUID id){
+    @JWTTokenNeeded
+    public Response getKweetById(@PathParam("id") UUID id){
         Kweet Kweet = kweetService.getKweetById(id);
         if (Kweet != null){
-            return new KweetDTO(Kweet);
+            return Response.ok(new KweetDTO(Kweet)).build();
         }
-        return null;
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 
     @DELETE
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public KweetDTO removeKweetById(@PathParam("id") UUID id){
-        return new KweetDTO(kweetService.removeKweetById(id));
+    @JWTTokenNeeded
+    public Response removeKweetById(@PathParam("id") UUID id){
+        Kweet k;
+        if ((k = kweetService.removeKweetById(id)) != null) {
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } else {
+            return Response.status(500).entity(k).build();
+        }
     }
 
     @POST
-    @Path("/create/{id}")
+    @Path("/create/")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    @Interceptors(AuthInterceptor.class)
-    public KweetDTO createKweet(@PathParam("id") UUID userId, KweetDTO kweetDTO){
+    @JWTTokenNeeded
+    public Response createKweet(KweetDTO kweetDTO){
         if (kweetDTO != null){
-            return new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthorId()));
+            KweetDTO result = new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthorId()));
+            return Response.ok(result).build();
         }
-        return null;
+        return Response.status(Response.Status.UNAUTHORIZED).build();
     }
 
     private List<KweetDTO> convertKweetListToKweetDTOList(List<Kweet> kweets){

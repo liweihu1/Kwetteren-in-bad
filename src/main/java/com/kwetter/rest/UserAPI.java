@@ -117,7 +117,7 @@ public class UserAPI {
 
         User user;
         if ((user = userService.addRolesToUser(roleRequest.getId(), roles)) != null) {
-            return Response.ok().build();new UserDTO(user);
+            return Response.ok(new UserDTO(user)).build();
         }
         return Response.status(500).build();
     }
@@ -127,7 +127,6 @@ public class UserAPI {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenNeeded
     public Response createUser(UserDTO user){
         if (user != null){
             User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());

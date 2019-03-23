@@ -25,7 +25,7 @@ public class AdminDashboardController {
     private User currentUser;
 
     public AdminDashboardController() throws IOException {
-        currentUser = ((Token)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("token")).getUser();
+        currentUser = (User)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
         RoleValidator.validateUserRole(currentUser, Role.Administrator);
     }
 

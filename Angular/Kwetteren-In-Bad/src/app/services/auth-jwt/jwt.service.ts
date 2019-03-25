@@ -13,7 +13,6 @@ export class JwtService {
 
   login (username: string, password: string) {
     this.httpClient.post(Constants.API_URL + '/Auth/login', {username, password}).toPromise().then((res: Token) => {
-      console.log(res);
       localStorage.setItem('access_token', res.token);
       if (this.redirectUrl) {
         this.router.navigate([this.redirectUrl]);

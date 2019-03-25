@@ -27,6 +27,7 @@ export class AppComponent {
   }
 
   logout(): void {
+    console.log('logout');
     this.jwtService.logout();
   }
 }

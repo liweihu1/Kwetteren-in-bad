@@ -43,7 +43,8 @@ public class AuthAPI {
     public Response login(LoginDTO loginDTO){
         Token token;
         if (!loginDTO.getPassword().isEmpty() && !loginDTO.getUsername().isEmpty() && (token = authService.login(loginDTO.getUsername(), loginDTO.getPassword())) != null) {
-            return Response.ok(generateToken(loginDTO.getUsername(), token.getUser().getRoles()), MediaType.APPLICATION_JSON).build();
+            String result = "{ \"token\": \"bearer " + generateToken(loginDTO.getUsername(), token.getUser().getRoles()) + "\"}";
+            return Response.ok(result, MediaType.APPLICATION_JSON).build();
         }
         return Response.status(Response.Status.NO_CONTENT).entity("The user credentials were not found or incorrect.").build();
     }

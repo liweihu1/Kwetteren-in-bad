@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JwtService } from './services/auth-jwt/jwt.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Kwetteren-In-Bad';
+  title = 'Kwetteren In Bad';
+  status: boolean = false;
+
+  constructor(protected jwtService: JwtService){
+
+  }
+
+  public get currentUser(): boolean {
+    return true;
+  }
+
+  getLoggedIn(): boolean {
+    return this.jwtService.loggedIn;
+  }
+
+  changeStatus(): void {
+    this.status = !this.status;
+  }
+
+  logout(): void {
+    this.jwtService.logout();
+  }
 }

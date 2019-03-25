@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { JwtService } from 'src/app/services/auth-jwt/jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,12 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor() { }
+  constructor(private jwtService: JwtService) { }
 
   ngOnInit() {
   }
 
   login() {
-    console.log(this.loginForm);
+    this.jwtService.login(this.loginForm.get('username').value, this.loginForm.get('password').value);
   }
 }

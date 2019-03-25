@@ -3,8 +3,8 @@ import { Kweet } from "./Kweet"
 export class User {
     id: string;
     username: string;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     biography: string;
     website: string;
     location: string;
@@ -17,8 +17,8 @@ export class User {
         const {
             id = "",
             username = "",
-            firstname = "",
-            lastname = "",
+            firstName = "",
+            lastName = "",
             biography = "",
             website = "",
             location = "",
@@ -30,8 +30,8 @@ export class User {
 
         this.id = id;
         this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.biography = biography;
         this.website = website;
         this.location = location;
@@ -45,8 +45,8 @@ export class User {
 export interface UserInterface {
     id: string;
     username: string;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     biography: string;
     website: string;
     location: string;

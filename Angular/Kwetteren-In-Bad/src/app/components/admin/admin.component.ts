@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { Constants } from 'src/app/constants/api.consts';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,11 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  currentUser: User;
+  currentUser: string;
 
-  constructor() { }
+  constructor() { 
+    this.currentUser = localStorage.getItem(Constants.LOCAL_USERNAME);
+  }
 
   ngOnInit() {
   }

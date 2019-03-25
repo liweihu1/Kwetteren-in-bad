@@ -12,6 +12,8 @@ import { KweetComponent } from './components/kweet/kweet.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { Constants } from './constants/api.consts';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     HomeComponent,
     AdminComponent,
     LoginComponent,
-    KweetComponent
+    KweetComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     JwtModule.forRoot({
       config: {
         tokenGetter: function  tokenGetter() {
-          return localStorage.getItem('access_token');
+          return localStorage.getItem(Constants.TOKEN);
         },
         whitelistedDomains: ['localhost:4200'],
         blacklistedRoutes: ['http://localhost:4200/login']

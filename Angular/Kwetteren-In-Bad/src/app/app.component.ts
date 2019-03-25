@@ -26,6 +26,10 @@ export class AppComponent {
     this.status = !this.status;
   }
 
+  focusOut(): void {
+    this.status = false;
+  }
+
   logout(): void {
     console.log('logout');
     this.jwtService.logout();

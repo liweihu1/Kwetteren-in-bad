@@ -2,6 +2,7 @@ package com.kwetter.rest;
 
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Token;
+import com.kwetter.dto.JWTTokenDTO;
 import com.kwetter.dto.LoginDTO;
 import com.kwetter.filters.KeyGenerator;
 import com.kwetter.service.AuthService;
@@ -43,8 +44,8 @@ public class AuthAPI {
     public Response login(LoginDTO loginDTO){
         Token token;
         if (!loginDTO.getPassword().isEmpty() && !loginDTO.getUsername().isEmpty() && (token = authService.login(loginDTO.getUsername(), loginDTO.getPassword())) != null) {
-            String result = "{ \"token\": \"bearer " + generateToken(loginDTO.getUsername(), token.getUser().getRoles()) + "\"}";
-            return Response.ok(result, MediaType.APPLICATION_JSON).build();
+            JWTTokenDTO jwtToken = new JWTTokenDTO(token.getUser().getUsername(), "bearer " + generateToken(loginDTO.getUsername(), token.getUser().getRoles()), token.getUser().getId());
+            return Response.ok(jwtToken, MediaType.APPLICATION_JSON).build();
         }
         return Response.status(Response.Status.NO_CONTENT).entity("The user credentials were not found or incorrect.").build();
     }

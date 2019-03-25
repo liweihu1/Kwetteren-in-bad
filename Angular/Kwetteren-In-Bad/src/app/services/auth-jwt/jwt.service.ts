@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Constants } from 'src/app/constants/api.consts';
 import { Router } from '@angular/router';
+import { Token } from 'src/app/models/Token';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,9 @@ export class JwtService {
 
   login (username: string, password: string) {
     this.httpClient.post(Constants.API_URL + '/Auth/login', {username, password}).toPromise().then((res: Token) => {
-      localStorage.setItem('access_token', res.token);
+      localStorage.setItem(Constants.TOKEN, res.token);
+      localStorage.setItem(Constants.LOCAL_ID, res.id);
+      localStorage.setItem(Constants.LOCAL_USERNAME, res.username);
       if (this.redirectUrl) {
         this.router.navigate([this.redirectUrl]);
       } else {
@@ -24,11 +27,11 @@ export class JwtService {
   }
 
   logout() {
-    localStorage.removeItem('access_token');
+    localStorage.removeItem(Constants.TOKEN);
   }
 
   public get loggedIn(): boolean {
-    return localStorage.getItem('access_token') !==  null;
+    return localStorage.getItem(Constants.TOKEN) !==  null;
   }
 
   public getRedirectUrl(): string {
@@ -40,10 +43,6 @@ export class JwtService {
   }
 
   getToken(): string {
-    return localStorage.getItem('access_token');
+    return localStorage.getItem(Constants.TOKEN);
   }
-}
-
-export interface Token {
-  token: string;
 }

@@ -16,6 +16,10 @@ public class UserService {
     @Inject
     private UserDAO userDAO;
 
+    public User getUserByUsername(String username) {
+        return userDAO.findByUsername(username);
+    }
+
     public User getUserById(UUID id){
         return userDAO.findById(id);
     }

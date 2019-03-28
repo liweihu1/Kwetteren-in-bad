@@ -3,7 +3,9 @@ package com.kwetter.controllers;
 import com.kwetter.callback.LoginCallbackHandler;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Token;
+import com.kwetter.domain.User;
 import com.kwetter.service.AuthService;
+import com.kwetter.service.UserService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -21,7 +23,7 @@ public class LoginController {
     private String password;
 
     @Inject
-    private AuthService authService;
+    private UserService userService;
 
     private LoginContext lc;
 
@@ -36,8 +38,8 @@ public class LoginController {
             handler.setUsername(username);
             lc = new LoginContext("kwetter-security-api", handler);
             lc.login();
-            Token token = authService.login(username, password);
-            context.getExternalContext().getSessionMap().put("token", token);
+            User user = userService.getUserByUsername(username);
+            context.getExternalContext().getSessionMap().put("user", user);
             context.getExternalContext().redirect(context.getExternalContext().getApplicationContextPath() + "/view/admin/dashboard.xhtml");
         } catch (Exception e){
                 username = null;

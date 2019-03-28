@@ -33,7 +33,7 @@ public class KweetRemovalDashboardController {
     private String userId;
 
     public KweetRemovalDashboardController() throws IOException {
-        RoleValidator.validateUserRole(((Token)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("token")).getUser(), Role.Administrator);
+        RoleValidator.validateUserRole((User)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user"), Role.Administrator);
         userId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("userId");
     }
 

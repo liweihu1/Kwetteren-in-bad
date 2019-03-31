@@ -11,6 +11,7 @@ import java.util.List;
 public class KweetDTO {
     private String id;
     private String authorId;
+    private String authorUsername;
     private String message;
     private Date dateCreated;
     private Date dateUpdated;
@@ -22,24 +23,25 @@ public class KweetDTO {
 
     }
 
-    public KweetDTO(Kweet Kweet){
-        this.id = Kweet.getId().toString();
-        this.authorId = Kweet.getAuthor().getId().toString();
-        this.message = Kweet.getMessage();
-        this.dateCreated = Kweet.getDateCreated();
-        this.dateUpdated = Kweet.getDateUpdated();
+    public KweetDTO(Kweet kweet){
+        this.id = kweet.getId().toString();
+        this.authorId = kweet.getAuthor().getId().toString();
+        this.authorUsername = kweet.getAuthor().getUsername();
+        this.message = kweet.getMessage();
+        this.dateCreated = kweet.getDateCreated();
+        this.dateUpdated = kweet.getDateUpdated();
         this.mentions = new ArrayList<>();
         this.heartedBy = new ArrayList<>();
         this.trends = new ArrayList<>();
-        for (User u : Kweet.getMentions()){
+        for (User u : kweet.getMentions()){
             this.mentions.add(u.getUsername());
         }
 
-        for(User u: Kweet.getHeartedBy()){
+        for(User u: kweet.getHeartedBy()){
             this.heartedBy.add(new UserDTO(u));
         }
 
-        for (Trend t: Kweet.getTrends()){
+        for (Trend t: kweet.getTrends()){
             this.trends.add(new TrendDTO(t));
         }
     }
@@ -106,5 +108,13 @@ public class KweetDTO {
 
     public void setAuthorId(String authorId) {
         this.authorId = authorId;
+    }
+
+    public String getAuthorUsername() {
+        return authorUsername;
+    }
+
+    public void setAuthorUsername(String authorUsername) {
+        this.authorUsername = authorUsername;
     }
 }

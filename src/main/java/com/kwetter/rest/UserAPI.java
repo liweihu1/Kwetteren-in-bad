@@ -32,11 +32,23 @@ public class UserAPI {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/byId/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @JWTTokenNeeded
     public Response getUserById(@PathParam("id") String id, @Context HttpServletResponse response) {
         User user = this.userService.getUserById(UUID.fromString(id));
+        if (user != null) {
+            return Response.ok(new UserDTO(user)).build();
+        }
+        return Response.status(Response.Status.NO_CONTENT).build();
+    }
+
+    @GET
+    @Path("/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @JWTTokenNeeded
+    public Response getUserByUsername(@PathParam("username") String username, @Context HttpServletResponse response) {
+        User user = this.userService.getUserByUsername(username);
         if (user != null) {
             return Response.ok(new UserDTO(user)).build();
         }

@@ -5,7 +5,9 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class UserDTO {
     private String id;
@@ -16,8 +18,8 @@ public class UserDTO {
     private String biography;
     private String website;
     private String location;
-    private int followers;
-    private int following;
+    private Set<String> following;
+    private Set<String> followers;
     private List<String> roles;
     private List<KweetDTO> Kweets;
 
@@ -34,8 +36,8 @@ public class UserDTO {
         this.biography = user.getBiography();
         this.website = user.getWebsite();
         this.location = user.getLocation();
-        this.following = user.getFollowing().size();
-        this.followers = user.getFollowers().size();
+        this.following = new HashSet<>();
+        this.followers = new HashSet<>();
         this.roles = new ArrayList<>();
         this.Kweets = new ArrayList<>();
 
@@ -45,6 +47,14 @@ public class UserDTO {
 
         for(Role r : user.getRoles()){
             this.roles.add(r.toString());
+        }
+
+        for(User u : user.getFollowing()) {
+            this.following.add(u.getUsername());
+        }
+
+        for(User u: user.getFollowers()) {
+            this.followers.add(u.getUsername());
         }
     }
 
@@ -121,27 +131,27 @@ public class UserDTO {
         this.Kweets = Kweets;
     }
 
-    public int getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(int followers) {
-        this.followers = followers;
-    }
-
-    public int getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(int following) {
-        this.following = following;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String passsword) {
         this.password = passsword;
+    }
+
+    public Set<String> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<String> following) {
+        this.following = following;
+    }
+
+    public Set<String> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<String> followers) {
+        this.followers = followers;
     }
 }

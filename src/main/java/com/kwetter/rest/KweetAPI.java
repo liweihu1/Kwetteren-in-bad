@@ -26,7 +26,6 @@ public class KweetAPI {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    @JWTTokenNeeded
     public Response getAllKweets(){
         List<Kweet> Kweets = kweetService.getAllKweets();
         return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
@@ -45,7 +44,6 @@ public class KweetAPI {
     @Path("/search/{searchString}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    @JWTTokenNeeded
     public Response getKweetsBySearchString(@PathParam("searchString") String search){
         List<Kweet> Kweets = kweetService.getKweetsBySearchString(search);
         return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
@@ -74,12 +72,12 @@ public class KweetAPI {
     }
 
     @DELETE
-    @Path("/delete")
+    @Path("/{authorId}/{kweetId}")
     @Produces(MediaType.APPLICATION_JSON)
     @JWTTokenNeeded
-    public Response removeKweetById(KweetDTO kweetDTO){
-        Kweet k = kweetService.getKweetById(UUID.fromString(kweetDTO.getId()));
-        if (k.getAuthor().getId().toString().equals(kweetDTO.getAuthor().getId()) && (k = kweetService.removeKweetById(UUID.fromString(kweetDTO.getId()))) != null) {
+    public Response removeKweetById(@PathParam("authorId") UUID authorId, @PathParam("kweetId") UUID kweetId){
+        Kweet k = kweetService.getKweetById(kweetId);
+        if (k.getAuthor().getId().equals(authorId) && (k = kweetService.removeKweetById(kweetId)) != null) {
             return Response.status(Response.Status.NO_CONTENT).build();
         } else {
             return Response.status(500).entity(k).build();

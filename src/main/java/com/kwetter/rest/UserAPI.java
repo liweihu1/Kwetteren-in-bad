@@ -99,6 +99,48 @@ public class UserAPI {
         return Response.status(Response.Status.NO_CONTENT).build();
     }
 
+    @PUT
+    @Path("/update")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @JWTTokenNeeded
+    public Response updateUserWithValues(UserDTO userDTO) {
+        User user = this.userService.getUserById(UUID.fromString(userDTO.getId()));
+
+        if (user != null) {
+            if(!userDTO.getUsername().isEmpty() && userService.getUserByUsername(userDTO.getUsername()) != null) {
+                return Response.status(400).build();
+            } else if (!userDTO.getUsername().isEmpty()){
+                user.setUsername(userDTO.getUsername());
+            }
+
+            if (!userDTO.getFirstName().isEmpty()) {
+                user.setFirstName(userDTO.getFirstName());
+            }
+
+            if (!userDTO.getLastName().isEmpty()) {
+                user.setLastName(userDTO.getLastName());
+            }
+
+            if (!userDTO.getWebsite().isEmpty()) {
+                user.setWebsite(userDTO.getWebsite());
+            }
+
+            if (!userDTO.getLocation().isEmpty()) {
+                user.setLocation(userDTO.getLocation());
+            }
+
+            if (!userDTO.getBiography().isEmpty()) {
+                user.setBiography(userDTO.getBiography());
+            }
+
+            if (this.userService.updateUser(user) != null) {
+                return Response.ok(new UserDTO(user)).build();
+            }
+        }
+
+        return Response.status(500).build();
+    }
+
     @DELETE
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)

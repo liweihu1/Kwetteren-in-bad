@@ -36,7 +36,6 @@ public class KweetAPI {
     @Path("/user/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    @JWTTokenNeeded
     public Response getLatestKweetsForUser(@PathParam("userId") UUID id){
         List<Kweet> userKweets = kweetService.getKweetsForUserId(id);
         return Response.ok(convertKweetListToKweetDTOList(userKweets)).build();
@@ -75,12 +74,12 @@ public class KweetAPI {
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/delete")
     @Produces(MediaType.APPLICATION_JSON)
     @JWTTokenNeeded
-    public Response removeKweetById(@PathParam("id") UUID id){
-        Kweet k;
-        if ((k = kweetService.removeKweetById(id)) != null) {
+    public Response removeKweetById(KweetDTO kweetDTO){
+        Kweet k = kweetService.getKweetById(UUID.fromString(kweetDTO.getId()));
+        if (k.getAuthor().getId().toString().equals(kweetDTO.getAuthor().getId()) && (k = kweetService.removeKweetById(UUID.fromString(kweetDTO.getId()))) != null) {
             return Response.status(Response.Status.NO_CONTENT).build();
         } else {
             return Response.status(500).entity(k).build();
@@ -95,7 +94,7 @@ public class KweetAPI {
     @JWTTokenNeeded
     public Response createKweet(KweetDTO kweetDTO){
         if (kweetDTO != null){
-            KweetDTO result = new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthorId()));
+            KweetDTO result = new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthor().getId()));
             return Response.ok(result).build();
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();

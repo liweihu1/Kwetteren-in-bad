@@ -10,8 +10,7 @@ import java.util.List;
 
 public class KweetDTO {
     private String id;
-    private String authorId;
-    private String authorUsername;
+    private UserDTO author;
     private String message;
     private Date dateCreated;
     private Date dateUpdated;
@@ -25,8 +24,7 @@ public class KweetDTO {
 
     public KweetDTO(Kweet kweet){
         this.id = kweet.getId().toString();
-        this.authorId = kweet.getAuthor().getId().toString();
-        this.authorUsername = kweet.getAuthor().getUsername();
+        this.author = new UserDTO(kweet.getAuthor());
         this.message = kweet.getMessage();
         this.dateCreated = kweet.getDateCreated();
         this.dateUpdated = kweet.getDateUpdated();
@@ -102,19 +100,11 @@ public class KweetDTO {
         this.trends = trends;
     }
 
-    public String getAuthorId() {
-        return authorId;
+    public UserDTO getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(String authorId) {
-        this.authorId = authorId;
-    }
-
-    public String getAuthorUsername() {
-        return authorUsername;
-    }
-
-    public void setAuthorUsername(String authorUsername) {
-        this.authorUsername = authorUsername;
+    public void setAuthor(UserDTO author) {
+        this.author = author;
     }
 }

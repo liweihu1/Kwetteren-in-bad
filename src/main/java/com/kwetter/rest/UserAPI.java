@@ -2,10 +2,7 @@ package com.kwetter.rest;
 
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
-import com.kwetter.dto.FollowDTO;
-import com.kwetter.dto.RoleRequestDTO;
-import com.kwetter.dto.UserDTO;
-import com.kwetter.dto.UsernameDTO;
+import com.kwetter.dto.*;
 import com.kwetter.filters.interfaces.JWTTokenNeeded;
 import com.kwetter.service.UserService;
 
@@ -46,7 +43,6 @@ public class UserAPI {
     @GET
     @Path("/{username}")
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenNeeded
     public Response getUserByUsername(@PathParam("username") String username, @Context HttpServletResponse response) {
         User user = this.userService.getUserByUsername(username);
         if (user != null) {
@@ -83,7 +79,6 @@ public class UserAPI {
     @Path("/")
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenNeeded
     public Response getAllUsers(){
         List<User> users = this.userService.getAllUsers();
         if (users.size() > 0) {
@@ -95,6 +90,7 @@ public class UserAPI {
     @PUT
     @Path("/update/username")
     @Consumes(MediaType.APPLICATION_JSON)
+    @JWTTokenNeeded
     public Response updateUsername(UsernameDTO usernameInfo){
         User user;
         if ((user = this.userService.changeUsername(usernameInfo.getUsername(), usernameInfo.getUserId())) != null) {
@@ -139,7 +135,7 @@ public class UserAPI {
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser(UserDTO user){
+    public Response createUser(CreateUserDTO user){
         if (user != null){
             User newUser = new User(UUID.randomUUID(), user.getUsername(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getBiography(), user.getWebsite(), user.getLocation(), new HashSet<>(), new HashSet<>(), new ArrayList(){{ add(Role.Standard); }}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
             return Response.ok(new UserDTO(this.userService.createUser(newUser))).build();

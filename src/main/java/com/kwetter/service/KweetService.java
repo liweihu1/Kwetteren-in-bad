@@ -24,8 +24,8 @@ public class KweetService {
     @Inject
     private UserDAO userDAO;
 
-    public List<Kweet> getKweetsForUserId(UUID userId){
-        return kweetDAO.getLatestKweetsForUserId(userId);
+    public List<Kweet> getKweetsForUserId(UUID userId, int page, int count){
+        return kweetDAO.getLatestKweetsForUserId(userId, page, count);
     }
 
     public Kweet getKweetById(UUID id){
@@ -41,12 +41,16 @@ public class KweetService {
         return kweetDAO.getAllKweets();
     }
 
-    public List<Kweet> getKweetsBySearchString(String search){
-        return kweetDAO.getKweetThatContainsSearch(search);
+    public List<Kweet> getPaginatedKweets(int page, int count){
+        return kweetDAO.getPaginatedKweets(page, count);
     }
 
-    public List<Kweet> getKweetsByUserIdWithFollowing(UUID id){
-        return kweetDAO.getKweetForUserIdWithFollowing(id);
+    public List<Kweet> getKweetsBySearchString(String search, int page, int count){
+        return kweetDAO.getKweetThatContainsSearch(search, page, count);
+    }
+
+    public List<Kweet> getKweetsByUserIdWithFollowing(UUID id, int page, int count){
+        return kweetDAO.getKweetForUserIdWithFollowing(id, page, count);
     }
 
     public Kweet removeKweetById(UUID id) {

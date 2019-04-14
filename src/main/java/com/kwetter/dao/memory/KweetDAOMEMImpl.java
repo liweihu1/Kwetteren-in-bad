@@ -50,12 +50,17 @@ public class KweetDAOMEMImpl implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getLatestKweetsForUserId(UUID id) {
+    public List<Kweet> getPaginatedKweets(int page, int count) {
+        return database.getKweets();
+    }
+
+    @Override
+    public List<Kweet> getLatestKweetsForUserId(UUID id, int page, int count) {
         return database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).limit(10).collect(Collectors.toList());
     }
 
     @Override
-    public List<Kweet> getKweetThatContainsSearch(String search) {
+    public List<Kweet> getKweetThatContainsSearch(String search, int page, int count) {
         return database.getKweets().stream().filter(k -> k.getMessage().contains(search)).collect(Collectors.toList());
     }
 
@@ -65,13 +70,13 @@ public class KweetDAOMEMImpl implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getAllKweetsByUserId(UUID id) {
+    public List<Kweet> getAllKweetsByUserId(UUID id, int page, int count) {
         return database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList());
 
     }
 
     @Override
-    public List<Kweet> getKweetForUserIdWithFollowing(UUID id) {
+    public List<Kweet> getKweetForUserIdWithFollowing(UUID id, int page, int count) {
         List<Kweet> result = new ArrayList<>();
         result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList()));
         for (User u : database.getUserById(id).getFollowing()) {

@@ -27,36 +27,65 @@ public class KweetAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public Response getAllKweets(){
-        List<Kweet> Kweets = kweetService.getAllKweets();
-        return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
+        try {
+            List<Kweet> Kweets = kweetService.getAllKweets();
+            return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
+        }
     }
 
     @GET
-    @Path("/user/{userId}")
+    @Path("/page/{page}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response getLatestKweetsForUser(@PathParam("userId") UUID id){
-        List<Kweet> userKweets = kweetService.getKweetsForUserId(id);
-        return Response.ok(convertKweetListToKweetDTOList(userKweets)).build();
+    public Response getPaginatedKweets(@PathParam("page") int page){
+        try {
+            List<Kweet> Kweets = kweetService.getPaginatedKweets(page, 10);
+            return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
+        }
     }
 
     @GET
-    @Path("/search/{searchString}")
+    @Path("/user/{userId}/{page}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response getKweetsBySearchString(@PathParam("searchString") String search){
-        List<Kweet> Kweets = kweetService.getKweetsBySearchString(search);
-        return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
+    public Response getLatestKweetsForUser(@PathParam("userId") UUID id, @PathParam("page") int page){
+        try{
+            List<Kweet> userKweets = kweetService.getKweetsForUserId(id, page, 10);
+            return Response.ok(convertKweetListToKweetDTOList(userKweets)).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
+        }
     }
 
     @GET
-    @Path("/user/follow/{id}")
+    @Path("/search/{searchString}/{page}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response getKweetsBySearchString(@PathParam("searchString") String search, @PathParam("page") int page){
+        try {
+            List<Kweet> Kweets = kweetService.getKweetsBySearchString(search, page, 10);
+            return Response.ok(convertKweetListToKweetDTOList(Kweets)).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
+        }
+    }
+
+    @GET
+    @Path("/user/follow/{id}/{page}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     @JWTTokenNeeded
-    public Response getKweetsByUserIdWithFollowing(@PathParam("id") UUID id){
-        List<Kweet> kweets = kweetService.getKweetsByUserIdWithFollowing(id);
-        return Response.ok(convertKweetListToKweetDTOList(kweets)).build();
+    public Response getKweetsByUserIdWithFollowing(@PathParam("id") UUID id, @PathParam("page") int page){
+        try {
+            List<Kweet> kweets = kweetService.getKweetsByUserIdWithFollowing(id, page, 10);
+            return Response.ok(convertKweetListToKweetDTOList(kweets)).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
+        }
     }
 
     @GET
@@ -64,11 +93,15 @@ public class KweetAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @JWTTokenNeeded
     public Response getKweetById(@PathParam("id") UUID id){
-        Kweet Kweet = kweetService.getKweetById(id);
-        if (Kweet != null){
-            return Response.ok(new KweetDTO(Kweet)).build();
+        try {
+            Kweet Kweet = kweetService.getKweetById(id);
+            if (Kweet != null){
+                return Response.ok(new KweetDTO(Kweet)).build();
+            }
+            return Response.status(Response.Status.NO_CONTENT).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
         }
-        return Response.status(Response.Status.NO_CONTENT).build();
     }
 
     @DELETE
@@ -76,11 +109,14 @@ public class KweetAPI {
     @Produces(MediaType.APPLICATION_JSON)
     @JWTTokenNeeded
     public Response removeKweetById(@PathParam("authorId") UUID authorId, @PathParam("kweetId") UUID kweetId){
-        Kweet k = kweetService.getKweetById(kweetId);
-        if (k.getAuthor().getId().equals(authorId) && (k = kweetService.removeKweetById(kweetId)) != null) {
-            return Response.status(Response.Status.NO_CONTENT).build();
-        } else {
+        try {
+            Kweet k = kweetService.getKweetById(kweetId);
+            if (k.getAuthor().getId().equals(authorId) && (k = kweetService.removeKweetById(kweetId)) != null) {
+                return Response.status(Response.Status.NO_CONTENT).build();
+            }
             return Response.status(500).entity(k).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
         }
     }
 
@@ -91,11 +127,19 @@ public class KweetAPI {
     @Transactional
     @JWTTokenNeeded
     public Response createKweet(KweetDTO kweetDTO){
-        if (kweetDTO != null){
-            KweetDTO result = new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthor().getId()));
-            return Response.ok(result).build();
+        try {
+            if (kweetDTO != null){
+                KweetDTO result = new KweetDTO(kweetService.createKweet(kweetDTO.getMessage(), kweetDTO.getAuthor().getId()));
+                return Response.ok(result).build();
+            }
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        } catch (Exception e) {
+            return createErrorResponse(e);
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
+
+    private Response createErrorResponse(Exception e) {
+        return Response.status(500).entity(e).build();
     }
 
     private List<KweetDTO> convertKweetListToKweetDTOList(List<Kweet> kweets){

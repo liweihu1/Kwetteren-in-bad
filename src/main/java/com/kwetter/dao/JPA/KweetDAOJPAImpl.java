@@ -19,12 +19,8 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public Kweet add(Kweet kweet) {
-        try {
-            em.persist(kweet);
-            return kweet;
-        } catch (Exception e){
-            return null;
-        }
+        em.persist(kweet);
+        return kweet;
     }
 
     @Override
@@ -34,20 +30,17 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public Kweet findById(UUID id) {
-        try {
-            return em.find(Kweet.class, id);
-        } catch (Exception e){
-            return null;
-        }
+        return em.find(Kweet.class, id);
     }
 
     @Override
     public List<Kweet> getAllKweets() {
-        try {
-            return em.createNamedQuery("kweet.getAllKweets", Kweet.class).getResultList();
-        } catch (Exception e){
-            return null;
-        }
+        return em.createNamedQuery("kweet.getAllKweets", Kweet.class).getResultList();
+    }
+
+    @Override
+    public List<Kweet> getPaginatedKweets(int page, int count) {
+        return em.createNamedQuery("kweet.getAllKweets", Kweet.class).setMaxResults(count).setFirstResult(page * count).getResultList();
     }
 
     @Override
@@ -56,50 +49,28 @@ public class KweetDAOJPAImpl implements KweetDAO {
     }
 
     @Override
-    public List<Kweet> getAllKweetsByUserId(UUID id) {
-        try {
-            return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setParameter("userId", id).getResultList();
-        } catch (Exception e){
-            return null;
-        }
-
+    public List<Kweet> getAllKweetsByUserId(UUID id, int page, int count) {
+        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setParameter("userId", id).setMaxResults(count).setFirstResult(page * count).getResultList();
     }
 
     @Override
-    public List<Kweet> getKweetForUserIdWithFollowing(UUID id) {
-        try {
-            List<Kweet> res = em.createNamedQuery("kweet.getKweetForUserAndFollowing", Kweet.class).setParameter("userId1", id).setParameter("userId2", id).getResultList();
-            return res;
-        } catch (Exception e){
-            return null;
-        }
+    public List<Kweet> getKweetForUserIdWithFollowing(UUID id, int page, int count) {
+        return em.createNamedQuery("kweet.getKweetForUserAndFollowing", Kweet.class).setParameter("userId", id).setMaxResults(count).setFirstResult(page * count).getResultList();
     }
 
     @Override
-    public List<Kweet> getLatestKweetsForUserId(UUID id) {
-        try {
-            return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setMaxResults(10).setParameter("userId", id).getResultList();
-        } catch (Exception e){
-            return null;
-        }
+    public List<Kweet> getLatestKweetsForUserId(UUID id, int page, int count) {
+        return em.createNamedQuery("kweet.getLatestForUser", Kweet.class).setMaxResults(10).setParameter("userId", id).setMaxResults(count).setFirstResult(page * count).getResultList();
     }
 
     @Override
-    public List<Kweet> getKweetThatContainsSearch(String search) {
-        try {
-            return em.createNamedQuery("kweet.getKweetWithMessage", Kweet.class).setParameter("search", "%" + search + "%").getResultList();
-        } catch (Exception e){
-            return null;
-        }
+    public List<Kweet> getKweetThatContainsSearch(String search, int page, int count) {
+        return em.createNamedQuery("kweet.getKweetWithMessage", Kweet.class).setParameter("search", "%" + search + "%").getResultList();
     }
 
     @Override
     public Kweet update(Kweet Kweet) {
-        try {
-            return em.merge(Kweet);
-        } catch (Exception e){
-            return null;
-        }
+        return em.merge(Kweet);
     }
 
     @Override

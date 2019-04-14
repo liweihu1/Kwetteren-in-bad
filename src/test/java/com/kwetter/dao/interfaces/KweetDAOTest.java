@@ -1,6 +1,5 @@
 package com.kwetter.dao.interfaces;
 
-import com.kwetter.dao.JPA.UserDAOJPAImpl;
 import com.kwetter.domain.*;
 import org.junit.After;
 import org.junit.Before;
@@ -131,22 +130,22 @@ public abstract class KweetDAOTest {
 
     @Test
     public void getAllKweetsByUserId() {
-        assertEquals("Not all kweets were retrieved.", 1, kweetDAO.getLatestKweetsForUserId(testUser1.getId()).size());
+        assertEquals("Not all kweets were retrieved.", 1, kweetDAO.getLatestKweetsForUserId(testUser1.getId(),0 , 10).size());
     }
 
     @Test
     public void getKweetForUserIdWithFollowers() {
-        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowing(testUser3.getId()).size());
+        assertEquals(2, kweetDAO.getKweetForUserIdWithFollowing(testUser3.getId(),0 , 10).size());
     }
 
     @Test
     public void getLatestKweetsForUserId() {
-        assertEquals(1, kweetDAO.getLatestKweetsForUserId(testUser1.getId()).size());
+        assertEquals(1, kweetDAO.getLatestKweetsForUserId(testUser1.getId(),0 , 10).size());
     }
 
     @Test
     public void getKweetThatContainsSearch() {
-        assertEquals("The first set of kweets were not found.",3, kweetDAO.getKweetThatContainsSearch("test").size());
+        assertEquals("The first set of kweets were not found.",3, kweetDAO.getKweetThatContainsSearch("test",0 , 10).size());
     }
 
     @Test

@@ -21,6 +21,7 @@ import java.security.Key;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Path("Auth")
 public class AuthAPI {
@@ -44,7 +45,7 @@ public class AuthAPI {
     public Response login(LoginDTO loginDTO){
         Token token;
         if (!loginDTO.getPassword().isEmpty() && !loginDTO.getUsername().isEmpty() && (token = authService.login(loginDTO.getUsername(), loginDTO.getPassword())) != null) {
-            JWTTokenDTO jwtToken = new JWTTokenDTO(token.getUser().getUsername(), generateToken(loginDTO.getUsername(), token.getUser().getRoles()), token.getUser().getId());
+            JWTTokenDTO jwtToken = new JWTTokenDTO(generateToken(token.getUser().getId(), token.getUser().getRoles()), token.getUser().getId());
             return Response.ok(jwtToken, MediaType.APPLICATION_JSON).build();
         }
         return Response.status(Response.Status.NO_CONTENT).entity("The user credentials were not found or incorrect.").build();
@@ -60,7 +61,7 @@ public class AuthAPI {
         return Response.status(500).build();
     }
 
-    private String generateToken(String username, List<Role> roles) {
+    private String generateToken(UUID id, List<Role> roles) {
         Key key = keyGenerator.generateKey();
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DAY_OF_MONTH, 1);
@@ -68,7 +69,7 @@ public class AuthAPI {
         Claims claims = Jwts.claims();
         claims.put("roles", roles);
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(id.toString())
                 .setClaims(claims)
                 .setIssuer(uriInfo.getAbsolutePath().toString())
                 .setIssuedAt(new Date())

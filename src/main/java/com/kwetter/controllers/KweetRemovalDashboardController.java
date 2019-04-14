@@ -50,7 +50,7 @@ public class KweetRemovalDashboardController {
 
     public List<Kweet> getKweets(){
         if (userId != null && !userId.isEmpty()){
-            return kweetService.getKweetsForUserId(UUID.fromString(userId));
+            return kweetService.getKweetsForUserId(UUID.fromString(userId), 0 ,10);
         }
         return new ArrayList<>();
     }

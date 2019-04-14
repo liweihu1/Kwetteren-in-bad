@@ -66,7 +66,7 @@ public class KweetServiceTest {
     @Test
     public void getKweetsForUserId() {
         testKweet1 = this.kweetService.createKweet(testKweet1.getMessage(), testKweet1.getAuthor().getId().toString());
-        assertEquals("Test user did not have any kweets", 1,  this.kweetService.getKweetsForUserId(testUser.getId()).size());
+        assertEquals("Test user did not have any kweets", 1,  this.kweetService.getKweetsForUserId(testUser.getId(),0 , 10).size());
     }
 
     @Test
@@ -93,14 +93,14 @@ public class KweetServiceTest {
     public void getKweetsBySearchString() {
         testKweet1 = this.kweetService.createKweet(testKweet1.getMessage(), testKweet1.getAuthor().getId().toString());
         testKweet2 = this.kweetService.createKweet(testKweet2.getMessage(), testKweet2.getAuthor().getId().toString());
-        assertEquals("There were no kweets found.", 2, this.kweetService.getKweetsBySearchString("test").size());
+        assertEquals("There were no kweets found.", 2, this.kweetService.getKweetsBySearchString("test",0 , 10).size());
         kweetService.removeKweetById(testKweet2.getId());
     }
 
     @Test
     public void getKweetsByUserIdWithFollowing() {
         testKweet1 = this.kweetService.createKweet(testKweet1.getMessage(), testKweet1.getAuthor().getId().toString());
-        assertEquals("No kweets were found", 1, kweetService.getKweetsByUserIdWithFollowing(testUser.getId()).size());
+        assertEquals("No kweets were found", 1, kweetService.getKweetsByUserIdWithFollowing(testUser.getId(),0 , 10).size());
     }
 
     @Test

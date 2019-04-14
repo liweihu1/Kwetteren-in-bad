@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Kwetteren-in-bad:war exploded">
+  <artifact type="exploded-war" name="Kwetter">
     <output-path>$PROJECT_DIR$/target/Kwetter</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

@@ -41,6 +41,12 @@ public interface KweetDAO{
     List<Kweet> getAllKweets();
 
     /**
+     * Get all the Kweets.
+     * @return all the Kweets.
+     */
+    List<Kweet> getPaginatedKweets(int page, int count);
+
+    /**
      * Get liked Kweets for the given user id.
      * @param id the id of the user.
      * @return List of Kweets that were liked by the user.
@@ -52,28 +58,28 @@ public interface KweetDAO{
      * @param id the id of the user.
      * @return List of Kweets.
      */
-    List<Kweet> getAllKweetsByUserId(UUID id);
+    List<Kweet> getAllKweetsByUserId(UUID id, int page, int count);
 
     /**
      * Get all the kweets of the user and the users they are following.
      * @param id the id of the user.
      * @return List of kweets.
      */
-    List<Kweet> getKweetForUserIdWithFollowing(UUID id);
+    List<Kweet> getKweetForUserIdWithFollowing(UUID id, int page, int count);
 
     /**
      * Returns a list with the 10 most recent Kweets.
      * @param id The id of the user.
      * @return List with 10 Kweets.
      */
-    List<Kweet> getLatestKweetsForUserId(UUID id);
+    List<Kweet> getLatestKweetsForUserId(UUID id, int page, int count);
 
     /**
      * Return a list with the Kweets that contain the search string.
      * @param search String to search for.
      * @return List of Kweets.
      */
-    List<Kweet> getKweetThatContainsSearch(String search);
+    List<Kweet> getKweetThatContainsSearch(String search, int page, int count);
 
     /**
      * Clears the data.

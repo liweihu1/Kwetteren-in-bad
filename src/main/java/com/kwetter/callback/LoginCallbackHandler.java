@@ -8,15 +8,10 @@ public class LoginCallbackHandler implements CallbackHandler {
     @Override
     public void handle(Callback[] callbacks) throws UnsupportedCallbackException {
         for(Callback c : callbacks) {
-            if (c instanceof TextOutputCallback) {
-                // display a message according to a specified type
-                System.out.println("end me");
-
-            } else if (c instanceof NameCallback) {
+            if (c instanceof NameCallback) {
                 // prompt the user for a username
                 NameCallback nc = (NameCallback)c;
                 nc.setName(username);
-
             } else if (c instanceof PasswordCallback) {
                 // prompt the user for sensitive information
                 PasswordCallback pc = (PasswordCallback)c;

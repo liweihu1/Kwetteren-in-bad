@@ -107,10 +107,12 @@ public class UserAPI {
         User user = this.userService.getUserById(UUID.fromString(userDTO.getId()));
 
         if (user != null) {
-            if(!userDTO.getUsername().isEmpty() && userService.getUserByUsername(userDTO.getUsername()) != null) {
-                return Response.status(400).build();
-            } else if (!userDTO.getUsername().isEmpty()){
-                user.setUsername(userDTO.getUsername());
+            if (!user.getUsername().equals(userDTO.getUsername())) {
+                if(!userDTO.getUsername().isEmpty() && userService.getUserByUsername(userDTO.getUsername()) != null) {
+                    return Response.status(400).build();
+                } else if (!userDTO.getUsername().isEmpty()){
+                    user.setUsername(userDTO.getUsername());
+                }
             }
 
             if (!userDTO.getFirstName().isEmpty()) {

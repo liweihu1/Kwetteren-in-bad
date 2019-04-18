@@ -1,5 +1,6 @@
 package com.kwetter.rest;
 
+import com.kwetter.callback.LoginCallbackHandler;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.Token;
 import com.kwetter.dto.JWTTokenDTO;
@@ -10,13 +11,15 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.*;
 import java.security.Key;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,6 +34,8 @@ public class AuthAPI {
     @Inject
     private AuthService authService;
 
+    private LoginContext lc;
+
     private KeyGenerator keyGenerator;
 
     public AuthAPI(){
@@ -42,13 +47,20 @@ public class AuthAPI {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response login(LoginDTO loginDTO){
-        Token token;
-        if (!loginDTO.getPassword().isEmpty() && !loginDTO.getUsername().isEmpty() && (token = authService.login(loginDTO.getUsername(), loginDTO.getPassword())) != null) {
+    public Response login(LoginDTO loginDTO) {
+        FacesContext.getCurrentInstance();
+        try {
+            LoginCallbackHandler handler = new LoginCallbackHandler();
+            handler.setPassword(loginDTO.getPassword());
+            handler.setUsername(loginDTO.getUsername());
+            lc = new LoginContext("kwetter-security-api", handler);
+            lc.login();
+            Token token = authService.login(loginDTO.getUsername(), loginDTO.getPassword());
             JWTTokenDTO jwtToken = new JWTTokenDTO(generateToken(token.getUser().getId(), token.getUser().getRoles()), token.getUser().getId());
             return Response.ok(jwtToken, MediaType.APPLICATION_JSON).build();
+        } catch (LoginException e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("The user credentials were not found or incorrect.").build();
         }
-        return Response.status(Response.Status.NO_CONTENT).entity("The user credentials were not found or incorrect.").build();
     }
 
     @DELETE
@@ -58,7 +70,8 @@ public class AuthAPI {
     @Transactional
     public Response logout(LoginDTO loginDTO){
         //WRITE LOGOUT WITH JWT
-        return Response.status(500).build();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return Response.status(200).build();
     }
 
     private String generateToken(UUID id, List<Role> roles) {

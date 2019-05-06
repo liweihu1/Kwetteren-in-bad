@@ -19,4 +19,8 @@
             /WEB-INF/META-INF/faces-config.xml
         </param-value>
     </context-param>
+    <filter-mapping>
+        <filter-name>TokenFilter</filter-name>
+        <url-pattern>/socket/*</url-pattern>
+    </filter-mapping>
 </web-app>

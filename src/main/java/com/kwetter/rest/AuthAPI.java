@@ -81,6 +81,7 @@ public class AuthAPI {
         Date expirationDate = cal.getTime();
         Claims claims = Jwts.claims();
         claims.put("roles", roles);
+        claims.put("id", id);
         return Jwts.builder()
                 .setSubject(id.toString())
                 .setClaims(claims)

@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="1" failures="0" name="com.kwetter.service.KweetServiceTest" time="13.08" errors="1" skipped="0">
+  <properties>
+    <property name="idea.version" value="2018.1.5"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\User\Desktop\School shit\Fontys\Semester 6\Kwetteren-in-bad"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\User\Desktop\School shit\Fontys\Semester 6\Kwetteren-in-bad"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Liwei\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="D:\JetBrains\apps\IDEA-U\ch-0\181.5281.24\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\dotnet\;D:\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\QuickTime\QTSystem\;D:\Postgress\BigSQL\pg10\bin;D:\Graphviz\bin;D:\Python;D:\Python\Scripts;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Putty\;C:\Program Files\nodejs\;D:\Go\bin;D:\Python\Scripts\;D:\Python\;C:\Users\Liwei\AppData\Local\Microsoft\WindowsApps;D:\Heroku CLI\Heroku\bin;D:\Microsoft VS Code\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\Liwei\AppData\Local\Microsoft\WindowsApps;D:\Docker Toolbox;C:\Users\Liwei\AppData\Roaming\npm;D:\MiKTeX\miktex\bin\x64\;C:\Users\Liwei\go\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\Liwei"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Liwei"/>
+    <property name="java.class.path" value="D:\JetBrains\apps\IDEA-U\ch-0\181.5281.24\plugins\maven\lib\maven3\boot\plexus-classworlds-2.5.2.jar;D:\JetBrains\apps\IDEA-U\ch-0\181.5281.24\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_144\jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2018.1.5 clean test -Parq-jbossas-managed"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_144\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_144\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="D:\JetBrains\apps\IDEA-U\ch-0\181.5281.24\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="com.kwetter.service.KweetServiceTest" name="com.kwetter.service.KweetServiceTest" time="13.08">
+    <error message="Cannot deploy test.war: {&quot;WFLYCTL0062: Composite operation failed and was rolled back. Steps that failed:&quot; =&gt; {&quot;Operation step-1&quot; =&gt; {&quot;WFLYCTL0080: Failed services&quot; =&gt; {&quot;jboss.deployment.unit.\&quot;test.war\&quot;.WeldStartService&quot; =&gt; &quot;Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 3 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 2 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+&quot;}}}}" type="org.jboss.arquillian.container.spi.client.container.DeploymentException">org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy test.war: {&quot;WFLYCTL0062: Composite operation failed and was rolled back. Steps that failed:&quot; =&gt; {&quot;Operation step-1&quot; =&gt; {&quot;WFLYCTL0080: Failed services&quot; =&gt; {&quot;jboss.deployment.unit.\&quot;test.war\&quot;.WeldStartService&quot; =&gt; &quot;Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 3 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 2 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+&quot;}}}}
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:184)
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:162)
+	at org.jboss.as.arquillian.container.ArchiveDeployer.deploy(ArchiveDeployer.java:91)
+	at org.jboss.as.arquillian.container.CommonDeployableContainer.deploy(CommonDeployableContainer.java:244)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$3.call(ContainerDeployController.java:161)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$3.call(ContainerDeployController.java:128)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.executeOperation(ContainerDeployController.java:271)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.deploy(ContainerDeployController.java:127)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.container.impl.client.container.DeploymentExceptionHandler.verifyExpectedExceptionDuringDeploy(DeploymentExceptionHandler.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.container.impl.client.ContainerDeploymentContextHandler.createDeploymentContext(ContainerDeploymentContextHandler.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.container.impl.client.ContainerDeploymentContextHandler.createContainerContext(ContainerDeploymentContextHandler.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$1.perform(ContainerDeployController.java:95)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController$1.perform(ContainerDeployController.java:80)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.forEachDeployment(ContainerDeployController.java:263)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.forEachManagedDeployment(ContainerDeployController.java:239)
+	at org.jboss.arquillian.container.impl.client.container.ContainerDeployController.deployManaged(ContainerDeployController.java:79)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.core.impl.EventImpl.fire(EventImpl.java:67)
+	at org.jboss.arquillian.container.test.impl.client.ContainerEventController.execute(ContainerEventController.java:101)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.invokeObservers(EventContextImpl.java:99)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:81)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createSuiteContext(TestContextHandler.java:65)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.test.impl.TestContextHandler.createClassContext(TestContextHandler.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.arquillian.core.impl.ObserverImpl.invoke(ObserverImpl.java:94)
+	at org.jboss.arquillian.core.impl.EventContextImpl.proceed(EventContextImpl.java:88)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:135)
+	at org.jboss.arquillian.core.impl.ManagerImpl.fire(ManagerImpl.java:115)
+	at org.jboss.arquillian.test.impl.EventTestRunnerAdaptor.beforeClass(EventTestRunnerAdaptor.java:80)
+	at org.jboss.arquillian.junit.Arquillian$2.evaluate(Arquillian.java:182)
+	at org.jboss.arquillian.junit.Arquillian.multiExecute(Arquillian.java:314)
+	at org.jboss.arquillian.junit.Arquillian.access$100(Arquillian.java:46)
+	at org.jboss.arquillian.junit.Arquillian$3.evaluate(Arquillian.java:199)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.jboss.arquillian.junit.Arquillian.run(Arquillian.java:147)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>21:23:02,717 INFO  [org.jboss.modules] (main) JBoss Modules version 1.8.7.Final
+21:23:03,217 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.5.Final
+21:23:03,233 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.2.Final
+21:23:03,436 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: WildFly Full 15.0.1.Final (WildFly Core 7.0.0.Final) starting
+21:23:04,354 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.7.0.Final
+21:23:04,917 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute &apos;security-realm&apos; in the resource at address &apos;/core-service=management/management-interface=http-interface&apos; is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+21:23:04,948 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 13) WFLYCTL0028: Attribute &apos;security-realm&apos; in the resource at address &apos;/subsystem=undertow/server=default-server/https-listener=https&apos; is deprecated, and may be removed in a future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+21:23:05,010 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+21:23:05,026 INFO  [org.xnio] (MSC service thread 1-8) XNIO version 3.6.5.Final
+21:23:05,042 INFO  [org.xnio.nio] (MSC service thread 1-8) XNIO NIO Implementation Version 3.6.5.Final
+21:23:05,104 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+21:23:05,120 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
+21:23:05,151 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+21:23:05,151 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 49) WFLYCLINF0001: Activating Infinispan subsystem.
+21:23:05,182 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 70) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+21:23:05,182 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/Kwetter]
+21:23:05,214 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 72) WFLYWS0002: Activating WebServices Extension
+21:23:05,214 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 68) WFLYSEC0002: Activating Security Subsystem
+21:23:05,229 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 61) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+21:23:05,229 INFO  [org.jboss.as.security] (MSC service thread 1-6) WFLYSEC0001: Current PicketBox version=5.0.3.Final
+21:23:05,229 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 62) WFLYNAM0001: Activating Naming Subsystem
+21:23:05,229 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.11.Final)
+21:23:05,245 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+21:23:05,245 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = mysql
+21:23:05,245 INFO  [org.wildfly.extension.microprofile.config.smallrye._private] (ServerService Thread Pool -- 58) WFLYCONF0001: Activating WildFly MicroProfile Config Subsystem
+21:23:05,245 INFO  [org.jboss.as.naming] (MSC service thread 1-5) WFLYNAM0003: Starting Naming Service
+21:23:05,260 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+21:23:05,260 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+21:23:05,276 INFO  [org.wildfly.extension.microprofile.metrics.smallrye] (ServerService Thread Pool -- 60) WFLYMETRICS0001: Activating Eclipse MicroProfile Metrics Subsystem
+21:23:05,276 INFO  [org.wildfly.extension.microprofile.health.smallrye] (ServerService Thread Pool -- 59) WFLYHEALTH0001: Activating Eclipse MicroProfile Health Subsystem
+21:23:05,292 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 56) WFLYJSF0007: Activated the following JSF Implementations: [main]
+21:23:05,307 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 51) WFLYRS0016: RESTEasy version 3.6.2.Final
+21:23:05,338 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 2.0.15.Final starting
+21:23:05,354 INFO  [io.smallrye.metrics] (MSC service thread 1-2) Converted [2] config entries and added [4] replacements
+21:23:05,354 INFO  [io.smallrye.metrics] (MSC service thread 1-2) Converted [3] config entries and added [12] replacements
+21:23:05,524 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 71) WFLYUT0014: Creating file handler for path &apos;D:\WildFly/welcome-content&apos; with options [directory-listing: &apos;false&apos;, follow-symlink: &apos;false&apos;, case-sensitive: &apos;true&apos;, safe-symlink-paths: &apos;[]&apos;]
+21:23:06,056 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 50) WFLYIO001: Worker &apos;default&apos; has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+21:23:06,058 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+21:23:06,058 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+21:23:06,092 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0012: Started server default-server.
+21:23:06,094 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0018: Host default-host starting
+21:23:06,096 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 5.0.8.Final
+21:23:06,249 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+21:23:06,256 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+21:23:06,263 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory D:\WildFly\standalone\deployments
+21:23:06,270 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-5) WFLYDM0111: Keystore D:\WildFly\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+21:23:06,341 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: EJB subsystem suspension complete
+21:23:06,415 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+21:23:06,424 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/Kwetter]
+21:23:06,826 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+21:23:06,936 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.2.4.Final (Apache CXF 3.2.5.jbossorg-1) 
+21:23:06,998 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+21:23:06,998 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+21:23:06,998 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+21:23:06,998 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 15.0.1.Final (WildFly Core 7.0.0.Final) started in 4790ms - Started 318 of 539 services (322 services are lazy, passive or on-demand)
+21:23:08,200 INFO  [org.jboss.as.repository] (management-handler-thread - 1) WFLYDR0001: Content added at location D:\WildFly\standalone\data\content\48\a436afd972da01f8f28a57281376e8c974c9e2\content
+21:23:08,219 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of &quot;test.war&quot; (runtime-name: &quot;test.war&quot;)
+21:23:09,527 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for kwetterPU
+21:23:09,527 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for kwetterTestPU
+21:23:09,648 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 29) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service &apos;test.war#kwetterPU&apos;
+21:23:09,648 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service &apos;test.war#kwetterTestPU&apos;
+21:23:09,673 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 74) HHH000204: Processing PersistenceUnitInfo [
+	name: kwetterTestPU
+	...]
+21:23:09,673 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 29) HHH000204: Processing PersistenceUnitInfo [
+	name: kwetterPU
+	...]
+21:23:09,712 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment test.war
+21:23:09,785 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 74) HHH000412: Hibernate Core {5.3.7.Final}
+21:23:09,787 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 74) HHH000206: hibernate.properties not found
+21:23:10,150 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 29) HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+21:23:10,267 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 6.0.14.Final
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;UserDAOJPAImpl&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/UserDAOJPAImpl!com.kwetter.dao.interfaces.UserDAO
+	java:app/test/UserDAOJPAImpl!com.kwetter.dao.interfaces.UserDAO
+	java:module/UserDAOJPAImpl!com.kwetter.dao.interfaces.UserDAO
+	ejb:test/UserDAOJPAImpl!com.kwetter.dao.interfaces.UserDAO
+	java:global/test/UserDAOJPAImpl
+	java:app/test/UserDAOJPAImpl
+	java:module/UserDAOJPAImpl
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;KweetDAOJPAImpl&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/KweetDAOJPAImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:app/test/KweetDAOJPAImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:module/KweetDAOJPAImpl!com.kwetter.dao.interfaces.KweetDAO
+	ejb:test/KweetDAOJPAImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:global/test/KweetDAOJPAImpl
+	java:app/test/KweetDAOJPAImpl
+	java:module/KweetDAOJPAImpl
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;UserDAOMEMImpl&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/UserDAOMEMImpl!com.kwetter.dao.interfaces.UserDAO
+	java:app/test/UserDAOMEMImpl!com.kwetter.dao.interfaces.UserDAO
+	java:module/UserDAOMEMImpl!com.kwetter.dao.interfaces.UserDAO
+	ejb:test/UserDAOMEMImpl!com.kwetter.dao.interfaces.UserDAO
+	java:global/test/UserDAOMEMImpl
+	java:app/test/UserDAOMEMImpl
+	java:module/UserDAOMEMImpl
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;UserService&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/UserService!com.kwetter.service.UserService
+	java:app/test/UserService!com.kwetter.service.UserService
+	java:module/UserService!com.kwetter.service.UserService
+	ejb:test/UserService!com.kwetter.service.UserService
+	java:global/test/UserService
+	java:app/test/UserService
+	java:module/UserService
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;KweetDAOMEMImpl&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/KweetDAOMEMImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:app/test/KweetDAOMEMImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:module/KweetDAOMEMImpl!com.kwetter.dao.interfaces.KweetDAO
+	ejb:test/KweetDAOMEMImpl!com.kwetter.dao.interfaces.KweetDAO
+	java:global/test/KweetDAOMEMImpl
+	java:app/test/KweetDAOMEMImpl
+	java:module/KweetDAOMEMImpl
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;AuthDAOJPAImpl&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/AuthDAOJPAImpl!com.kwetter.dao.interfaces.AuthDAO
+	java:app/test/AuthDAOJPAImpl!com.kwetter.dao.interfaces.AuthDAO
+	java:module/AuthDAOJPAImpl!com.kwetter.dao.interfaces.AuthDAO
+	ejb:test/AuthDAOJPAImpl!com.kwetter.dao.interfaces.AuthDAO
+	java:global/test/AuthDAOJPAImpl
+	java:app/test/AuthDAOJPAImpl
+	java:module/AuthDAOJPAImpl
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;KweetService&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/KweetService!com.kwetter.service.KweetService
+	java:app/test/KweetService!com.kwetter.service.KweetService
+	java:module/KweetService!com.kwetter.service.KweetService
+	ejb:test/KweetService!com.kwetter.service.KweetService
+	java:global/test/KweetService
+	java:app/test/KweetService
+	java:module/KweetService
+
+21:23:10,727 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named &apos;AuthService&apos; in deployment unit &apos;deployment &quot;test.war&quot;&apos; are as follows:
+
+	java:global/test/AuthService!com.kwetter.service.AuthService
+	java:app/test/AuthService!com.kwetter.service.AuthService
+	java:module/AuthService!com.kwetter.service.AuthService
+	ejb:test/AuthService!com.kwetter.service.AuthService
+	java:global/test/AuthService
+	java:app/test/AuthService
+	java:module/AuthService
+
+21:23:10,961 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-4) ISPN000128: Infinispan version: Infinispan &apos;Infinity Minus ONE +2&apos; 9.4.3.Final
+21:23:11,117 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 3.0.5 (Final)
+21:23:11,398 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service &apos;test.war#kwetterPU&apos;
+21:23:11,398 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 30) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service &apos;test.war#kwetterTestPU&apos;
+21:23:11,430 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 29) WFLYCLINF0002: Started client-mappings cache from ejb container
+21:23:11,445 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 74) HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+21:23:11,521 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 74) Envers integration enabled? : true
+21:23:11,575 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 30) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+21:23:11,580 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 30) HHH000431: Unable to determine H2 database version, certain features may not work
+21:23:11,621 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 30) Envers integration enabled? : true
+21:23:12,383 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Kweet if exists
+21:23:12,384 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 74) HHH000397: Using ASTQueryTranslatorFactory
+21:23:12,389 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Token if exists
+21:23:12,389 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Trend if exists
+21:23:12,390 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Trend_Kweet if exists
+21:23:12,390 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User if exists
+21:23:12,390 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Following if exists
+21:23:12,391 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Hearted if exists
+21:23:12,391 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Kweet if exists
+21:23:12,392 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Mentions if exists
+21:23:12,392 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_roles if exists
+21:23:12,395 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table Kweet (id BINARY(16) not null, dateCreated timestamp, dateUpdated timestamp, message varchar(140), reportedAmount integer not null, author_id BINARY(16), primary key (id))
+21:23:12,402 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table Token (id binary not null, expireDate timestamp, user_id BINARY(16), primary key (id))
+21:23:12,405 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table Trend (id BINARY(16) not null, name varchar(255), primary key (id))
+21:23:12,407 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table Trend_Kweet (trend_id BINARY(16) not null, kweet_id BINARY(16) not null)
+21:23:12,409 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User (id BINARY(16) not null, biography varchar(160), firstName varchar(255), lastName varchar(255), location varchar(255), password varchar(255), username varchar(255), website varchar(255), primary key (id))
+21:23:12,410 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User_Following (follower_id BINARY(16) not null, following_id BINARY(16) not null, primary key (follower_id, following_id))
+21:23:12,412 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User_Hearted (user_id BINARY(16) not null, kweet_id BINARY(16) not null)
+21:23:12,413 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User_Kweet (User_id BINARY(16) not null, Kweets_id BINARY(16) not null)
+21:23:12,414 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User_Mentions (user_id BINARY(16) not null, kweet_id BINARY(16) not null)
+21:23:12,415 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: create table User_roles (User_id BINARY(16) not null, roles integer)
+21:23:12,417 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table Trend add constraint UK_bdxp8ssis794943wg6evcqjkd unique (name)
+21:23:12,418 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User add constraint UK_jreodf78a7pl5qidfh43axdfb unique (username)
+21:23:12,420 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Kweet add constraint UK_4xiuqa7yphkwy1p1kp7gr3anj unique (Kweets_id)
+21:23:12,421 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table Kweet add constraint FKnpi7112iae1r4f4nwwjn5obrv foreign key (author_id) references User
+21:23:12,429 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table Token add constraint FKiiyr9nhulmfrvje08nvravy02 foreign key (user_id) references User
+21:23:12,432 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table Trend_Kweet add constraint FKijjiyg6kviu4tka7wuq0y3ddk foreign key (kweet_id) references Kweet
+21:23:12,434 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table Trend_Kweet add constraint FKh40bj3qf2xdf2l2ssmf6fyccs foreign key (trend_id) references Trend
+21:23:12,436 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Following add constraint FKklf8kcdo0h6de0xj6fjjsxc69 foreign key (following_id) references User
+21:23:12,438 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Following add constraint FK2rgr1shpeh1vx7bb3nf9b9mn4 foreign key (follower_id) references User
+21:23:12,440 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Hearted add constraint FKoomrqj3totcy1qrbii24x83sm foreign key (kweet_id) references Kweet
+21:23:12,443 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Hearted add constraint FK44a5acl938juw3h1odujesgvc foreign key (user_id) references User
+21:23:12,445 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Kweet add constraint FKt8gukvfvlm0tilo144csf32m6 foreign key (Kweets_id) references Kweet
+21:23:12,447 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Kweet add constraint FKapgh6jgbwvdpgrr3wvxg8x932 foreign key (User_id) references User
+21:23:12,449 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Mentions add constraint FKgfy52x55avdp48j8x5n6094cy foreign key (kweet_id) references Kweet
+21:23:12,451 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_Mentions add constraint FK31rq9ph51vmqvrbjgdkn0ik7 foreign key (user_id) references User
+21:23:12,453 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: alter table User_roles add constraint FKi81fp6mx433heb7dvbxqaqvpv foreign key (User_id) references User
+21:23:12,462 INFO  [org.hibernate.tool.schema.internal.SchemaCreatorImpl] (ServerService Thread Pool -- 30) HHH000476: Executing import script &apos;org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1f825db&apos;
+21:23:12,464 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 30) HHH000397: Using ASTQueryTranslatorFactory
+21:23:12,809 INFO  [io.smallrye.metrics] (MSC service thread 1-7) MicroProfile: Metrics activated
+21:23:13,217 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-7) MSC000001: Failed to start service jboss.deployment.unit.&quot;test.war&quot;.WeldStartService: org.jboss.msc.service.StartException in service jboss.deployment.unit.&quot;test.war&quot;.WeldStartService: Failed to start service
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1730)
+	at org.jboss.msc.service.ServiceControllerImpl$ControllerTask.run(ServiceControllerImpl.java:1558)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1985)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1487)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1378)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 3 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 2 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+
+	at org.jboss.weld.bootstrap.ConcurrentValidator.validateBeans(ConcurrentValidator.java:72)
+	at org.jboss.weld.bootstrap.Validator.validateDeployment(Validator.java:487)
+	at org.jboss.weld.bootstrap.WeldStartup.validateBeans(WeldStartup.java:490)
+	at org.jboss.weld.bootstrap.WeldBootstrap.validateBeans(WeldBootstrap.java:93)
+	at org.jboss.as.weld.WeldStartService.start(WeldStartService.java:98)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1738)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.execute(ServiceControllerImpl.java:1700)
+	... 6 more
+	Suppressed: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+		at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+		at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+		at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+		at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+	Suppressed: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+		at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+		at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+		at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+		at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+	Suppressed: org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+		at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+		at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+		at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+		at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+		at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+		at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+		at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+		at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+
+21:23:13,217 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 1) WFLYCTL0013: Operation (&quot;add&quot;) failed - address: ([(&quot;deployment&quot; =&gt; &quot;test.war&quot;)]) - failure description: {&quot;WFLYCTL0080: Failed services&quot; =&gt; {&quot;jboss.deployment.unit.\&quot;test.war\&quot;.WeldStartService&quot; =&gt; &quot;Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 3 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 2 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+&quot;}}
+21:23:13,217 ERROR [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0021: Deploy of deployment &quot;test.war&quot; was rolled back with the following failure message: 
+{&quot;WFLYCTL0080: Failed services&quot; =&gt; {&quot;jboss.deployment.unit.\&quot;test.war\&quot;.WeldStartService&quot; =&gt; &quot;Failed to start service
+    Caused by: org.jboss.weld.exceptions.DeploymentException: Exception List with 3 exceptions:
+Exception 0 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.AuthService.userDAO
+  at com.kwetter.service.AuthService.userDAO(AuthService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 1 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type KweetDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.KweetService.kweetDAO
+  at com.kwetter.service.KweetService.kweetDAO(KweetService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+Exception 2 :
+org.jboss.weld.exceptions.DeploymentException: WELD-001408: Unsatisfied dependencies for type UserDAO with qualifiers @Default
+  at injection point [BackedAnnotatedField] @Inject private com.kwetter.service.UserService.userDAO
+  at com.kwetter.service.UserService.userDAO(UserService.java:0)
+
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPointForDeploymentProblems(Validator.java:378)
+	at org.jboss.weld.bootstrap.Validator.validateInjectionPoint(Validator.java:290)
+	at org.jboss.weld.bootstrap.Validator.validateGeneralBean(Validator.java:143)
+	at org.jboss.weld.bootstrap.Validator.validateRIBean(Validator.java:164)
+	at org.jboss.weld.bootstrap.Validator.validateBean(Validator.java:526)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:64)
+	at org.jboss.weld.bootstrap.ConcurrentValidator$1.doWork(ConcurrentValidator.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:62)
+	at org.jboss.weld.executor.IterativeWorkerTaskFactory$1.call(IterativeWorkerTaskFactory.java:55)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:485)
+&quot;}}
+21:23:13,232 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service &apos;test.war#kwetterPU&apos;
+21:23:13,232 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 30) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service &apos;test.war#kwetterTestPU&apos;
+21:23:13,232 INFO  [org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl] (ServerService Thread Pool -- 30) HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down&apos;
+21:23:13,232 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Kweet if exists
+21:23:13,232 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 74) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@1fad3d0
+21:23:13,232 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 74) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service &apos;test.war#kwetterPU&apos;
+21:23:13,232 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Token if exists
+21:23:13,232 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Trend if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table Trend_Kweet if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Following if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Hearted if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Kweet if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_Mentions if exists
+21:23:13,248 INFO  [stdout] (ServerService Thread Pool -- 30) Hibernate: drop table User_roles if exists
+21:23:13,248 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 30) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@16fbf68
+21:23:13,248 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 30) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service &apos;test.war#kwetterTestPU&apos;
+21:23:13,373 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0028: Stopped deployment test.war (runtime-name: test.war) in 141ms
+</system-out>
+    <system-err>May 13, 2019 9:23:01 PM org.jboss.as.arquillian.container.managed.ManagedDeployableContainer startInternal
+INFO: Starting container with: [&quot;C:\Program Files (x86)\Java\jdk1.8.0_172\bin\java&quot;, -D[Standalone], -Xms64m, -Xmx512m, -Djava.net.preferIPv4Stack=true, -Djava.awt.headless=true, -Djboss.modules.system.pkgs=org.jboss.byteman, -ea, -Djboss.home.dir=D:\WildFly, -Dorg.jboss.boot.log.file=D:\WildFly\standalone\log\server.log, -Dlogging.configuration=file:D:\WildFly\standalone\configuration\logging.properties, -jar, D:\WildFly\jboss-modules.jar, -mp, D:\WildFly\modules;D:\WildFly\modules, org.jboss.as.standalone, -Djboss.home.dir=D:\WildFly, -Djboss.server.base.dir=D:\WildFly\standalone, -Djboss.server.log.dir=D:\WildFly\standalone\log, -Djboss.server.config.dir=D:\WildFly\standalone\configuration]
+May 13, 2019 9:23:01 PM org.jboss.remoting3.EndpointImpl &lt;clinit&gt;
+INFO: JBoss Remoting version 5.0.0.Final
+May 13, 2019 9:23:02 PM org.xnio.Xnio &lt;clinit&gt;
+INFO: XNIO version 3.5.1.Final
+May 13, 2019 9:23:02 PM org.xnio.nio.NioXnio &lt;clinit&gt;
+INFO: XNIO NIO Implementation Version 3.5.1.Final
+May 13, 2019 9:23:02 PM org.wildfly.security.Version &lt;clinit&gt;
+INFO: ELY00001: WildFly Elytron version 1.1.0.Final
+May 13, 2019 9:23:13 PM org.jboss.as.arquillian.container.ArchiveDeployer undeploy
+WARN: Failed to undeploy test.war: {&quot;WFLYCTL0062: Composite operation failed and was rolled back. Steps that failed:&quot; =&gt; {&quot;Operation step-1&quot; =&gt; &quot;WFLYCTL0216: Management resource &apos;[(\&quot;deployment\&quot; =&gt; \&quot;test.war\&quot;)]&apos; not found&quot;}}
+</system-err>
+  </testcase>
+</testsuite>

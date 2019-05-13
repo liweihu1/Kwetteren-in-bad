@@ -5,6 +5,7 @@ import com.kwetter.domain.Kweet;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,6 +17,10 @@ import java.util.UUID;
 public class KweetDAOJPAImpl implements KweetDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;
+
+    public KweetDAOJPAImpl() {
+
+    }
 
     @Override
     public Kweet add(Kweet kweet) {
@@ -55,6 +60,7 @@ public class KweetDAOJPAImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getKweetForUserIdWithFollowing(UUID id, int page, int count) {
+        List<Kweet> test = em.createNamedQuery("kweet.getKweetForUserAndFollowing", Kweet.class).setParameter("userId", id).getResultList();
         return em.createNamedQuery("kweet.getKweetForUserAndFollowing", Kweet.class).setParameter("userId", id).setMaxResults(count).setFirstResult(page * count).getResultList();
     }
 

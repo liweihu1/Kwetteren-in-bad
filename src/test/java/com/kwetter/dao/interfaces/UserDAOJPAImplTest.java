@@ -17,7 +17,9 @@ public class UserDAOJPAImplTest extends UserDAOTest{
     @BeforeClass
     public static void setupOnce(){
         emf = Persistence.createEntityManagerFactory("kwetterTestPU");
+//        emf = Persistence.createEntityManagerFactory("kwetterTestPU");
     }
+
 
 
     @Before

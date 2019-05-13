@@ -4,14 +4,14 @@ import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.domain.Role;
 import com.kwetter.domain.User;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import java.util.List;
 import java.util.UUID;
 
 @Stateless
 public class UserService {
-    @Inject
+    @EJB
     private UserDAO userDAO;
 
     public User getUserByUsername(String username) {
@@ -27,6 +27,9 @@ public class UserService {
     }
 
     public User createUser(User user){
+        System.out.println("TEST START");
+        System.out.println(user.getId());
+        System.out.println(this.userDAO);
         return this.userDAO.add(user);
     }
 

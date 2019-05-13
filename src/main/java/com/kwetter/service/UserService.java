@@ -27,9 +27,6 @@ public class UserService {
     }
 
     public User createUser(User user){
-        System.out.println("TEST START");
-        System.out.println(user.getId());
-        System.out.println(this.userDAO);
         return this.userDAO.add(user);
     }
 

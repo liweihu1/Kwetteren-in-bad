@@ -7,10 +7,10 @@
         bean-discovery-mode="all">
 
     <alternatives>
-        <!--<class>com.kwetter.dao.memory.KweetDAOMEMImpl</class>-->
-        <!--<class>com.kwetter.dao.memory.UserDAOMEMImpl</class>-->
-        <!--<class>com.kwetter.dao.memory.TrendDAOMEMImpl</class>-->
-        <class>com.kwetter.dao.JPA.UserDAOJPAImpl</class>
-        <class>com.kwetter.dao.JPA.KweetDAOJPAImpl</class>
+        <class>com.kwetter.dao.memory.KweetDAOMEMImpl</class>
+        <class>com.kwetter.dao.memory.UserDAOMEMImpl</class>
+        <class>com.kwetter.dao.memory.TrendDAOMEMImpl</class>
+        <!--<class>com.kwetter.dao.JPA.UserDAOJPAImpl</class>-->
+        <!--<class>com.kwetter.dao.JPA.KweetDAOJPAImpl</class>-->
     </alternatives>
 </beans>

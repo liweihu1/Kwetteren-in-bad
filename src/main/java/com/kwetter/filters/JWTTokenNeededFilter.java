@@ -1,7 +1,6 @@
 package com.kwetter.filters;
 
 import com.kwetter.domain.Role;
-import com.kwetter.domain.User;
 import com.kwetter.filters.interfaces.JWTTokenNeeded;
 import com.kwetter.service.UserService;
 import io.jsonwebtoken.Claims;

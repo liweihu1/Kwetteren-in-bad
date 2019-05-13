@@ -7,9 +7,7 @@ import com.kwetter.filters.interfaces.JWTTokenNeeded;
 import com.kwetter.service.UserService;
 
 import javax.inject.Inject;
-import javax.print.attribute.standard.Media;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;

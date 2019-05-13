@@ -20,7 +20,6 @@ public class LoginCallbackHandler implements CallbackHandler {
                 throw new UnsupportedCallbackException(c, "Unrecognized callback");
             }
         }
-        System.out.println("Logged in!");
     }
 
     public String getUsername() {

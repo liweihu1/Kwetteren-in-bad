@@ -1,10 +1,7 @@
 package com.kwetter.controllers;
 
 import com.kwetter.callback.LoginCallbackHandler;
-import com.kwetter.domain.Role;
-import com.kwetter.domain.Token;
 import com.kwetter.domain.User;
-import com.kwetter.service.AuthService;
 import com.kwetter.service.UserService;
 
 import javax.faces.application.FacesMessage;

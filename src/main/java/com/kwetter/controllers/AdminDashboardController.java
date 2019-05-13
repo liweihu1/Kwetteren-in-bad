@@ -2,7 +2,6 @@ package com.kwetter.controllers;
 
 import com.kwetter.controllers.validator.RoleValidator;
 import com.kwetter.domain.Role;
-import com.kwetter.domain.Token;
 import com.kwetter.domain.User;
 import com.kwetter.service.UserService;
 

@@ -1,10 +1,9 @@
 package com.kwetter.dao.database;
 
-import com.kwetter.domain.Trend;
 import com.kwetter.domain.Kweet;
+import com.kwetter.domain.Trend;
 import com.kwetter.domain.User;
 
-import javax.ejb.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

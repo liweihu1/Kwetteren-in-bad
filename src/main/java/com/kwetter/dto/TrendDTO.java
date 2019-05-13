@@ -1,7 +1,7 @@
 package com.kwetter.dto;
 
-import com.kwetter.domain.Trend;
 import com.kwetter.domain.Kweet;
+import com.kwetter.domain.Trend;
 
 import java.util.ArrayList;
 import java.util.List;

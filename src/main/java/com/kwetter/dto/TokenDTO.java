@@ -1,6 +1,7 @@
 package com.kwetter.dto;
 
 import com.kwetter.domain.Token;
+
 import java.util.Date;
 import java.util.UUID;
 

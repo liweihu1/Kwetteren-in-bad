@@ -12,8 +12,9 @@ import javax.inject.Inject;
 import javax.json.JsonObject;
 import javax.websocket.Session;
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 @ApplicationScoped
 public class KweetSessionHandler {

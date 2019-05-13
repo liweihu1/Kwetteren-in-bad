@@ -1,7 +1,6 @@
 package com.kwetter.dto;
 
 import com.kwetter.domain.Role;
-import com.kwetter.domain.Kweet;
 import com.kwetter.domain.User;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class UserDTO {
     private Set<String> following;
     private Set<String> followers;
     private List<String> roles;
-    private List<KweetDTO> Kweets;
+    private int kweets;
 
     public UserDTO(){
         //EMPTY CONSTRUCTOR FOR JSON CALLS
@@ -37,11 +36,7 @@ public class UserDTO {
         this.following = new HashSet<>();
         this.followers = new HashSet<>();
         this.roles = new ArrayList<>();
-        this.Kweets = new ArrayList<>();
-
-        for(Kweet t : user.getKweets()){
-            this.Kweets.add(new KweetDTO(t));
-        }
+        this.kweets = user.getKweets().size();
 
         for(Role r : user.getRoles()){
             this.roles.add(r.toString());
@@ -121,12 +116,12 @@ public class UserDTO {
         this.roles = roles;
     }
 
-    public List<KweetDTO> getKweets() {
-        return Kweets;
+    public int getKweets() {
+        return kweets;
     }
 
-    public void setKweets(List<KweetDTO> Kweets) {
-        this.Kweets = Kweets;
+    public void setKweets(int kweets) {
+        this.kweets = kweets;
     }
 
     public Set<String> getFollowing() {

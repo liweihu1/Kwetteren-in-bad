@@ -6,7 +6,8 @@ import com.kwetter.filters.interfaces.IKeyGenerator;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.util.*;
+import java.util.Base64;
+import java.util.UUID;
 
 public class KeyGenerator implements IKeyGenerator {
 

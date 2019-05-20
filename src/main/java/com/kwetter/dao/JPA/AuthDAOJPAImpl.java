@@ -6,12 +6,14 @@ import com.kwetter.domain.User;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.UUID;
 
 @Stateless
 @Default
+@Named("AuthDAOJPAImpl")
 public class AuthDAOJPAImpl implements AuthDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

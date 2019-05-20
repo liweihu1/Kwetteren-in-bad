@@ -55,7 +55,9 @@ public class UserDAOMEMImpl implements UserDAO {
 
     @Override
     public User update(User user) {
-        return null;
+        database.getUsers().remove(database.getUserById(user.getId()));
+        database.getUsers().add(user);
+        return user;
     }
 
     @Override

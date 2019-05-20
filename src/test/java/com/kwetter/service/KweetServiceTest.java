@@ -1,10 +1,6 @@
 package com.kwetter.service;
 
-import com.kwetter.dao.JPA.AuthDAOJPAImpl;
-import com.kwetter.dao.JPA.KweetDAOJPAImpl;
-import com.kwetter.dao.JPA.UserDAOJPAImpl;
 import com.kwetter.dao.database.MemoryDatabase;
-import com.kwetter.dao.interfaces.AuthDAO;
 import com.kwetter.dao.interfaces.KweetDAO;
 import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.dao.memory.KweetDAOMEMImpl;
@@ -12,6 +8,7 @@ import com.kwetter.dao.memory.UserDAOMEMImpl;
 import com.kwetter.domain.*;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -30,23 +27,33 @@ import static org.junit.Assert.*;
 
 @RunWith(Arquillian.class)
 public class KweetServiceTest {
-    @Inject
-    KweetService kweetService;
 
     @Inject
-    UserService userService;
+    private KweetService kweetService;
+
+    @Inject
+    private UserService userService;
 
     private Kweet testKweet1;
     private Kweet testKweet2;
     private User testUser;
 
     @Deployment
-    public static JavaArchive createDeployment() {
+    public static Archive<?> createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClasses(KweetService.class, Kweet.class, KweetDAO.class, UserDAO.class, User.class, Trend.class, Role.class, KweetDAOMEMImpl.class, KweetDAOJPAImpl.class, UserDAOMEMImpl.class, UserDAOJPAImpl.class, MemoryDatabase.class, UserService.class, AuthDAO.class, AuthDAOJPAImpl.class, Token.class)
-                .addPackages(true, KweetService.class.getPackage())
-                .addAsResource("META-INF/persistence.xml")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addClass(UserService.class)
+                .addClass(KweetService.class)
+                .addClass(UserDAO.class)
+                .addClass(KweetDAO.class)
+                .addClass(Kweet.class)
+                .addClass(Trend.class)
+                .addClass(User.class)
+                .addClass(Role.class)
+                .addClass(UserDAOMEMImpl.class)
+                .addClass(KweetDAOMEMImpl.class)
+                .addClass(MemoryDatabase.class)
+                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+                .addAsManifestResource(EmptyAsset.INSTANCE, "WEB-INF/beans.xml");
     }
 
     @Before

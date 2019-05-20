@@ -6,7 +6,9 @@ import com.kwetter.domain.Kweet;
 import com.kwetter.domain.Trend;
 import com.kwetter.domain.User;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -18,11 +20,17 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class KweetService {
-    @Inject
+    @EJB(beanName = "KweetDAOJPAImpl")
     private KweetDAO kweetDAO;
 
-    @Inject
+    @EJB(beanName = "UserDAOJPAImpl")
     private UserDAO userDAO;
+
+    public KweetService() {
+        System.out.println(this.kweetDAO);
+        System.out.println(this.userDAO);
+    }
+
 
     public List<Kweet> getKweetsForUserId(UUID userId, int page, int count){
         return kweetDAO.getLatestKweetsForUserId(userId, page, count);

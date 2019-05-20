@@ -5,10 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.UUID;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -46,19 +43,22 @@ public abstract class KweetDAOTest {
         testDate2 = new Date();
 
         this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-
         this.testUser1 = userDAO.add(testUser1);
-        this.testKweet1 = new Kweet(UUID.randomUUID(), testUser1, testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
-        this.testKweet1 = kweetDAO.add(testKweet1);
 
         this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         this.testUser2 = userDAO.add(testUser2);
 
-        this.testKweet2 = new Kweet(UUID.randomUUID(), testUser2, testMessage + " test 2", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
-        this.testKweet2 = kweetDAO.add(testKweet2);
-
         this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<User>() , new HashSet<User>(){{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         this.testUser3 = userDAO.add(testUser3);
+
+        this.testUser2.getFollowers().add(testUser3);
+        userDAO.update(this.testUser2);
+
+        this.testKweet1 = new Kweet(UUID.randomUUID(), testUser1, testMessage, testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
+        this.testKweet1 = kweetDAO.add(testKweet1);
+
+        this.testKweet2 = new Kweet(UUID.randomUUID(), testUser2, testMessage + " test 2", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
+        this.testKweet2 = kweetDAO.add(testKweet2);
 
         this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet3 = kweetDAO.add(testKweet3);
@@ -134,7 +134,7 @@ public abstract class KweetDAOTest {
     }
 
     @Test
-    public void getKweetForUserIdWithFollowers() {
+    public void getKweetForUserIdWithFollowing() {
         assertEquals(2, kweetDAO.getKweetForUserIdWithFollowing(testUser3.getId(),0 , 10).size());
     }
 

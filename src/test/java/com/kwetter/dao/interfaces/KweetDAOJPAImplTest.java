@@ -3,6 +3,7 @@ package com.kwetter.dao.interfaces;
 import com.kwetter.dao.JPA.KweetDAOJPAImpl;
 import com.kwetter.dao.JPA.UserDAOJPAImpl;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -41,9 +42,16 @@ public class KweetDAOJPAImplTest extends KweetDAOTest {
         try {
             em.getTransaction().rollback();
         } finally {
-            em.close();
+//            em.close();
         }
         super.teardown();
+    }
+
+    @AfterClass
+    public static void teardownOnce() {
+        if (em.isOpen()) {
+            em.close();
+        }
     }
 
     public static EntityManager getEm(){

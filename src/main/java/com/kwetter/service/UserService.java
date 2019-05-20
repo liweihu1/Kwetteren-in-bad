@@ -6,12 +6,13 @@ import com.kwetter.domain.User;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import java.util.List;
 import java.util.UUID;
 
 @Stateless
 public class UserService {
-    @EJB
+    @EJB(beanName = "UserDAOJPAImpl")
     private UserDAO userDAO;
 
     public User getUserByUsername(String username) {
@@ -39,8 +40,7 @@ public class UserService {
             User user = userDAO.findById(UUID.fromString(userId));
             if (user != null){
                 user.setUsername(username);
-                userDAO.update(user);
-                return user;
+                return userDAO.update(user);
             }
         }
         return null;

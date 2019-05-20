@@ -1,7 +1,6 @@
 package com.kwetter.service;
 
 import com.kwetter.dao.database.MemoryDatabase;
-import com.kwetter.dao.interfaces.AuthDAO;
 import com.kwetter.dao.interfaces.KweetDAO;
 import com.kwetter.dao.interfaces.UserDAO;
 import com.kwetter.dao.memory.KweetDAOMEMImpl;
@@ -13,7 +12,6 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,14 +46,14 @@ public class KweetServiceTest {
                 .addClass(UserDAO.class)
                 .addClass(KweetDAO.class)
                 .addClass(Kweet.class)
-                .addClasses(Trend.class)
+                .addClass(Trend.class)
                 .addClass(User.class)
                 .addClass(Role.class)
                 .addClass(UserDAOMEMImpl.class)
                 .addClass(KweetDAOMEMImpl.class)
                 .addClass(MemoryDatabase.class)
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
-                .addAsManifestResource(EmptyAsset.INSTANCE, "META-INF/beans.xml");
+                .addAsManifestResource(EmptyAsset.INSTANCE, "WEB-INF/beans.xml");
     }
 
     @Before

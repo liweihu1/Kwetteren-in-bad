@@ -8,6 +8,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
+import javax.inject.Named;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 @Stateless
 @Default
+@Named("UserDAOJPAImpl")
 public class UserDAOJPAImpl implements UserDAO {
     @PersistenceContext(unitName = "kwetterPU")
     private EntityManager em;

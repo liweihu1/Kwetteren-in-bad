@@ -42,7 +42,7 @@ public class UserServiceTest {
                 .addClass(Role.class)
                 .addClass(MemoryDatabase.class)
                 .addClass(UserDTO.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "META-INF/beans.xml");
+                .addAsManifestResource(EmptyAsset.INSTANCE, "WEB-INF/beans.xml");
     }
 
     @Before
@@ -104,9 +104,9 @@ public class UserServiceTest {
     public void followUserWithId() {
         this.userService.followUserWithId(testUser2.getId(), testUser1.getId());
         UserDTO testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
-        assertEquals(1, testUser.getFollowing());
+        assertEquals(1, testUser.getFollowing().size());
         testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
-        assertEquals(1, testUser.getFollowers());
+        assertEquals(1, testUser.getFollowers().size());
     }
 
     @Test
@@ -114,9 +114,9 @@ public class UserServiceTest {
     public void followUserWithUsername() {
         this.userService.followUserWithUsername(testUser2.getId(), testUser1.getUsername());
         UserDTO testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
-        assertEquals(1, testUser.getFollowing());
+        assertEquals(1, testUser.getFollowing().size());
         testUser = new UserDTO(this.userService.getUserById(testUser1.getId()));
-        assertEquals(1, testUser.getFollowers());
+        assertEquals(1, testUser.getFollowers().size());
     }
 
     @Test
@@ -130,10 +130,10 @@ public class UserServiceTest {
     public void unFollowUserWithUsername() {
         this.userService.followUserWithUsername(testUser2.getId(), testUser1.getUsername());
         UserDTO testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
-        assertEquals(1, testUser.getFollowing());
+        assertEquals(1, testUser.getFollowing().size());
         this.userService.unFollowUserWithUsername(testUser2.getId(), testUser1.getUsername());
         testUser = new UserDTO(this.userService.getUserById(testUser2.getId()));
-        assertEquals(0, testUser.getFollowing());
+        assertEquals(0, testUser.getFollowing().size());
     }
 
     @Test
@@ -141,10 +141,10 @@ public class UserServiceTest {
     public void unFollowUserWithId() {
         this.userService.followUserWithId(testUser3.getId(), testUser1.getId());
         UserDTO testUser = new UserDTO(this.userService.getUserById(testUser3.getId()));
-        assertEquals(1, testUser.getFollowing());
+        assertEquals(1, testUser.getFollowing().size());
         this.userService.unFollowUserWithId(testUser3.getId(), testUser1.getId());
         testUser = new UserDTO(this.userService.getUserById(testUser3.getId()));
-        assertEquals(0, testUser.getFollowing());
+        assertEquals(0, testUser.getFollowing().size());
     }
 
     @Test

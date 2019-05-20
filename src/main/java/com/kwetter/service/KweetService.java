@@ -8,6 +8,7 @@ import com.kwetter.domain.User;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -19,10 +20,10 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class KweetService {
-    @EJB
+    @EJB(beanName = "KweetDAOJPAImpl")
     private KweetDAO kweetDAO;
 
-    @EJB
+    @EJB(beanName = "UserDAOJPAImpl")
     private UserDAO userDAO;
 
     public KweetService() {

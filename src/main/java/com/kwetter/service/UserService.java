@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Stateless
 public class UserService {
-    @EJB
+    @EJB(beanName = "UserDAOJPAImpl")
     private UserDAO userDAO;
 
     public User getUserByUsername(String username) {

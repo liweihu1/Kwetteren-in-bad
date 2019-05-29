@@ -20,10 +20,10 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class KweetService {
-    @EJB
+    @EJB(beanName = "KweetDAOJPAImpl")
     private KweetDAO kweetDAO;
 
-    @EJB
+    @EJB(beanName = "UserDAOJPAImpl")
     private UserDAO userDAO;
 
     public KweetService() {

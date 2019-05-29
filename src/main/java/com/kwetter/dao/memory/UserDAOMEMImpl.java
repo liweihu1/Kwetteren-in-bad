@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Stateless
 @Alternative
@@ -36,16 +37,12 @@ public class UserDAOMEMImpl implements UserDAO {
 
     @Override
     public void delete(User user) {
-        try{
-            database.getUsers().remove(user);
-        } catch (Exception e){
-            // TODO LOGGER
-        }
+        database.getUsers().remove(user);
     }
 
     @Override
     public boolean checkUsernameAvailable(String username) {
-        return false;
+        return database.getUsers().stream().filter(user -> user.getUsername().equals(username)).findAny().orElse(null) == null;
     }
 
     @Override
@@ -55,9 +52,13 @@ public class UserDAOMEMImpl implements UserDAO {
 
     @Override
     public User update(User user) {
-        database.getUsers().remove(database.getUserById(user.getId()));
-        database.getUsers().add(user);
-        return user;
+        User dbUser = database.getUsers().stream().filter(f -> f.getId() == user.getId()).findAny().orElse(null);
+        if (dbUser != null) {
+            database.getUsers().remove(dbUser);
+            database.getUsers().add(user);
+            return user;
+        }
+        return null;
     }
 
     @Override
@@ -77,12 +78,12 @@ public class UserDAOMEMImpl implements UserDAO {
 
     @Override
     public List<User> getFollowersForUserWithId(UUID id) {
-        return null;
+        return database.getUsers().stream().filter(f -> f.getId() != id && f.getFollowing().stream().filter(f2 -> f2.getId() == id).findAny().orElse(null) != null).collect(Collectors.toList());
     }
 
     @Override
     public List<User> getFollowingForUserWithId(UUID id) {
-        return null;
+        return database.getUsers().stream().filter(f -> f.getId() != id && f.getFollowers().stream().filter(f2 -> f2.getId() == id).findAny().orElse(null) != null).collect(Collectors.toList());
     }
 
     @Override

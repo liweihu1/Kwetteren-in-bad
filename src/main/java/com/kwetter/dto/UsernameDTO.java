@@ -1,8 +1,10 @@
 package com.kwetter.dto;
 
+import java.util.UUID;
+
 public class UsernameDTO {
     private String username;
-    private String userId;
+    private UUID userId;
 
     public UsernameDTO(){
 
@@ -18,11 +20,11 @@ public class UsernameDTO {
         this.username = username;
     }
 
-    public String getUserId() {
+    public UUID getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(UUID userId) {
         this.userId = userId;
     }
 }

@@ -18,10 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.UUID;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -39,20 +36,19 @@ public class KweetServiceTest {
     private User testUser;
 
     @Deployment
-    public static Archive<?> createDeployment() {
+    public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addClass(UserService.class)
                 .addClass(KweetService.class)
                 .addClass(UserDAO.class)
+                .addClass(UserDAOMEMImpl.class)
                 .addClass(KweetDAO.class)
+                .addClass(KweetDAOMEMImpl.class)
+                .addClass(MemoryDatabase.class)
                 .addClass(Kweet.class)
                 .addClass(Trend.class)
                 .addClass(User.class)
                 .addClass(Role.class)
-                .addClass(UserDAOMEMImpl.class)
-                .addClass(KweetDAOMEMImpl.class)
-                .addClass(MemoryDatabase.class)
-                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "WEB-INF/beans.xml");
     }
 
@@ -62,6 +58,10 @@ public class KweetServiceTest {
         this.testUser = this.userService.createUser(testUser);
         this.testKweet1 = new Kweet(UUID.randomUUID(), testUser, "Just imagine this test message being really cool.", new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),0);
         this.testKweet2 = new Kweet(UUID.randomUUID(), testUser, "Now this is a test message.", new Date(), new Date(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),0);
+
+        testUser.getKweets().add(testKweet1);
+        testUser.getKweets().add(testKweet2);
+        this.userService.updateUser(testUser);
     }
 
     @After
@@ -72,8 +72,8 @@ public class KweetServiceTest {
 
     @Test
     public void getKweetsForUserId() {
-        testKweet1 = this.kweetService.createKweet(testKweet1.getMessage(), testKweet1.getAuthor().getId().toString());
-        assertEquals("Test user did not have any kweets", 1,  this.kweetService.getKweetsForUserId(testUser.getId(),0 , 10).size());
+        List<Kweet> result = this.kweetService.getKweetsForUserId(testUser.getId(),0 , 10);
+        assertEquals("Test user did not have any kweets", 2, result.size());
     }
 
     @Test
@@ -106,7 +106,9 @@ public class KweetServiceTest {
 
     @Test
     public void getKweetsByUserIdWithFollowing() {
+        this.testUser.getKweets().clear();
         testKweet1 = this.kweetService.createKweet(testKweet1.getMessage(), testKweet1.getAuthor().getId().toString());
+        this.testUser.getKweets().add(testKweet1);
         assertEquals("No kweets were found", 1, kweetService.getKweetsByUserIdWithFollowing(testUser.getId(),0 , 10).size());
     }
 

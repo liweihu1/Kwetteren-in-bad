@@ -62,6 +62,13 @@ public abstract class KweetDAOTest {
 
         this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet3 = kweetDAO.add(testKweet3);
+
+        this.testUser1.getKweets().add(testKweet1);
+        this.testUser2.getKweets().add(testKweet2);
+        this.testUser3.getKweets().add(testKweet3);
+        userDAO.update(this.testUser1);
+        userDAO.update(this.testUser2);
+        userDAO.update(this.testUser3);
     }
 
     @After

@@ -27,8 +27,6 @@ public class KweetService {
     private UserDAO userDAO;
 
     public KweetService() {
-        System.out.println(this.kweetDAO);
-        System.out.println(this.userDAO);
     }
 
 

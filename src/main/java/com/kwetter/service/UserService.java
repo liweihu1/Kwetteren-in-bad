@@ -35,9 +35,9 @@ public class UserService {
         return this.userDAO.update(user);
     }
 
-    public User changeUsername(String username, String userId){
+    public User changeUsername(String username, UUID id){
         if (userDAO.checkUsernameAvailable(username)){
-            User user = userDAO.findById(UUID.fromString(userId));
+            User user = userDAO.findById(id);
             if (user != null){
                 user.setUsername(username);
                 return userDAO.update(user);

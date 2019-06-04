@@ -89,7 +89,7 @@ public class UserServiceTest {
     @Test
     public void changeUsername() {
         String newUsername = "username1";
-        this.userService.changeUsername(newUsername, testUser1.getId().toString());
+        this.userService.changeUsername(newUsername, testUser1.getId());
         assertEquals(newUsername, this.userService.getUserById(testUser1.getId()).getUsername());
     }
 

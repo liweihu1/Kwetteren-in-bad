@@ -36,6 +36,12 @@ public class KweetDAOMEMImpl implements KweetDAO {
 
     @Override
     public Kweet update(Kweet kweet) {
+        Kweet dbKweet = database.getKweets().stream().filter(dbkweet -> dbkweet.getId() == kweet.getId()).findAny().orElse(null);
+        if (dbKweet != null) {
+            database.getKweets().remove(dbKweet);
+            database.getKweets().add(kweet);
+            return kweet;
+        }
         return null;
     }
 
@@ -56,7 +62,11 @@ public class KweetDAOMEMImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getLatestKweetsForUserId(UUID id, int page, int count) {
-        return database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).limit(10).collect(Collectors.toList());
+        User u = database.getUsers().stream().filter(f -> f.getId() == id).findAny().orElse(null);
+        if ( u != null ){
+            return u.getKweets();
+        }
+        return new ArrayList<>();
     }
 
     @Override
@@ -71,18 +81,26 @@ public class KweetDAOMEMImpl implements KweetDAO {
 
     @Override
     public List<Kweet> getAllKweetsByUserId(UUID id, int page, int count) {
-        return database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList());
-
+        User u = database.getUsers().stream().filter(f -> f.getId() == id).findAny().orElse(null);
+        if ( u != null ){
+            return u.getKweets();
+        }
+        return new ArrayList<>();
     }
 
     @Override
     public List<Kweet> getKweetForUserIdWithFollowing(UUID id, int page, int count) {
-        List<Kweet> result = new ArrayList<>();
-        result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == id).collect(Collectors.toList()));
-        for (User u : database.getUserById(id).getFollowing()) {
-            result.addAll(database.getKweets().stream().filter(k -> k.getAuthor().getId() == u.getId()).collect(Collectors.toList()));
+        User u = database.getUsers().stream().filter(f -> f.getId() == id).findAny().orElse(null);
+        if ( u != null ){
+            List<Kweet> result = new ArrayList<>(u.getKweets());
+            for (User user : database.getUserById(id).getFollowing()) {
+                User dbUser = database.getUsers().stream().filter(f -> f.getId() == user.getId()).findAny().orElse(null);
+                assert dbUser != null;
+                result.addAll(dbUser.getKweets());
+            }
+            return result;
         }
-        return result;
+        return new ArrayList<>();
     }
 
     @Override

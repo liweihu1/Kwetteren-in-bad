@@ -36,7 +36,6 @@ public class KweetEndpoint {
     @OnMessage
     public void handleMessage(String message, Session session) {
         try {
-            System.out.println(message);
             Gson gson = new Gson();
             JsonObject jsonMessage = gson.fromJson(message, JsonObject.class);
             Kweet result = sessionHandler.createKweet(jsonMessage.get("message").getAsString(), jsonMessage.get("authorId").getAsString());

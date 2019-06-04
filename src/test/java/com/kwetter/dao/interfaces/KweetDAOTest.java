@@ -45,10 +45,12 @@ public abstract class KweetDAOTest {
         this.testUser1 = new User(UUID.randomUUID(), "test1", "test1", "test1", "test1", "test1", "test1", "test1", new HashSet<>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         this.testUser1 = userDAO.add(testUser1);
 
-        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>() {{add(testUser1);}}, new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser2 = new User(UUID.randomUUID(), "test2", "test2", "test2", "test2", "test2", "test2", "test2", new HashSet<User>(), new HashSet<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser2.getFollowers().add(testUser1);
         this.testUser2 = userDAO.add(testUser2);
 
-        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<User>() , new HashSet<User>(){{add(testUser2);}}, new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser3 = new User(UUID.randomUUID(), "test3", "test3", "test3", "test3", "test3", "test3", "test3", new HashSet<User>() , new HashSet<User>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        this.testUser3.getFollowing().add(testUser2);
         this.testUser3 = userDAO.add(testUser3);
 
         this.testUser2.getFollowers().add(testUser3);
@@ -62,6 +64,13 @@ public abstract class KweetDAOTest {
 
         this.testKweet3 = new Kweet(UUID.randomUUID(), testUser3, testMessage + " test 3", testDate, testDate2, new ArrayList<User>(), new ArrayList<User>(), new ArrayList<Trend>(), 0);
         this.testKweet3 = kweetDAO.add(testKweet3);
+
+        this.testUser1.getKweets().add(testKweet1);
+        this.testUser2.getKweets().add(testKweet2);
+        this.testUser3.getKweets().add(testKweet3);
+        userDAO.update(this.testUser1);
+        userDAO.update(this.testUser2);
+        userDAO.update(this.testUser3);
     }
 
     @After
@@ -125,7 +134,7 @@ public abstract class KweetDAOTest {
 
     @Test
     public void getKweetLikesForUserId() {
-        // TODO
+        assertEquals(0, testKweet1.getHeartedBy().size());
     }
 
     @Test
